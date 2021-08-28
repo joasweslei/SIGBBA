@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: sigbba-postgres-container
+    ports:
+      - 55432:5432/tcp
+    environment:
+      POSTGRES_DB: sigbba
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: docker
+    volumes:
+      - /var/lib/postgres
+
+  server:
+    build: ./packages/server
+    container_name: sigbba-node-container
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./packages/server:/usr/app
+      - ./node_modules:/usr/app/node_modules
+    depends_on:
+      - db
+    links:
+      - db
