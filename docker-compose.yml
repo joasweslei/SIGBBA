@@ -5,7 +5,7 @@ services:
     image: postgres:latest
     container_name: sigbba-postgres-container
     ports:
-      - 55432:5432/tcp
+      - 5432:5432/tcp
     environment:
       POSTGRES_DB: sigbba
       POSTGRES_USER: root
