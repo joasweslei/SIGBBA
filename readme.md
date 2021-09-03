@@ -32,3 +32,11 @@ Migrations são um conjunto de arquivos que se comportam como um script que irá
 `docker-compose run server yarn typeorm migration:run`
 
 A parte do comando `docker-compose run server` é responsável por informar que o comando que virá a seguir deve ser rodado dentro do serviço <b>server</b> que foi levantado pelo comando `docker-compose up -d`.
+
+### Auto gerando migration a partir das entidades
+
+As migrations no TypeORM podem ser autogeradas a partir das entidade, para autogerar basta rodar o comando abaixo:
+
+`docker-compose run server yarn typeorm migration:generate -n NomeDaEntidade`
+
+É importante lembrar que a entidade precisa ter sido criada previamente na pasta `/packages/server/src/app/entities`
