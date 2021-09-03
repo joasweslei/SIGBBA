@@ -1,38 +1,39 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity('donor')
-class Doador {
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+class Donor {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
-    @Column()
-    donor_name: string
+  @Column()
+  donorName: string
 
-    @Column()
-    cpf: string
+  @Column()
+  cpf: string
 
-    @Column()
-    cnpj: string
+  @Column()
+  cnpj: string
 
-    @Column()
-    city: string
+  @Column()
+  city: string
 
-    @Column()
-    uf: string
+  @Column()
+  uf: string
 
-    @Column()
-    responsable_name: string
+  @Column()
+  responsableName: string
 
-    @Column()
-    cpf_response: string
+  @Column()
+  cpfResponse: string
 
-    @Column()
-    full_address: string
+  @Column()
+  fullAddress: string
 
-    @Column()
-    contact_responsable: string
+  @Column()
+  contactResponsable: string
 
-    @Column()
-    framework: string
-
+  @Column()
+  framework: string
 }
+
+export default Donor
