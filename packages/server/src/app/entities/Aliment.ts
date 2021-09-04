@@ -3,8 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   JoinTable,
-  ManyToMany
+  ManyToMany,
+  OneToMany
 } from 'typeorm'
+import AlimentOutput from './AlimentOutput'
 import UnitType from './UnitType'
 
 @Entity('aliments')
@@ -30,6 +32,9 @@ class Aliment {
   @ManyToMany(() => UnitType)
   @JoinTable()
   unitType: UnitType[]
+
+  @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.aliments)
+  alimentOutput: AlimentOutput
 }
 
 export default Aliment

@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 import BeneficiaryEntity from './BeneficiaryEntity'
-import TransferEntity from './transferEntity'
+import TransferEntity from './TransferEntity'
 
 @Entity('entity_employees')
 class EntityEmployees {
