@@ -16,10 +16,12 @@ class Output {
   @Column()
   date: Date
 
-  // @Column({
-  //   enum: true
-  // })
-  // status: 'waiting' | 'confirmed' | 'cancelled' | 'invalidated'
+  @Column({
+    type: 'enum',
+    enum: ['waiting', 'confirmed', 'cancelled', 'invalidated'],
+    default: 'waiting'
+  })
+  status: 'waiting' | 'confirmed' | 'cancelled' | 'invalidated'
 
   @OneToOne(() => BeneficiaryEntity)
   beneficiaryEntity: BeneficiaryEntity
