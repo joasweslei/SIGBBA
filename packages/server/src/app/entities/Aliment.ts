@@ -10,6 +10,15 @@ class Aliment {
 
   @Column()
   description: string
+
+  @Column()
+  perishable: boolean
+
+  @Column()
+  storagePlace: string
+
+  @Column()
+  typeFood: string
 }
 
 export default Aliment
