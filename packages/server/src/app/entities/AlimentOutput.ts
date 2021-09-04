@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  OneToOne
-} from 'typeorm'
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm'
 import Aliment from './Aliment'
 import AlimentOutputDevolution from './AlimentOutputDevolution'
 import BeneficiaryEntity from './BeneficiaryEntity'
@@ -17,11 +10,11 @@ class AlimentOutput {
   @Column()
   quantity: number
 
-  @ManyToOne(() => Aliment, aliment => aliment.alimentOutput)
-  aliments!: Aliment[]
+  @OneToMany(() => Aliment, aliment => aliment.alimentOutput)
+  aliments: Aliment[]
 
-  @ManyToOne(() => Output, output => output.alimentOutput)
-  outputs!: Output[]
+  @OneToMany(() => Output, output => output.alimentOutput)
+  outputs: Output[]
 
   @OneToOne(() => CountType)
   @JoinColumn()
@@ -34,7 +27,7 @@ class AlimentOutput {
     () => AlimentOutputDevolution,
     alimentOutputDev => alimentOutputDev.alimentOutputs
   )
-  alimentOutputDevolution: AlimentOutputDevolution
+  alimentOutputDevolutions: AlimentOutputDevolution[]
 }
 
 export default AlimentOutput
