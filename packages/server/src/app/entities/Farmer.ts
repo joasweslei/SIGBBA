@@ -1,13 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
-import Dependent from './Dependent'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
-@Entity('family')
-class Family {
+@Entity('farmer')
+class Farmer {
   @PrimaryGeneratedColumn('uuid')
   id: string
-
-  @OneToMany(() => Dependent, dependents => dependents.family)
-  dependents: Dependent[]
 
   @Column()
   nameResp1: string
@@ -25,12 +21,6 @@ class Family {
   sexResp1: string
 
   @Column()
-  fetchBasketResp1: boolean
-
-  @Column()
-  nis1: string
-
-  @Column()
   nameResp2: string
 
   @Column()
@@ -46,12 +36,6 @@ class Family {
   sexResp2: string
 
   @Column()
-  fetchBasketResp2: boolean
-
-  @Column()
-  nis2: string
-
-  @Column()
   address: string
 
   @Column()
@@ -61,34 +45,34 @@ class Family {
   phone: string
 
   @Column()
-  incomeCapita: string
+  nis: number
+
+  @Column()
+  city: string
+
+  @Column()
+  uf: string
+
+  @Column()
+  validateOflicense: Date
 
   @Column()
   entityServide: string
 
   @Column()
-  descAgeRange: string
+  dap: string
 
   @Column()
-  totalResiden: number
+  validateDap: number
 
   @Column()
-  socialService: string
+  cardProducer: string
 
   @Column()
-  numAbsence: string
+  passwordProducer: string
 
   @Column()
-  basket: string
-
-  @Column()
-  dataInit: Date
-
-  @Column()
-  dateEnd: Date
-
-  @Column()
-  typeReceive: string
+  foodGet: string
 }
 
-export default Family
+export default Farmer

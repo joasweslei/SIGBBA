@@ -21,7 +21,7 @@ class EntityEmployees {
   functionEmployee: string
 
   @Column()
-  typeEntity: string
+  typeEntity: boolean
 }
 
 export default EntityEmployees
