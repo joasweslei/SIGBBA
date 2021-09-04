@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 import Family from './Family'
 
-@Entity('dependent')
-class Dependent {
+@Entity('dependentFamily')
+class DependentFamily {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
@@ -16,4 +16,4 @@ class Dependent {
   databirth: Date
 }
 
-export default Dependent
+export default DependentFamily
