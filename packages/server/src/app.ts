@@ -1,26 +1,26 @@
-import express from "express";
-import http from "http";
+import express from 'express'
+import http from 'http'
 
-import routes from "./routes";
+import routes from './routes'
 
 class App {
-  private app;
-  public server;
+  private app
+  public server
 
   constructor() {
-    this.app = express();
-    this.server = http.createServer(this.app);
-    this.middlewares();
-    this.routes();
+    this.app = express()
+    this.server = http.createServer(this.app)
+    this.middlewares()
+    this.routes()
   }
 
   middlewares() {
-    this.app.use(express.json());
+    this.app.use(express.json())
   }
 
   routes() {
-    this.app.use(routes);
+    this.app.use(routes)
   }
 }
 
-export default new App().server;
+export default new App().server

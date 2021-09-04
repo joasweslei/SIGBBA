@@ -26,6 +26,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'space-before-function-paren': ['error', 'never']
   },
+  ignorePatterns: ['**/migrations/*.ts'],
   settings: {
     'import/resolver': {
       typescript: {}
