@@ -1,31 +1,38 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm'
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn
+} from 'typeorm'
 import Aliment from './Aliment'
 import AlimentOutputDevolution from './AlimentOutputDevolution'
-import BeneficiaryEntity from './BeneficiaryEntity'
 import CountType from './CountType'
 import Output from './Output'
 
 @Entity('aliment_outputs')
 class AlimentOutput {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
+
   @Column()
   quantity: number
 
-  @OneToMany(() => Aliment, aliment => aliment.alimentOutput)
-  aliments: Aliment[]
+  @ManyToOne(() => Aliment, aliment => aliment.alimentOutputs)
+  aliment: Aliment
 
-  @OneToMany(() => Output, output => output.alimentOutput)
-  outputs: Output[]
+  @ManyToOne(() => Output, output => output.alimentOutputs)
+  output: Output
 
   @OneToOne(() => CountType)
   @JoinColumn()
   countType: CountType
 
-  @OneToOne(() => BeneficiaryEntity)
-  beneficiaryEntity: BeneficiaryEntity
-
   @OneToMany(
     () => AlimentOutputDevolution,
-    alimentOutputDev => alimentOutputDev.alimentOutputs
+    alimentOutputDev => alimentOutputDev.alimentOutput
   )
   alimentOutputDevolutions: AlimentOutputDevolution[]
 }

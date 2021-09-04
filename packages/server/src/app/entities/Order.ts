@@ -7,10 +7,10 @@ class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column('datetime')
+  @Column('timestamp')
   dateCreated: Date
 
-  @Column({ type: 'datetime', nullable: true })
+  @Column({ type: 'date', nullable: true })
   scheduledDate: Date
 
   @Column()

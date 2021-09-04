@@ -4,8 +4,7 @@ import {
   Column,
   OneToMany,
   JoinTable,
-  ManyToMany,
-  ManyToOne
+  ManyToMany
 } from 'typeorm'
 import AlimentDonation from './AlimentDonation'
 import AlimentOutput from './AlimentOutput'
@@ -38,8 +37,8 @@ class Aliment {
   @JoinTable()
   unitType: UnitType[]
 
-  @ManyToOne(() => AlimentOutput, alimentOutput => alimentOutput.aliments)
-  alimentOutput: AlimentOutput
+  @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.aliment)
+  alimentOutputs: AlimentOutput[]
 }
 
 export default Aliment

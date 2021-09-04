@@ -16,14 +16,16 @@ class Output {
   @Column()
   date: Date
 
-  @Column('enum')
-  status: 'waiting' | 'confirmed' | 'cancelled' | 'invalidated'
+  // @Column({
+  //   enum: true
+  // })
+  // status: 'waiting' | 'confirmed' | 'cancelled' | 'invalidated'
 
   @OneToOne(() => BeneficiaryEntity)
   beneficiaryEntity: BeneficiaryEntity
 
-  @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.outputs)
-  alimentOutput: AlimentOutput
+  @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.output)
+  alimentOutputs: AlimentOutput[]
 }
 
 export default Output

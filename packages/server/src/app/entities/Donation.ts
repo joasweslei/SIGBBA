@@ -14,7 +14,7 @@ class Donation {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp' })
   timeDon: Date
 
   @ManyToOne(() => User, user => user.donation)

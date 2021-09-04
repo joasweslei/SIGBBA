@@ -1,23 +1,25 @@
-import { Column, Entity, OneToMany, OneToOne } from 'typeorm'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import AlimentOutput from './AlimentOutput'
-import BeneficiaryEntity from './BeneficiaryEntity'
 import Devolution from './Devolution'
 @Entity('aliment_output_devolutions')
 class AlimentOutputDevolution {
+  @PrimaryGeneratedColumn('uuid')
+  id: string
+
   @Column()
   quantity: number
 
-  @OneToMany(
+  @ManyToOne(
     () => AlimentOutput,
     alimentOutput => alimentOutput.alimentOutputDevolutions
   )
-  alimentOutputs: AlimentOutput[]
+  alimentOutput: AlimentOutput
 
-  @OneToMany(() => Devolution, devolution => devolution.alimentOutputDevolution)
-  devolutions: Devolution[]
-
-  @OneToOne(() => BeneficiaryEntity)
-  beneficiaryEntity: BeneficiaryEntity
+  @ManyToOne(
+    () => Devolution,
+    devolution => devolution.alimentOutputDevolutions
+  )
+  devolution: Devolution
 }
 
 export default AlimentOutputDevolution
