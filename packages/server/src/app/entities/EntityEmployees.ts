@@ -19,6 +19,9 @@ class EntityEmployees {
 
   @Column()
   functionEmployee: string
+
+  @Column()
+  typeEntity: string
 }
 
 export default EntityEmployees
