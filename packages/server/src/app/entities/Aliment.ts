@@ -2,11 +2,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  OneToMany,
   JoinTable,
-  ManyToMany,
-  OneToMany
+  ManyToMany
 } from 'typeorm'
-import AlimentOutput from './AlimentOutput'
+import AlimentDonation from './AlimentDonation'
 import UnitType from './UnitType'
 
 @Entity('aliments')
@@ -28,6 +28,9 @@ class Aliment {
 
   @Column()
   typeFood: string
+
+  @OneToMany(() => AlimentDonation, doacao => doacao.alimento)
+  public alimentDonation: AlimentDonation[]
 
   @ManyToMany(() => UnitType)
   @JoinTable()
