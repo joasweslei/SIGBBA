@@ -23,9 +23,6 @@ class EntityEmployees {
   functionEmployee: string
 
   @Column()
-<<<<<<< Updated upstream
-  typeEntity: boolean
-=======
   typeEntity: string
 
   @ManyToOne(
@@ -36,7 +33,6 @@ class EntityEmployees {
 
   @ManyToOne(() => TransferEntity, transferEntity => transferEntity.employees)
   transferEntity: TransferEntity
->>>>>>> Stashed changes
 }
 
 export default EntityEmployees

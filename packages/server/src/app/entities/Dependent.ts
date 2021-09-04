@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
-import Family from './family'
+import Family from './Family'
 
 @Entity('dependent')
 class Dependent {
