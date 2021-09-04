@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
-@Entity('pricecollection')
+@Entity('price_collections')
 class PriceCollection {
   @PrimaryGeneratedColumn('uuid')
   id: string

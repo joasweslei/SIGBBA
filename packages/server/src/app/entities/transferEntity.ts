@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import EntityEmployees from './EntityEmployees'
 
-@Entity('transferEntity')
+@Entity('transfer_entities')
 class TransferEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string

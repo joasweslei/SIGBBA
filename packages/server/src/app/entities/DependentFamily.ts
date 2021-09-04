@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 import Family from './Family'
 
-@Entity('dependentFamily')
+@Entity('dependent_families')
 class DependentFamily {
   @PrimaryGeneratedColumn('uuid')
   id: string

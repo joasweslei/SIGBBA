@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
-@Entity('dependentEntity')
+@Entity('dependent_entities')
 class DependentEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string

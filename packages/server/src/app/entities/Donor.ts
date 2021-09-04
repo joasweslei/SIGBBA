@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import AlimentDonation from './AlimentDonation'
 
-@Entity('donor')
+@Entity('donors')
 class Donor {
   @PrimaryGeneratedColumn('uuid')
   id: string

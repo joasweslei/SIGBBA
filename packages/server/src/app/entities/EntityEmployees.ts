@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 import BeneficiaryEntity from './BeneficiaryEntity'
 import TransferEntity from './transferEntity'
 
-@Entity('entityEmployees')
+@Entity('entity_employees')
 class EntityEmployees {
   @PrimaryGeneratedColumn('uuid')
   id: string
