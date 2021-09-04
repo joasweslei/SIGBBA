@@ -11,7 +11,7 @@ class PriceCollection {
   @Column()
   price: number
 
-  @Column()
+  @Column({ type: 'date' })
   dataCollection: Date
 }
 

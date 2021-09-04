@@ -15,7 +15,7 @@ class Farmer {
   @Column()
   nameMotherResp1: string
 
-  @Column()
+  @Column({ type: 'date' })
   dateBirthResp1: Date
 
   @Column()
@@ -30,7 +30,7 @@ class Farmer {
   @Column()
   nameMotherResp2: string
 
-  @Column()
+  @Column({ type: 'date' })
   dateBirthResp2: Date
 
   @Column()
@@ -54,7 +54,7 @@ class Farmer {
   @Column()
   uf: string
 
-  @Column()
+  @Column({ type: 'date' })
   validateOflicense: Date
 
   @Column()

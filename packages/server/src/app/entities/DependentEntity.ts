@@ -11,7 +11,7 @@ class DependentEntity {
   @Column()
   sexo: string
 
-  @Column()
+  @Column({ type: 'date' })
   dateBirth: Date
 
   @Column()

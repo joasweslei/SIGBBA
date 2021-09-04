@@ -9,7 +9,7 @@ class Devolution {
   @Column()
   reason: string
 
-  @Column()
+  @Column({ type: 'date' })
   date: Date
 
   @OneToMany(

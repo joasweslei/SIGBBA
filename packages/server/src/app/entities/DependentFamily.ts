@@ -12,7 +12,7 @@ class DependentFamily {
   @Column()
   nameDepen: string
 
-  @Column()
+  @Column({ type: 'date' })
   databirth: Date
 }
 

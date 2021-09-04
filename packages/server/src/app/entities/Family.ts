@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity('families')
 class Family {
@@ -17,7 +17,7 @@ class Family {
   @Column()
   nameMotherResp1: string
 
-  @Column()
+  @Column({ type: 'date' })
   dateBirthResp1: Date
 
   @Column()
@@ -38,7 +38,7 @@ class Family {
   @Column()
   nameMotherResp2: string
 
-  @Column()
+  @Column({ type: 'date' })
   dateBirthResp2: Date
 
   @Column()
@@ -80,10 +80,10 @@ class Family {
   @Column()
   basket: string
 
-  @Column()
+  @Column({ type: 'date' })
   dataInit: Date
 
-  @Column()
+  @Column({ type: 'date' })
   dateEnd: Date
 
   @Column()

@@ -17,10 +17,10 @@ class Inventory {
   @Column()
   inventoryActual: number
 
-  @Column()
+  @Column({ type: 'date' })
   lastInput: Date
 
-  @Column()
+  @Column({ type: 'date' })
   lastOutput: Date
 }
 
