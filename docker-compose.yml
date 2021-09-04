@@ -26,11 +26,11 @@ services:
     links:
       - db
 
-  web:
-    build: ./packages/web
-    container_name: sigbba-web-container
-    ports:
-      - 3000:3000
-    volumes:
-      - ./packages/web:/usr/app
-      - ./node_modules:/usr/app/node_modules
+#  web:
+#    build: ./packages/web
+#    container_name: sigbba-web-container
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - ./packages/web:/usr/app
+#      - ./node_modules:/usr/app/node_modules
