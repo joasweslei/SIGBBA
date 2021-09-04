@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import Order from './Order'
 
 @Entity('farmers')
 class Farmer {
@@ -73,6 +74,9 @@ class Farmer {
 
   @Column()
   foodGet: string
+
+  @OneToMany(() => Order, order => order.idFarmer)
+  order: Order[]
 }
 
 export default Farmer

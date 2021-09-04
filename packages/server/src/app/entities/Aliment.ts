@@ -8,6 +8,7 @@ import {
 } from 'typeorm'
 import AlimentDonation from './AlimentDonation'
 import UnitType from './UnitType'
+import AlimentOutput from './AlimentOutput'
 
 @Entity('aliments')
 class Aliment {
@@ -37,7 +38,7 @@ class Aliment {
   unitType: UnitType[]
 
   @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.aliments)
-  alimentOutput: AlimentOutput
+  alimentOutput: AlimentOutput[]
 }
 
 export default Aliment

@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import Farmer from './Farmer'
+import User from './User'
 
 @Entity('order')
 class Order {
@@ -16,6 +18,12 @@ class Order {
 
   @Column()
   priceOrder: number
+
+  @ManyToOne(() => Farmer, farmer => farmer.order)
+  idFarmer: Farmer
+
+  @ManyToOne(() => User, user => user.orderCreations)
+  createdBy: User
 }
 
 export default Order
