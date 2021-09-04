@@ -1,9 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import Dependent from './Dependent'
 
 @Entity('family')
 class Family {
   @PrimaryGeneratedColumn('uuid')
   id: string
+
+  @OneToMany(() => Dependent, dependents => family.dependents)
+  dependents: Dependent[]
 
   @Column()
   nameResp1: string
