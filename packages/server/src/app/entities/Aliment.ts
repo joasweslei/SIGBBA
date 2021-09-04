@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import AlimentDonation from './AlimentDonation'
 
 @Entity('aliments')
 class Aliment {
@@ -19,6 +20,9 @@ class Aliment {
 
   @Column()
   typeFood: string
+
+  @OneToMany(() => AlimentDonation, doacao => doacao.alimento)
+  public alimentDonation: AlimentDonation[]
 }
 
 export default Aliment
