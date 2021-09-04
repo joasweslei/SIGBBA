@@ -3,3 +3,4 @@ dist
 yarn-error.log
 .env
 docker-compose.yml
+workspace.code-workspace
