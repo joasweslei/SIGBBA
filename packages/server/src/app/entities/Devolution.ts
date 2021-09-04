@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import AlimentOutputDevolution from './AlimentOutputDevolution'
 
 @Entity('devolutions')
@@ -12,7 +12,7 @@ class Devolution {
   @Column()
   date: Date
 
-  @OneToMany(
+  @ManyToOne(
     () => AlimentOutputDevolution,
     alimentOutputDevolution => alimentOutputDevolution.devolutions
   )

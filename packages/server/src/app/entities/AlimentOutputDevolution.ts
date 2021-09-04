@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToOne } from 'typeorm'
+import { Column, Entity, OneToMany, OneToOne } from 'typeorm'
 import AlimentOutput from './AlimentOutput'
 import BeneficiaryEntity from './BeneficiaryEntity'
 import Devolution from './Devolution'
@@ -7,14 +7,14 @@ class AlimentOutputDevolution {
   @Column()
   quantity: number
 
-  @ManyToOne(
+  @OneToMany(
     () => AlimentOutput,
-    alimentOutput => alimentOutput.alimentOutputDevolution
+    alimentOutput => alimentOutput.alimentOutputDevolutions
   )
-  alimentOutputs!: AlimentOutput[]
+  alimentOutputs: AlimentOutput[]
 
-  @ManyToOne(() => Devolution, devolution => devolution.alimentOutputDevolution)
-  devolutions!: Devolution[]
+  @OneToMany(() => Devolution, devolution => devolution.alimentOutputDevolution)
+  devolutions: Devolution[]
 
   @OneToOne(() => BeneficiaryEntity)
   beneficiaryEntity: BeneficiaryEntity
