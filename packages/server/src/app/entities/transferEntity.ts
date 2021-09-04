@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import EntityEmployees from './EntityEmployees'
 
 @Entity('transferEntity')
 class TransferEntity {
@@ -34,5 +35,8 @@ class TransferEntity {
 
   @Column()
   numOperation: number
+
+  @OneToMany(() => EntityEmployees, employees => employees.transferEntity)
+  employees: EntityEmployees[]
 }
 export default TransferEntity
