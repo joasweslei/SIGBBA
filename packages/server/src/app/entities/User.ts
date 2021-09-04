@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import AlimentDonation from './AlimentDonation'
 
 @Entity('users')
 class User {
@@ -13,6 +14,9 @@ class User {
 
   @Column()
   password: string
+
+  @OneToMany(() => AlimentDonation, doacao => doacao.userReceived)
+  alimentDonations: AlimentDonation[]
 }
 
 export default User
