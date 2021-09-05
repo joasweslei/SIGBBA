@@ -8,7 +8,9 @@ class City {
   @Column()
   city: string
 
-  @Column('nullable')
+  @Column({
+    nullable: true
+  })
   state: number
 
   @Column()
@@ -17,10 +19,14 @@ class City {
   @Column()
   cep: string
 
-  @Column('nullable')
+  @Column({
+    nullable: true
+  })
   codMunicipality: string
 
-  @Column('nullable')
+  @Column({
+    nullable: true
+  })
   ibge: string
 }
 
