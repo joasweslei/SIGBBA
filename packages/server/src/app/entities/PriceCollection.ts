@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import Aliment from './Aliment'
 
 @Entity('price_collections')
 class PriceCollection {
@@ -13,6 +14,9 @@ class PriceCollection {
 
   @Column({ type: 'date' })
   dataCollection: Date
+
+  @ManyToOne(() => Aliment, aliment => aliment.price)
+  alimentPrice: Aliment
 }
 
 export default PriceCollection

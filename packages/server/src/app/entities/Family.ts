@@ -1,12 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToOne
+} from 'typeorm'
+import DependentFamily from './DependentFamily'
+import TransferEntity from './TransferEntity'
 
 @Entity('families')
 class Family {
   @PrimaryGeneratedColumn('uuid')
   id: string
-
-  // @OneToMany(() => Dependent, dependents => dependents.family)
-  // dependents: Dependent[]
 
   @Column()
   nameResp1: string
@@ -88,6 +93,12 @@ class Family {
 
   @Column()
   typeReceive: string
+
+  @OneToMany(() => DependentFamily, dependents => dependents.family)
+  dependents: DependentFamily[]
+
+  @ManyToOne(() => TransferEntity, transferEntity => transferEntity.family)
+  transferEntity: TransferEntity
 }
 
 export default Family

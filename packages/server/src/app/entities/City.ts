@@ -8,8 +8,8 @@ class City {
   @Column()
   city: string
 
-  @Column()
-  stage: number
+  @Column('nullable')
+  state: number
 
   @Column()
   uf: number
@@ -17,7 +17,10 @@ class City {
   @Column()
   cep: string
 
-  @Column()
+  @Column('nullable')
+  codMunicipality: string
+
+  @Column('nullable')
   ibge: string
 }
 

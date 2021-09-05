@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import EntityEmployees from './EntityEmployees'
+import Family from './Family'
 
 @Entity('transfer_entities')
 class TransferEntity {
@@ -38,5 +39,8 @@ class TransferEntity {
 
   @OneToMany(() => EntityEmployees, employees => employees.transferEntity)
   employees: EntityEmployees[]
+
+  @OneToMany(() => Family, family => family.transferEntity)
+  family: Family[]
 }
 export default TransferEntity
