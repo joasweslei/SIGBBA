@@ -13,7 +13,7 @@ class Output {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column()
+  @Column({ type: 'date' })
   date: Date
 
   @Column({

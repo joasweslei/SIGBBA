@@ -8,6 +8,7 @@ import {
 } from 'typeorm'
 import AlimentDonation from './AlimentDonation'
 import AlimentOutput from './AlimentOutput'
+import PriceCollection from './PriceCollection'
 import UnitType from './UnitType'
 
 @Entity('aliments')
@@ -39,6 +40,9 @@ class Aliment {
 
   @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.aliment)
   alimentOutputs: AlimentOutput[]
+
+  @OneToMany(() => PriceCollection, price => price.alimentPrice)
+  price: PriceCollection[]
 }
 
 export default Aliment
