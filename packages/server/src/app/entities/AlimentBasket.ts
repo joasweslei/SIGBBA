@@ -6,6 +6,7 @@ import {
   JoinTable
 } from 'typeorm'
 import Aliment from './Aliment'
+import Family from './Family'
 
 @Entity('aliment_baskets')
 class AlimentBasket {
@@ -21,6 +22,10 @@ class AlimentBasket {
   @ManyToMany(() => Aliment)
   @JoinTable()
   aliments: Aliment[]
+
+  @ManyToMany(() => Family)
+  @JoinTable()
+  families: Family[]
 }
 
 export default AlimentBasket

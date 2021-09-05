@@ -35,7 +35,7 @@ class Aliment {
 
   @ManyToMany(() => UnitType)
   @JoinTable()
-  unitType: UnitType[]
+  unitType: UnitType[] // todo: pode existir mais de uma entidade responsável por armazenar unidade de medida
 
   @OneToMany(() => AlimentOutput, alimentOutput => alimentOutput.aliment)
   alimentOutputs: AlimentOutput[]
