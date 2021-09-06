@@ -7,6 +7,7 @@ import {
   ManyToMany
 } from 'typeorm'
 import AlimentDonation from './AlimentDonation'
+import AlimentOrder from './AlimentOrder'
 import AlimentOutput from './AlimentOutput'
 import PriceCollection from './PriceCollection'
 import UnitType from './UnitType'
@@ -43,6 +44,9 @@ class Aliment {
 
   @OneToMany(() => PriceCollection, price => price.alimentPrice)
   price: PriceCollection[]
+
+  @OneToMany(() => AlimentOrder, aliment => aliment.aliment)
+  alimentOrder: AlimentOrder[]
 }
 
 export default Aliment

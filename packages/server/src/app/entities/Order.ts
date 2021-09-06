@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany
+} from 'typeorm'
+import AlimentOrder from './AlimentOrder'
+import AlimentOutput from './AlimentOutput'
 import Farmer from './Farmer'
 import User from './User'
 
@@ -24,6 +32,9 @@ class Order {
 
   @ManyToOne(() => User, user => user.orderCreations)
   createdBy: User
+
+  @OneToMany(() => AlimentOrder, order => order.order)
+  aliment: AlimentOrder[]
 }
 
 export default Order

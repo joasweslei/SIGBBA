@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import Aliment from './Aliment'
+import Order from './Order'
 
 @Entity('aliment_order')
 class AlimentOrder {
@@ -6,7 +8,7 @@ class AlimentOrder {
   id: string
 
   @Column()
-  quantityItem: number
+  quantityUn: number
 
   @Column()
   quantityKg: number
@@ -16,5 +18,11 @@ class AlimentOrder {
 
   @Column()
   totalPrice: number
+
+  @ManyToOne(() => Aliment, aliment => aliment.alimentOrder)
+  aliment: Aliment
+
+  @ManyToOne(() => Order, order => order.aliment)
+  order: Order
 }
 export default AlimentOrder
