@@ -1,12 +1,11 @@
 import React from 'react'
-
-import { Container } from './styles'
+import Button from '@material-ui/core/Button'
 
 const Home = () => {
   return (
-    <Container>
-      <h1>Home</h1>
-    </Container>
+    <div>
+      <Button>Teste</Button>
+    </div>
   )
 }
 
