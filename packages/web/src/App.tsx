@@ -7,14 +7,18 @@ import Routes from './screens/routes'
 
 import 'react-toastify/dist/ReactToastify.css'
 import 'react-perfect-scrollbar/dist/css/styles.css'
+import { ThemeProvider } from '@material-ui/core'
+import theme from './styles/theme'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes />
-      <ToastContainer autoClose={3000} position="top-right" />
-      <GlobalStyle />
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes />
+        <ToastContainer autoClose={3000} position="top-right" />
+        <GlobalStyle />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

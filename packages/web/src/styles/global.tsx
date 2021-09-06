@@ -40,14 +40,6 @@ export const GlobalStyle = () => {
             cursor: pointer;
           }
 
-          span {
-            color: var(--text-color);
-          }
-
-          input {
-            border-style: none;
-          }
-
           @font-face {
             font-family: 'Montserrat';
             src: url('/Montserrat-Regular.ttf');
@@ -74,17 +66,6 @@ export const GlobalStyle = () => {
             src: url('/Muli-Bold.ttf');
             font-weight: bold;
             font-style: normal;
-          }
-
-          :root {
-            --primary: #badc58;
-            --secondary: #ffffff;
-            --white: #ffff;
-            --title-color: #1d164d;
-            --subtitle-color: #1d164d;
-            --text-color: #9e9baf;
-            --background-primary: #ffffff;
-            --background-secondary: #fafafc;
           }
         `}
       />
