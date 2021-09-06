@@ -6,7 +6,6 @@ import {
   OneToMany
 } from 'typeorm'
 import AlimentOrder from './AlimentOrder'
-import AlimentOutput from './AlimentOutput'
 import Farmer from './Farmer'
 import User from './User'
 
