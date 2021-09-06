@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import AlimentReceived from './AlimentReceived'
 import Donation from './Donation'
 import Order from './Order'
 
@@ -21,6 +22,9 @@ class User {
 
   @OneToMany(() => Order, order => order.createdBy)
   orderCreations: Order[]
+
+  @OneToMany(() => AlimentReceived, received => received.userReceived)
+  alimenteReceived: AlimentReceived[]
 }
 
 export default User
