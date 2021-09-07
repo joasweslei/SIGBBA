@@ -45,7 +45,6 @@ export const CustomTable: React.FC<CustomTableProps> = ({
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
               count={itemCount}
               rowsPerPage={rowsPerPage}
               page={currentPage}
