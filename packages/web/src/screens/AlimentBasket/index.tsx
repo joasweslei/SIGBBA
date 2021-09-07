@@ -1,9 +1,11 @@
-import { Container } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import React from 'react'
 import { CustomTable } from '../../app/components/CustomTable'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { StyledTableCell } from '../../app/components/StyledTableCell'
 import { StyledTableRow } from '../../app/components/StyledTableRow'
+
+import { Edit } from '@material-ui/icons'
 
 export const AlimentBasket = () => {
   const cestas = [
@@ -14,16 +16,31 @@ export const AlimentBasket = () => {
       aliments: [
         {
           id: '1',
-          name: 'Alimento 1',
-          description: 'asdasd',
-          perishable: true,
-          storagePlace: '0',
-          typeFood: '0',
-          alimentDonation: '0',
-          unitType: '0',
-          alimentOutputs: '0',
-          price: 12.6,
-          alimentOrder: 1
+          name: 'Alimento 1'
+        }
+      ],
+      families: ''
+    },
+    {
+      id: '1',
+      name: 'Cesta Básica',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipis',
+      aliments: [
+        {
+          id: '1',
+          name: 'Alimento 1'
+        }
+      ],
+      families: ''
+    },
+    {
+      id: '1',
+      name: 'Cesta Básica',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipis',
+      aliments: [
+        {
+          id: '1',
+          name: 'Alimento 1'
         }
       ],
       families: ''
@@ -37,18 +54,26 @@ export const AlimentBasket = () => {
           <>
             <StyledTableCell>NOME CESTA</StyledTableCell>
             <StyledTableCell>DESCRIÇÃO</StyledTableCell>
-            <StyledTableCell>QUANTIDADE ALIMENTOS</StyledTableCell>
+            <StyledTableCell align="center">
+              QUANTIDADE ALIMENTOS
+            </StyledTableCell>
           </>
         }
         itens={cestas.map(cesta => (
           <StyledTableRow>
+            <StyledTableCell align="center">
+              <Edit />
+            </StyledTableCell>
             <StyledTableCell>{cesta.name}</StyledTableCell>
             <StyledTableCell>{cesta.description}</StyledTableCell>
-            <StyledTableCell>{cesta.aliments.length}</StyledTableCell>
+            <StyledTableCell align="center">
+              {cesta.aliments.length}
+            </StyledTableCell>
+            <StyledTableCell></StyledTableCell>
           </StyledTableRow>
         ))}
         itemCount={0}
-        rowsPerPage={0}
+        rowsPerPage={5}
         currentPage={0}
         handleChangePage={() => {}}
       />
