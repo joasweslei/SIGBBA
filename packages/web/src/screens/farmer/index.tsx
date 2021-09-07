@@ -21,35 +21,32 @@ const Farmer: React.FC = () => {
   return (
     <DefaultContainer breadcrumbs={['Agricultor']}>
       <CustomTable
-        headerColumns={
-          <>
-            <StyledTableCellCustom ></StyledTableCellCustom>
-            <StyledTableCellCustom >Nome Aricultor</StyledTableCellCustom>
-            <StyledTableCellCustom >CPF</StyledTableCellCustom>
-            <StyledTableCellCustom >Validade DAP</StyledTableCellCustom>
-            <StyledTableCellCustom ></StyledTableCellCustom>
-          </>
-        }
-        itens={
-          <>
-            {arrayItems.map(usuario => ( 
-              <StyledTableRow>
-                <StyledTableCellCustom>
-                  <IconButton>
-                    <CreateIcon fontSize="small"></CreateIcon>
-                  </IconButton>
-                </StyledTableCellCustom> 
-                <StyledTableCellCustom>{usuario.farmer}</StyledTableCellCustom>
-                <StyledTableCellCustom>{usuario.cpf}</StyledTableCellCustom>
-                <StyledTableCellCustom>{usuario.date}</StyledTableCellCustom>  
-                <StyledTableCellCustom>
-                  <IconButton>
-                    <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
-                  </IconButton>
-                </StyledTableCellCustom>
-              </StyledTableRow>
-            ))}
-          </>
+        headerColumns={<>
+          <StyledTableCellCustom></StyledTableCellCustom>
+          <StyledTableCellCustom>Nome Aricultor</StyledTableCellCustom>
+          <StyledTableCellCustom>CPF</StyledTableCellCustom>
+          <StyledTableCellCustom>Validade DAP</StyledTableCellCustom>
+          <StyledTableCellCustom></StyledTableCellCustom>
+        </>}
+        itens={<>
+          {arrayItems.map(usuario => (
+            <StyledTableRow>
+              <StyledTableCellCustom>
+                <IconButton>
+                  <CreateIcon fontSize="small"></CreateIcon>
+                </IconButton>
+              </StyledTableCellCustom>
+              <StyledTableCellCustom>{usuario.farmer}</StyledTableCellCustom>
+              <StyledTableCellCustom>{usuario.cpf}</StyledTableCellCustom>
+              <StyledTableCellCustom>{usuario.date}</StyledTableCellCustom>
+              <StyledTableCellCustom>
+                <IconButton>
+                  <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
+                </IconButton>
+              </StyledTableCellCustom>
+            </StyledTableRow>
+          ))}
+        </>} itemCount={0} rowsPerPage={0} currentPage={0} handleChangePage={ ()=>{}
         }
       />
     </DefaultContainer>
