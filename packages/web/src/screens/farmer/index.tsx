@@ -3,7 +3,6 @@ import { CustomTable } from '../../app/components/CustomTable'
 
 import CreateIcon from '@material-ui/icons/Create';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded'
 
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { StyledTableRow } from '../../app/components/StyledTableRow'

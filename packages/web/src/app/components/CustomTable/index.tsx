@@ -52,7 +52,7 @@ export const CustomTable: React.FC<CustomTableProps> = ({
               </IconButton>
             </StyledTableCell>
             {columns}
-            <StyledTableCell>
+            <StyledTableCell align = 'center'>
               <IconButton>
                 <Description
                   style={{ fontSize: 25, color: 'white' }}
