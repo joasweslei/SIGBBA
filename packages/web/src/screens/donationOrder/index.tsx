@@ -1,13 +1,11 @@
 import React from 'react'
 
 import { IconButton } from '@material-ui/core'
-import CreateIcon from '@material-ui/icons/Create'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { CustomTable } from '../../app/components/CustomTable'
 import { StyledTableCell } from '../../app/components/StyledTableCell'
 import { StyledTableRow } from '../../app/components/StyledTableRow'
-import InputIcon from '@material-ui/icons/Input'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import { DeleteForever, Create } from '@material-ui/icons'
 
 const arrayItems = [
   {
@@ -62,25 +60,30 @@ const donationOder = () => {
         }
         itens={arrayItems.map(order => (
           <StyledTableRow>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               <IconButton disabled={order.situation === 'Cancelado'}>
-                <CreateIcon fontSize="small"></CreateIcon>
+                <Create fontSize="small"></Create>
               </IconButton>
             </StyledTableCell>
-            <StyledTableCell>{order.number}</StyledTableCell>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
+              {order.number}
+            </StyledTableCell>
+            <StyledTableCell
+              style={{
+                minWidth: '45vw'
+              }}
+            >
               {order.farmer}
             </StyledTableCell>
-            <StyledTableCell>{order.situation}</StyledTableCell>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
+              {order.situation}
+            </StyledTableCell>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               {order.date}
             </StyledTableCell>
-            <StyledTableCell>
-              <IconButton>
-                <InputIcon />
-              </IconButton>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               <IconButton disabled={order.situation === 'Cancelado'}>
-                <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
+                <DeleteForever fontSize="medium"></DeleteForever>
               </IconButton>
             </StyledTableCell>
           </StyledTableRow>
