@@ -3,14 +3,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import MoreIcon from '@material-ui/icons/MoreVert'
 import ArrowRight from '@material-ui/icons/ArrowForwardRounded'
-import {
-  AppBar,
-  Box,
-  IconButton,
-  Typography,
-  Grid,
-  Container
-} from '@material-ui/core'
+import { AppBar, Box, IconButton, Typography, Grid } from '@material-ui/core'
 import { StyledToolbar } from './styles'
 
 export interface AppBarSchemaProps {
@@ -27,7 +20,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
           <Grid container>
             <Grid
               item
-              sm={12}
+              xs={12}
               sx={{
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -49,7 +42,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                 component="div"
                 sx={{ flex: 1, display: 'inline-block' }}
               >
-                Sistema Gerenciador do Banco de Alimentos
+                Banco de Alimentos
               </Typography>
               <IconButton size="large" aria-label="search" color="inherit">
                 <SearchIcon />
@@ -65,7 +58,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
             </Grid>
             <Grid
               item
-              sm={12}
+              xs={12}
               sx={{
                 display: 'flex',
                 alignItems: 'center',
