@@ -24,16 +24,9 @@ const farmer: React.FC = () => {
     <DefaultContainer breadcrumbs={['Agricultor']}>
       <CustomTable
         headerColumns={<>
-          <StyledTableCellCustom><IconButton>
-            <AddCircleRoundedIcon
-              className="fa fa-plus-circle"
-              style={{ fontSize: 30, color: 'white' }}>
-            </AddCircleRoundedIcon>
-          </IconButton></StyledTableCellCustom>
           <StyledTableCellCustom>Nome Aricultor</StyledTableCellCustom>
           <StyledTableCellCustom>CPF</StyledTableCellCustom>
           <StyledTableCellCustom>Validade DAP</StyledTableCellCustom>
-          <StyledTableCellCustom></StyledTableCellCustom>
         </>}
         itens={<>
           {arrayItems.map(usuario => (
