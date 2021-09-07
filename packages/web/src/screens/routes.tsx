@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from './home'
 import { AlimentBasket } from './AlimentBasket'
-import DonationOrder from './donationOrder'
+import OrderList from './orderList'
 import Farmer from './farmer'
 
 const Routes: React.FC = () => {
@@ -11,7 +11,7 @@ const Routes: React.FC = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/aliment-basket" exact component={AlimentBasket} />
-      <Route path="/doacoes" exact component={DonationOrder} />
+      <Route path="/pedidos" exact component={OrderList} />
       <Route path="/farmer" exact component={Farmer} />
     </Switch>
   )
