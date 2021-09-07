@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IconButton, Container } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import CreateIcon from '@material-ui/icons/Create'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
