@@ -54,59 +54,65 @@ const arrayItems = [
 const donationOder = () => {
   return (
     <DefaultContainer breadcrumbs={['Home']}>
-      <Container sx={{ marginTop: 10 }}>
-        <CustomTable
-          headerColumns={
-            <>
-              <StyledTableCell>
-                <IconButton>
-                  <AddCircleRoundedIcon
-                    className="fa fa-plus-circle"
-                    style={{ fontSize: 30, color: 'white' }}
-                  ></AddCircleRoundedIcon>
-                </IconButton>
-              </StyledTableCell>
-              <StyledTableCell>NÚMERO</StyledTableCell>
-              <StyledTableCell>AGRICULTOR</StyledTableCell>
-              <StyledTableCell>SITUAÇÃO</StyledTableCell>
-              <StyledTableCell>DATA ENTREGA</StyledTableCell>
-              <StyledTableCell>
-                <IconButton>
-                  <DescriptionIcon
-                    style={{ fontSize: 30, color: 'white' }}
-                  ></DescriptionIcon>
-                </IconButton>
-                <IconButton>
-                  <FilterListIcon
-                    style={{ fontSize: 30, color: 'white' }}
-                  ></FilterListIcon>
-                </IconButton>
-              </StyledTableCell>
-            </>
-          }
-          itens={arrayItems.map(order => (
-            <StyledTableRow>
-              <StyledTableCell>
-                <IconButton disabled={order.situation === 'Cancelado'}>
-                  <CreateIcon fontSize="small"></CreateIcon>
-                </IconButton>
-              </StyledTableCell>
-              <StyledTableCell>{order.number}</StyledTableCell>
-              <StyledTableCell>{order.farmer}</StyledTableCell>
-              <StyledTableCell>{order.situation}</StyledTableCell>
-              <StyledTableCell>{order.date}</StyledTableCell>
-              <StyledTableCell>
-                <IconButton>
-                  <InputIcon></InputIcon>
-                </IconButton>
-                <IconButton disabled={order.situation === 'Cancelado'}>
-                  <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
-                </IconButton>
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        />
-      </Container>
+      <CustomTable
+        headerColumns={
+          <>
+            <StyledTableCell>
+              <IconButton>
+                <AddCircleRoundedIcon
+                  className="fa fa-plus-circle"
+                  style={{ fontSize: 30, color: 'white' }}
+                ></AddCircleRoundedIcon>
+              </IconButton>
+            </StyledTableCell>
+            <StyledTableCell>NÚMERO</StyledTableCell>
+            <StyledTableCell>AGRICULTOR</StyledTableCell>
+            <StyledTableCell>SITUAÇÃO</StyledTableCell>
+            <StyledTableCell>DATA ENTREGA</StyledTableCell>
+            <StyledTableCell>
+              <IconButton>
+                <DescriptionIcon
+                  style={{ fontSize: 30, color: 'white' }}
+                ></DescriptionIcon>
+              </IconButton>
+              <IconButton>
+                <FilterListIcon
+                  style={{ fontSize: 30, color: 'white' }}
+                ></FilterListIcon>
+              </IconButton>
+            </StyledTableCell>
+          </>
+        }
+        itens={arrayItems.map(order => (
+          <StyledTableRow>
+            <StyledTableCell style={{ backgroundColor: 'red' }}>
+              <IconButton disabled={order.situation === 'Cancelado'}>
+                <CreateIcon fontSize="small"></CreateIcon>
+              </IconButton>
+            </StyledTableCell>
+            <StyledTableCell>{order.number}</StyledTableCell>
+            <StyledTableCell style={{ backgroundColor: 'red' }}>
+              {order.farmer}
+            </StyledTableCell>
+            <StyledTableCell>{order.situation}</StyledTableCell>
+            <StyledTableCell style={{ backgroundColor: 'red' }}>
+              {order.date}
+            </StyledTableCell>
+            <StyledTableCell>
+              <IconButton>
+                <InputIcon></InputIcon>
+              </IconButton>
+              <IconButton disabled={order.situation === 'Cancelado'}>
+                <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
+              </IconButton>
+            </StyledTableCell>
+          </StyledTableRow>
+        ))}
+        itemCount={arrayItems.length}
+        rowsPerPage={5}
+        currentPage={1}
+        handleChangePage={() => {}}
+      />
     </DefaultContainer>
   )
 }
