@@ -40,6 +40,10 @@ const Home: React.FC = () => {
             ))}
           </>
         }
+        currentPage={1}
+        itemCount={usuarios.length}
+        rowsPerPage={10}
+        handleChangePage={() => {}}
       />
     </DefaultContainer>
   )
