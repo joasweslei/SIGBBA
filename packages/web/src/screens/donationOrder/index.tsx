@@ -1,16 +1,18 @@
 import React from 'react'
 
 import { IconButton } from '@material-ui/core'
-import CreateIcon from '@material-ui/icons/Create'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { CustomTable } from '../../app/components/CustomTable'
 import { StyledTableCell } from '../../app/components/StyledTableCell'
 import { StyledTableRow } from '../../app/components/StyledTableRow'
-import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded'
-import DescriptionIcon from '@material-ui/icons/Description'
-import FilterListIcon from '@material-ui/icons/FilterList'
-import InputIcon from '@material-ui/icons/Input'
+import {
+  Input,
+  FilterList,
+  Description,
+  AddCircleRounded,
+  DeleteForever,
+  Create
+} from '@material-ui/icons'
 
 const arrayItems = [
   {
@@ -59,10 +61,9 @@ const donationOder = () => {
           <>
             <StyledTableCell>
               <IconButton>
-                <AddCircleRoundedIcon
-                  className="fa fa-plus-circle"
+                <AddCircleRounded
                   style={{ fontSize: 30, color: 'white' }}
-                ></AddCircleRoundedIcon>
+                ></AddCircleRounded>
               </IconButton>
             </StyledTableCell>
             <StyledTableCell>NÚMERO</StyledTableCell>
@@ -71,39 +72,44 @@ const donationOder = () => {
             <StyledTableCell>DATA ENTREGA</StyledTableCell>
             <StyledTableCell>
               <IconButton>
-                <DescriptionIcon
+                <Description
                   style={{ fontSize: 30, color: 'white' }}
-                ></DescriptionIcon>
+                ></Description>
               </IconButton>
               <IconButton>
-                <FilterListIcon
+                <FilterList
                   style={{ fontSize: 30, color: 'white' }}
-                ></FilterListIcon>
+                ></FilterList>
               </IconButton>
             </StyledTableCell>
           </>
         }
         itens={arrayItems.map(order => (
           <StyledTableRow>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               <IconButton disabled={order.situation === 'Cancelado'}>
-                <CreateIcon fontSize="small"></CreateIcon>
+                <Create fontSize="small"></Create>
               </IconButton>
             </StyledTableCell>
-            <StyledTableCell>{order.number}</StyledTableCell>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
+              {order.number}
+            </StyledTableCell>
+            <StyledTableCell
+              style={{
+                minWidth: '45vw'
+              }}
+            >
               {order.farmer}
             </StyledTableCell>
-            <StyledTableCell>{order.situation}</StyledTableCell>
-            <StyledTableCell style={{ backgroundColor: 'red' }}>
+            <StyledTableCell style={{ textAlign: 'center' }}>
+              {order.situation}
+            </StyledTableCell>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               {order.date}
             </StyledTableCell>
-            <StyledTableCell>
-              <IconButton>
-                <InputIcon></InputIcon>
-              </IconButton>
+            <StyledTableCell style={{ textAlign: 'center' }}>
               <IconButton disabled={order.situation === 'Cancelado'}>
-                <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
+                <DeleteForever fontSize="medium"></DeleteForever>
               </IconButton>
             </StyledTableCell>
           </StyledTableRow>
