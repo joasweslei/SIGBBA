@@ -15,7 +15,7 @@ const DefaultContainer: React.FC<DefaultContainerProps> = ({
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBarSchema breadcrumbs={breadcrumbs} />
-      <Container maxWidth="xl" sx={{ padding: '20px 20px 0 20px' }}>
+      <Container maxWidth="lg" sx={{ padding: '20px' }}>
         {children}
       </Container>
     </Box>
