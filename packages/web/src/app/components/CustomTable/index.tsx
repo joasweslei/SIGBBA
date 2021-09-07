@@ -1,4 +1,5 @@
 import {
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -8,7 +9,10 @@ import {
   TablePagination,
   TableRow
 } from '@material-ui/core'
+import { AddCircleRounded, Description, FilterList } from '@material-ui/icons'
+
 import React from 'react'
+import { StyledTableCell } from '../StyledTableCell'
 
 export interface CustomTableProps {
   itens: React.ReactNode
@@ -38,7 +42,29 @@ export const CustomTable: React.FC<CustomTableProps> = ({
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
-          <TableRow>{columns}</TableRow>
+          <TableRow>
+            <StyledTableCell align="center">
+              <IconButton>
+                <AddCircleRounded
+                  className="fa fa-plus-circle"
+                  style={{ fontSize: 25, color: 'white' }}
+                ></AddCircleRounded>
+              </IconButton>
+            </StyledTableCell>
+            {columns}
+            <StyledTableCell>
+              <IconButton>
+                <Description
+                  style={{ fontSize: 25, color: 'white' }}
+                ></Description>
+              </IconButton>
+              <IconButton>
+                <FilterList
+                  style={{ fontSize: 25, color: 'white' }}
+                ></FilterList>
+              </IconButton>
+            </StyledTableCell>
+          </TableRow>
         </TableHead>
         <TableBody>{itens}</TableBody>
         <TableFooter>
