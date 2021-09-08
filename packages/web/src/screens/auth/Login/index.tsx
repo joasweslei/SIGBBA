@@ -1,12 +1,14 @@
 import {
   AppBar,
   Box,
+  Button,
   Container,
   TextField,
   Toolbar,
   Typography
 } from '@material-ui/core'
 import React from 'react'
+import { StyledLogin } from './styles'
 
 export const Login = () => {
   return (
@@ -28,16 +30,31 @@ export const Login = () => {
           flex: 1
         }}
       >
-        <Box
-          component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '25ch' }
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField id="outlined-basic" label="Nome" variant="outlined" />
-        </Box>
+        <StyledLogin>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' }
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="outlined-basic" label="User" variant="outlined" />
+          </Box>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' }
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField id="outlined-basic" label="Senha" variant="outlined" />
+          </Box>
+          <Button variant="contained" color="primary">
+              Salvar
+            </Button>
+        </StyledLogin>
       </Container>
     </Box>
   )
