@@ -5,7 +5,8 @@ import Home from './home'
 import { AlimentBasketList } from './AlimentBasket/List'
 import { AlimentBasketForm } from './AlimentBasket/Form'
 import OrderList from './orderList'
-import Farmer from './farmer'
+import FarmerList from './farmer/List'
+import Farmerfrom from './farmer/Form'
 import { Login } from './auth/Login'
 
 const Routes: React.FC = () => {
@@ -16,7 +17,9 @@ const Routes: React.FC = () => {
       <Route path="/aliment-basket/form" exact component={AlimentBasketForm} />
 
       <Route path="/pedidos" exact component={OrderList} />
-      <Route path="/farmer" exact component={Farmer} />
+      
+      <Route path="/farmer" exact component={FarmerList} />
+      <Route path="/farmer/form" exact component={Farmerfrom} />
       <Route path="/login" exact component={Login} />
     </Switch>
   )
