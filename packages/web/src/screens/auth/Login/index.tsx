@@ -3,17 +3,10 @@ import {
   Box,
   Button,
   Container,
-  FormControl,
-  Icon,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
   TextField,
   Toolbar,
   Typography
 } from '@material-ui/core'
-import { VisibilityOff } from '@material-ui/icons'
 import React from 'react'
 import { StyledLogin } from './styles'
 
@@ -46,7 +39,7 @@ export const Login = () => {
             noValidate
             autoComplete="off"
           >
-            {/* margin: '0 auto' */}
+          {/* margin: '0 auto' */}
             <TextField id="outlined-basic" label="User" variant="outlined" />
           </Box>
           <Box
@@ -57,30 +50,11 @@ export const Login = () => {
             noValidate
             autoComplete="off"
           >
-            <FormControl variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <VisibilityOff />
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
+            <TextField id="outlined-basic" label="Senha" variant="outlined" />
           </Box>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            endIcon={<Icon>send</Icon>}
-          >
-            Salvar
-          </Button>
+          <Button variant="contained" color="primary">
+              Salvar
+            </Button>
         </StyledLogin>
       </Container>
     </Box>
