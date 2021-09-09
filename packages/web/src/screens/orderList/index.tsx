@@ -47,7 +47,7 @@ const arrayItems = [
   }
 ]
 
-const donationOder = () => {
+const orderList = () => {
   return (
     <DefaultContainer breadcrumbs={['Pedidos']}>
       <CustomTable
@@ -98,4 +98,4 @@ const donationOder = () => {
   )
 }
 
-export default donationOder
+export default orderList
