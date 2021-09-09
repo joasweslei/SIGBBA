@@ -12,11 +12,12 @@ const FarmerForm = () => {
           flex: 1,
           display: 'flex',
           maxWidth: '60%',
-          
+          paddingTop: '2%'
          }}
         noValidate
         autoComplete="off">
-          <TextField sx={{ flex: 1 }} id="outlined-basic" label="Nome Agricultor" variant="outlined" />
+          <TextField id="outlined-basic" label="Nome Agricultor" variant="outlined" />
+          <TextField id="outlined-basic" label="Nome Mãe" variant="outlined" />
           <TextField id="outlined-basic" label="Nome Mãe" variant="outlined" />
       </Box>
     </FormContainer>

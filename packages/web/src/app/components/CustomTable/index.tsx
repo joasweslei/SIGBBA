@@ -41,7 +41,7 @@ export const CustomTable: React.FC<CustomTableProps> = ({
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
+        <TableHead >
           <TableRow>
             <StyledTableCell align="center">
               <IconButton>
