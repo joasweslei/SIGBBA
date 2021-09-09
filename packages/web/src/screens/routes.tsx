@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Home from './home'
+import { Home } from './home/newindex'
 import { AlimentBasketList } from './AlimentBasket/List'
 import { AlimentBasketForm } from './AlimentBasket/Form'
 import OrderList from './orderList'
