@@ -1,19 +1,21 @@
-import { CustomTable } from "../../app/components/CustomTable"
-import DefaultContainer from "../../app/components/DefaultSchemas/Container/DefaultContainerSchema"
-import { StyledTableCellCustom } from "../farmer/List/styles"
-import { StyledTableRow } from "../home/styles"
+import { CustomTable } from '../../app/components/CustomTable'
+import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
+import { StyledTableCellCustom } from '../farmer/List/styles'
+import { StyledTableRow } from '../../app/components/StyledTableRow'
 
-const FamilyList : React.FC = () => {
-
-  return(
+const FamilyList: React.FC = () => {
+  return (
     <DefaultContainer breadcrumbs={['Familias']}>
       <CustomTable
-        headerColumns={<>
-          <StyledTableCellCustom>Nome Aricultor</StyledTableCellCustom>
-          <StyledTableCellCustom>CPF</StyledTableCellCustom>
-          <StyledTableCellCustom>Validade DAP</StyledTableCellCustom>
-        </>}
-        itens={<>
+        headerColumns={
+          <>
+            <StyledTableCellCustom>Nome Aricultor</StyledTableCellCustom>
+            <StyledTableCellCustom>CPF</StyledTableCellCustom>
+            <StyledTableCellCustom>Validade DAP</StyledTableCellCustom>
+          </>
+        }
+        itens={
+          <>
             <StyledTableRow>
               <StyledTableCellCustom></StyledTableCellCustom>
               <StyledTableCellCustom>teste</StyledTableCellCustom>
@@ -21,8 +23,12 @@ const FamilyList : React.FC = () => {
               <StyledTableCellCustom>teste</StyledTableCellCustom>
               <StyledTableCellCustom></StyledTableCellCustom>
             </StyledTableRow>
-        </>} itemCount={0} rowsPerPage={5} currentPage={1} handleChangePage={ ()=>{}
+          </>
         }
+        itemCount={0}
+        rowsPerPage={5}
+        currentPage={1}
+        handleChangePage={() => {}}
       />
     </DefaultContainer>
   )
