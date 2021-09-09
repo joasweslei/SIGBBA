@@ -39,6 +39,7 @@ export const Login = () => {
             noValidate
             autoComplete="off"
           >
+          {/* margin: '0 auto' */}
             <TextField id="outlined-basic" label="User" variant="outlined" />
           </Box>
           <Box

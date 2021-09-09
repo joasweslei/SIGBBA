@@ -4,6 +4,7 @@ export const StyledLogin = styled(Container)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: 80,
-  flexDirection: 'column'
+  padding: 200,
+  flexDirection: 'column',
+  margin: '0 auto'
 }))
