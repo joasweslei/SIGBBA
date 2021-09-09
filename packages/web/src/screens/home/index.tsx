@@ -1,4 +1,3 @@
-import { red } from '@material-ui/core/colors'
 import React from 'react'
 import { CustomTable } from '../../app/components/CustomTable'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'

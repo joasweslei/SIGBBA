@@ -1,12 +1,12 @@
 import React from 'react'
-import { CustomTable } from '../../app/components/CustomTable'
-import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
-import { StyledTableCell } from '../../app/components/StyledTableCell'
-import { StyledTableRow } from '../../app/components/StyledTableRow'
+import { CustomTable } from '../../../app/components/CustomTable'
+import DefaultContainer from '../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
+import { StyledTableCell } from '../../../app/components/StyledTableCell'
+import { StyledTableRow } from '../../../app/components/StyledTableRow'
 
 import { Edit } from '@material-ui/icons'
 
-export const AlimentBasket = () => {
+export const AlimentBasketList = () => {
   const cestas = [
     {
       id: '1',
