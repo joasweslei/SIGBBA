@@ -7,7 +7,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DefaultContainer from '../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { StyledTableRow } from '../../../app/components/StyledTableRow'
 import { IconButton } from '@material-ui/core';
-import { StyledTableCellCustom } from './styles';
+import { StyledTableCellCustom } from '../../../app/components/StyledTableCellCustom';
 
 const FarmerList: React.FC = () => {
   const arrayItems = [

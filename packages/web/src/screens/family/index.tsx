@@ -1,6 +1,6 @@
 import { CustomTable } from '../../app/components/CustomTable'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
-import { StyledTableCellCustom } from '../farmer/List/styles'
+import { StyledTableCellCustom } from '../../app/components/StyledTableCellCustom';
 import { StyledTableRow } from '../../app/components/StyledTableRow'
 
 const FamilyList: React.FC = () => {
