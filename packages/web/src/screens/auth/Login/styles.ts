@@ -1,6 +1,10 @@
-import { styled } from '@material-ui/core'
-import { StyledTableCell } from '../../../app/components/StyledTableCell'
+import { Container, styled } from '@material-ui/core'
 
-export const StyledTableCellCustom = styled(StyledTableCell)(({ theme }) => ({
-  textAlign: 'center'
+export const StyledLogin = styled(Container)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 200,
+  flexDirection: 'column',
+  margin: '0 auto'
 }))
