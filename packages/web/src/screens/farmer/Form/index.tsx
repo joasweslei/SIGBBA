@@ -8,17 +8,14 @@ const FarmerForm = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-          flex: 1,
-          display: 'flex',
-          maxWidth: '60%',
+          '& > :not(style)': { m: 1},
           paddingTop: '2%'
          }}
         noValidate
         autoComplete="off">
-          <TextField id="outlined-basic" label="Nome Agricultor" variant="outlined" />
-          <TextField id="outlined-basic" label="Nome Mãe" variant="outlined" />
-          <TextField id="outlined-basic" label="Nome Mãe" variant="outlined" />
+          <TextField sx={{width: '43ch'}} id="outlined-basic" label="Nome Agricultor" variant="outlined" />
+          <TextField sx={{width: '30ch'}} id="outlined-basic" label="Nome Mãe" variant="outlined" />
+          
       </Box>
     </FormContainer>
   )
