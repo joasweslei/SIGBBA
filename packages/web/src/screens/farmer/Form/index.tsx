@@ -20,6 +20,36 @@ const FarmerForm = () => {
     })
   }
 
+  //----------------------------------------------
+  
+  const [sexoState, setSexo] = React.useState({
+    sexo: '',
+    nameSexo: 'hai'
+  })
+
+  const handleChangeSexo = (event: any) => {
+    const nameSexo = event.target.name
+    setSexo({
+      ...sexoState,
+      [nameSexo]: event.target.value
+    })
+  }
+
+  //----------------------------------------------
+  
+  const [sexoDoisState, setSexoDois] = React.useState({
+    sexo: '',
+    nameSexo: 'hai'
+  })
+
+  const handleChangeSexoDois = (event: any) => {
+    const nameSexo = event.target.name
+    setSexoDois({
+      ...sexoDoisState,
+      [nameSexo]: event.target.value
+    })
+  }
+
   return (
     <FormContainer breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}>
       <Box
@@ -32,7 +62,23 @@ const FarmerForm = () => {
         autoComplete="off">
           <TextField sx={{width: '44ch'}} id="outlined-basic" label="Nome Responsável" variant="outlined" />
           <TextField sx={{width: '30ch'}} id="outlined-basic" label="CPF Responsável" variant="outlined" />
-          <TextField sx={{width: '30ch'}} id="outlined-basic" label="Sexo" variant="outlined" />
+          <FormControl variant="outlined" sx={{width: '30ch'}}>
+            <InputLabel htmlFor="outlined-sexo-native-simple">Sexo</InputLabel>
+            <Select
+              native
+              value={sexoState.sexo}
+              onChange={handleChangeSexo}
+              label="Sexo"
+              inputProps={{
+                name: 'sexo',
+                id: 'outlined-sexo-native-simple'
+              }}>
+              <option aria-label="None" value="" />
+              <option value={10}>Masculino</option>
+              <option value={20}>Feminino</option>
+              <option value={30}>Outros</option>
+            </Select>
+          </FormControl>
           <TextField sx={{width: '44ch'}} id="outlined-basic" label="Nome da Mãe do Responsável" variant="outlined" />
           <TextField sx={{width: '30ch'}} id="outlined-basic" label="Data Nascimento Responsável" variant="outlined" />
       </Box>
@@ -46,7 +92,24 @@ const FarmerForm = () => {
         autoComplete="off">
           <TextField sx={{width: '44ch'}} id="outlined-basic" label="Nome Responsável" variant="outlined" />
           <TextField sx={{width: '30ch'}} id="outlined-basic" label="CPF Responsável" variant="outlined" />
-          <TextField sx={{width: '30ch'}} id="outlined-basic" label="Sexo" variant="outlined" />
+          
+          <FormControl variant="outlined" sx={{width: '30ch'}}>
+            <InputLabel htmlFor="outlined-sexo-native-simple">Sexo</InputLabel>
+            <Select
+              native
+              value={sexoDoisState.sexo}
+              onChange={handleChangeSexoDois}
+              label="Sexo"
+              inputProps={{
+                name: 'sexo',
+                id: 'outlined-sexo-native-simple'
+              }}>
+              <option aria-label="None" value="" />
+              <option value={10}>Masculino</option>
+              <option value={20}>Feminino</option>
+              <option value={30}>Outros</option>
+            </Select>
+          </FormControl>
           <TextField sx={{width: '44ch'}} id="outlined-basic" label="Nome da Mãe do Responsável" variant="outlined" />
           <TextField sx={{width: '30ch'}} id="outlined-basic" label="Data Nascimento Responsável" variant="outlined" />
       </Box>
@@ -75,7 +138,6 @@ const FarmerForm = () => {
         autoComplete="off">
           <TextField sx={{width: '50ch'}} id="outlined-basic" label="DAPI" variant="outlined" />
           <TextField sx={{width: '30ch'}} id="outlined-basic" label="Validade DAPI" variant="outlined" />
-          <TextField sx={{width: '24ch'}} id="outlined-basic" label="Alimento à ser comprado" variant="outlined" />
       </Box>
       <Box
         component="form"
@@ -100,9 +162,9 @@ const FarmerForm = () => {
               id: 'outlined-age-native-simple'
             }}>
             <option aria-label="None" value="" />
-            <option value={10}>Ten</option>
-            <option value={20}>Twenty</option>
-            <option value={30}>Thirty</option>
+            <option value={10}>Abacate</option>
+            <option value={20}>Banaca</option>
+            <option value={30}>Carambola</option>
           </Select>
       </FormControl>
       </Box>
