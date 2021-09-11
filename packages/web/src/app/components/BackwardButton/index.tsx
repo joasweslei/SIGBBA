@@ -5,9 +5,15 @@ import {
   StyledArrowBackIosRounded
 } from './styles'
 
-export const BackwardButton = () => {
+interface BackwardButtonProps {
+  onClick: React.MouseEventHandler<HTMLDivElement> | undefined
+}
+
+export const BackwardButton: React.FC<BackwardButtonProps> = ({
+  onClick
+}: BackwardButtonProps) => {
   return (
-    <StyledBox>
+    <StyledBox onClick={onClick}>
       <StyledArrowBackIosRounded />
       <StyledTypography variant="button" noWrap>
         Voltar
