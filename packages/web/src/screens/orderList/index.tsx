@@ -1,101 +1,69 @@
 import React from 'react'
-
-import { IconButton } from '@material-ui/core'
+import { DataGrid } from '@mui/x-data-grid'
+import { Paper } from '@material-ui/core'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
-import { CustomTable } from '../../app/components/CustomTable'
-import { StyledTableCell } from '../../app/components/StyledTableCell'
-import { StyledTableRow } from '../../app/components/StyledTableRow'
+import TitleDivider from '../../app/components/CustomDivider'
 
-import { DeleteForever, Create } from '@material-ui/icons'
+export const OrderList = () => {
+  const columns = [
+    { field: 'id', headerName: 'Número', width: 150 },
+    { field: 'farmer', headerName: 'Agricultor', width: 580 },
+    { field: 'situation', headerName: 'Status', width: 130 },
+    { field: 'date', headerName: 'Data de Entrega', width: 210, editable: true }
+  ]
 
-const arrayItems = [
-  {
-    number: '01',
-    farmer: 'Agricultor A',
-    situation: 'Aberto',
-    date: '2021/09/07'
-  },
-  {
-    number: '02',
-    farmer: 'Agricultor B',
-    situation: 'Aberto',
-    date: '2021/09/07'
-  },
-  {
-    number: '03',
-    farmer: 'Agricultor C',
-    situation: 'Fechado',
-    date: '2021/09/07'
-  },
-  {
-    number: '04',
-    farmer: 'Agricultor D',
-    situation: 'Cancelado',
-    date: '2021/09/07'
-  },
-  {
-    number: '05',
-    farmer: 'Agricultor E',
-    situation: 'Aberto',
-    date: '2021/09/07'
-  },
-  {
-    number: '06',
-    farmer: 'Agricultor F',
-    situation: 'Aberto',
-    date: '2021/09/07'
-  }
-]
-
-const orderList = () => {
+  const rows = [
+    {
+      id: '01',
+      farmer: 'Agricultor A',
+      situation: 'Aberto',
+      date: '2021/09/07'
+    },
+    {
+      id: '02',
+      farmer: 'Agricultor B',
+      situation: 'Aberto',
+      date: '2021/09/07'
+    },
+    {
+      id: '03',
+      farmer: 'Agricultor C',
+      situation: 'Fechado',
+      date: '2021/09/07'
+    },
+    {
+      id: '04',
+      farmer: 'Agricultor D',
+      situation: 'Cancelado',
+      date: '2021/09/07'
+    },
+    {
+      id: '05',
+      farmer: 'Agricultor E',
+      situation: 'Aberto',
+      date: '2021/09/07'
+    },
+    {
+      id: '06',
+      farmer: 'Agricultor F',
+      situation: 'Aberto',
+      date: '2021/09/07'
+    }
+  ]
   return (
     <DefaultContainer breadcrumbs={['Pedidos']}>
-      <CustomTable
-        headerColumns={
-          <>
-            <StyledTableCell>NÚMERO</StyledTableCell>
-            <StyledTableCell>AGRICULTOR</StyledTableCell>
-            <StyledTableCell>SITUAÇÃO</StyledTableCell>
-            <StyledTableCell>DATA ENTREGA</StyledTableCell>
-          </>
-        }
-        itens={arrayItems.map(order => (
-          <StyledTableRow>
-            <StyledTableCell style={{ textAlign: 'center' }}>
-              <IconButton disabled={order.situation === 'Cancelado'}>
-                <Create fontSize="small"></Create>
-              </IconButton>
-            </StyledTableCell>
-            <StyledTableCell style={{ textAlign: 'center' }}>
-              {order.number}
-            </StyledTableCell>
-            <StyledTableCell
-              style={{
-                minWidth: '45vw'
-              }}
-            >
-              {order.farmer}
-            </StyledTableCell>
-            <StyledTableCell style={{ textAlign: 'center' }}>
-              {order.situation}
-            </StyledTableCell>
-            <StyledTableCell style={{ textAlign: 'center' }}>
-              {order.date}
-            </StyledTableCell>
-            <StyledTableCell style={{ textAlign: 'center' }}>
-              <IconButton disabled={order.situation === 'Cancelado'}>
-                <DeleteForever fontSize="medium"></DeleteForever>
-              </IconButton>
-            </StyledTableCell>
-          </StyledTableRow>
-        ))}
-        itemCount={arrayItems.length}
-        rowsPerPage={5}
-        currentPage={1}
-        handleChangePage={() => {}}
-      />
+      <Paper sx={{ padding: 1 }} elevation={3}>
+        <TitleDivider title="Pedidos da Semana" />
+        <DataGrid
+          style={{ marginTop: 20 }}
+          columns={columns}
+          rows={rows}
+          pageSize={5}
+          rowsPerPageOptions={[2]}
+          autoHeight
+          checkboxSelection={true}
+        />
+      </Paper>
     </DefaultContainer>
   )
 }
-
-export default orderList
