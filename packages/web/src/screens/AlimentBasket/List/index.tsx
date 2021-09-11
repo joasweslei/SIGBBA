@@ -1,80 +1,57 @@
 import React from 'react'
-import { CustomTable } from '../../../app/components/CustomTable'
 import DefaultContainer from '../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
-import { StyledTableCell } from '../../../app/components/StyledTableCell'
-import { StyledTableRow } from '../../../app/components/StyledTableRow'
-
-import { Edit } from '@material-ui/icons'
+import { DataGrid, GridColumns, GridRowsProp } from '@mui/x-data-grid'
 
 export const AlimentBasketList = () => {
-  const cestas = [
+  const columns: GridColumns = [
+    { field: 'id', headerName: 'ID', type: 'integer', width: 90 },
+    { field: 'name', headerName: 'Nome', type: 'string', width: 130 },
     {
-      id: '1',
-      name: 'Cesta Básica',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-      aliments: [
-        {
-          id: '1',
-          name: 'Alimento 1'
-        }
-      ],
-      families: ''
+      field: 'description',
+      headerName: 'Descrição',
+      type: 'string',
+      flex: 1
     },
     {
-      id: '1',
+      field: 'quantity',
+      headerName: 'Quantidade',
+      type: 'integer',
+      width: 160,
+      align: 'right'
+    }
+  ]
+
+  const rows: GridRowsProp = [
+    {
+      id: 1,
       name: 'Cesta Básica',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-      aliments: [
-        {
-          id: '1',
-          name: 'Alimento 1'
-        }
-      ],
-      families: ''
+      description: 'Uma descrição descritiva',
+      quantity: 30
     },
     {
-      id: '1',
-      name: 'Cesta Básica',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-      aliments: [
-        {
-          id: '1',
-          name: 'Alimento 1'
-        }
-      ],
-      families: ''
+      id: 2,
+      name: 'Cesta Teste',
+      description: 'Uma descrição descritiva',
+      quantity: 10
+    },
+    {
+      id: 3,
+      name: 'Cesta Alo',
+      description: 'Uma descrição descritiva',
+      quantity: 35
     }
   ]
 
   return (
     <DefaultContainer breadcrumbs={['Cesta de alimentos']}>
-      <CustomTable
-        headerColumns={
-          <>
-            <StyledTableCell>NOME CESTA</StyledTableCell>
-            <StyledTableCell>DESCRIÇÃO</StyledTableCell>
-            <StyledTableCell align="center">
-              QUANTIDADE ALIMENTOS
-            </StyledTableCell>
-          </>
-        }
-        itens={cestas.map(cesta => (
-          <StyledTableRow>
-            <StyledTableCell align="center">
-              <Edit />
-            </StyledTableCell>
-            <StyledTableCell>{cesta.name}</StyledTableCell>
-            <StyledTableCell>{cesta.description}</StyledTableCell>
-            <StyledTableCell align="center">
-              {cesta.aliments.length}
-            </StyledTableCell>
-            <StyledTableCell></StyledTableCell>
-          </StyledTableRow>
-        ))}
-        itemCount={0}
-        rowsPerPage={5}
-        currentPage={0}
-        handleChangePage={() => {}}
+      <DataGrid
+        columns={columns}
+        rows={rows}
+        rowsPerPageOptions={[10, 20, 50, 100]}
+        paginationMode="server"
+        pagination={true}
+        autoHeight
+        checkboxSelection
       />
     </DefaultContainer>
   )
