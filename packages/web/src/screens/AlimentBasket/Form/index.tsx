@@ -1,14 +1,8 @@
-import {
-  Box,
-  Divider,
-  TextareaAutosize,
-  TextField,
-  Typography
-} from '@material-ui/core'
+import { Box, TextareaAutosize, TextField } from '@material-ui/core'
 import React from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { DataGrid } from '@mui/x-data-grid'
-import CustomDivider from '../../../app/components/CustomDivider'
+import TitleDivider from '../../../app/components/CustomDivider'
 
 export const AlimentBasketForm = () => {
   const columns = [
@@ -45,7 +39,7 @@ export const AlimentBasketForm = () => {
 
   return (
     <FormContainer breadcrumbs={['Cesta de alimentos', 'Nova Cesta']}>
-      <CustomDivider title="Informações da " />
+      <TitleDivider title="Informações da cesta" />
       <Box
         component="form"
         sx={{
@@ -63,7 +57,7 @@ export const AlimentBasketForm = () => {
           minLength={200}
         />
       </Box>
-      <CustomDivider title="Alimentos" />
+      <TitleDivider title="Alimentos" />
       <DataGrid
         columns={columns}
         rows={rows}
