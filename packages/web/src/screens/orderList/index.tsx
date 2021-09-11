@@ -1,15 +1,38 @@
 import React from 'react'
-import { DataGrid } from '@mui/x-data-grid'
-import { Paper } from '@material-ui/core'
+import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid'
+import { Fab, IconButton, Paper } from '@material-ui/core'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import TitleDivider from '../../app/components/CustomDivider'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 export const OrderList = () => {
   const columns = [
-    { field: 'id', headerName: 'Número', width: 150 },
-    { field: 'farmer', headerName: 'Agricultor', width: 580 },
+    { field: 'id', headerName: 'Número', width: 145 },
+    { field: 'farmer', headerName: 'Agricultor', width: 518 },
     { field: 'situation', headerName: 'Status', width: 130 },
-    { field: 'date', headerName: 'Data de Entrega', width: 210, editable: true }
+    {
+      field: 'date',
+      headerName: 'Data de Entrega',
+      width: 200,
+      editable: true
+    },
+    {
+      field: 'options',
+      headerName: 'Opções',
+      renderCell: () => (
+        <div
+          style={{
+            width: '100%',
+            textAlign: 'center'
+          }}
+        >
+          <IconButton>
+            <MoreVertIcon sx={{ margin: 0, padding: 0 }} />
+          </IconButton>
+        </div>
+      ),
+      width: 140
+    }
   ]
 
   const rows = [
@@ -59,9 +82,7 @@ export const OrderList = () => {
           columns={columns}
           rows={rows}
           pageSize={5}
-          rowsPerPageOptions={[2]}
           autoHeight
-          checkboxSelection={true}
         />
       </Paper>
     </DefaultContainer>
