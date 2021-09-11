@@ -9,6 +9,7 @@ import FarmerList from './farmer/List'
 import FarmerForm from './farmer/Form'
 import { Login } from './auth/Login'
 import FamilyList from './family/List'
+import { CadasterUser } from './auth/CadasterUser'
 
 const Routes: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Routes: React.FC = () => {
       <Route path="/farmer" exact component={FarmerList} />
       <Route path="/farmer/form" exact component={FarmerForm} />
       <Route path="/login" exact component={Login} />
+      <Route path="/cadasteruser" exact component={CadasterUser} />
       <Route path="/family" exact component={FamilyList} />
     </Switch>
   )
