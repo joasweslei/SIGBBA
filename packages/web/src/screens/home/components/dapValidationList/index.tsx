@@ -1,5 +1,9 @@
 import React from 'react'
 
-export const dapValidation = () => {
-  return <p></p>
+export const DapValidation = () => {
+  return (
+    <p>
+      <p></p>
+    </p>
+  )
 }

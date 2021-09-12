@@ -9,7 +9,7 @@ import FarmerList from './farmer/List'
 import FarmerForm from './farmer/Form'
 import { Login } from './auth/Login'
 import FamilyList from './family/List'
-import { CadasterUser } from './auth/CadasterUser'
+//import { CadasterUser } from './auth/CadasterUser'
 import { DapValidation } from './home/components/dapValidationList'
 import { UserForm } from './auth/User/Form'
 import FormFamily from './family/FormFamily'
@@ -31,11 +31,8 @@ const Routes: React.FC = () => {
       <Route path="/user/form" exact component={UserForm} />
 
       <Route path="/family" exact component={FamilyList} />
-<<<<<<< HEAD
       <Route path="/teste" exact component={DapValidation} />
-=======
       <Route path="/family/form" exact component={FormFamily} />
->>>>>>> d95c8f2832b8d6fdb79f36c7f0255b8cef139372
     </Switch>
   )
 }
