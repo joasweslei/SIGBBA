@@ -1,6 +1,6 @@
 import express from 'express'
 import http from 'http'
-
+import cors from 'cors'
 import routes from './routes'
 
 class App {
@@ -16,6 +16,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json())
+    this.app.use(cors())
   }
 
   routes() {
