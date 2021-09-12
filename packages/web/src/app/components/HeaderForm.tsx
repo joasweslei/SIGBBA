@@ -5,8 +5,8 @@ import { BackwardButton } from './BackwardButton'
 
 interface HeaderFormProps {
   breadcrumbs: string[]
+  pageMode?: 'Inserção' | 'Edição' | undefined
   onBackButtonClick?: React.MouseEventHandler<HTMLDivElement> | undefined
-  pageMode?: string
 }
 
 const HeaderForm: React.FC<HeaderFormProps> = ({

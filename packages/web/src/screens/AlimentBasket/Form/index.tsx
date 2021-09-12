@@ -6,12 +6,20 @@ import TitleDivider from '../../../app/components/CustomDivider'
 import { useHistory } from 'react-router-dom'
 import { AddCircleOutlined, Remove } from '@material-ui/icons'
 import api from '../../../config/api'
+import { AxiosResponse } from 'axios'
 
-export const AlimentBasketForm = () => {
+interface AlimentBasketFormProps {
+  location?: Location
+}
+
+export const AlimentBasketForm: React.FC<AlimentBasketFormProps> = ({
+  location
+}: AlimentBasketFormProps) => {
   const history = useHistory()
 
   const [rows, setRows] = useState<GridRowsProp>([])
   const [name, setName] = useState('')
+  const [id, setId] = useState<string | null>(null)
   const [description, setDescription] = useState('')
 
   const columns = [
@@ -27,31 +35,60 @@ export const AlimentBasketForm = () => {
   }
 
   const handleSave = async () => {
-    const response = await api.post('/aliment-basket', {
-      name,
-      description
-    })
+    let response: AxiosResponse
+    if (!id) {
+      response = await api.post('/aliment-basket', {
+        name,
+        description,
+        aliments: rows
+      })
+    } else {
+      response = await api.put(`/aliment-basket/${id}`, {
+        name,
+        description,
+        aliments: rows
+      })
+    }
 
-    if (response.status === 200) {
+    if (response?.status === 200) {
       history.push('/aliment-basket')
     }
   }
 
   useEffect(() => {
-    setRows([
-      {
-        id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
-        name: 'teste',
-        description: 'teste'
-      }
-    ])
-  }, [])
+    if (!id) {
+      setRows([
+        {
+          id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
+          name: 'teste',
+          description: 'teste'
+        }
+      ])
+    } else {
+      ;(async () => {
+        const response = await api.get(`/aliment-basket/${id}`)
+        if (response.status === 200) {
+          const { data } = response
+          setName(data.name)
+          setDescription(data.description)
+          setRows(data.aliments)
+        }
+      })()
+    }
+  }, [id])
+
+  useEffect(() => {
+    const params = new URLSearchParams(location?.search)
+    const id = params.get('id')
+    setId(id)
+  }, [location])
 
   return (
     <FormContainer
       breadcrumbs={['Cesta de alimentos', 'Nova Cesta']}
       onBackButtonClick={handleBackwardButtonClick}
       onSaveClick={handleSave}
+      pageMode={id ? 'Edição' : 'Inserção'}
     >
       <TitleDivider title="Informações da cesta" />
       <Box
