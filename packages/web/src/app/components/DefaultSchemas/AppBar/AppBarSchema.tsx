@@ -75,9 +75,15 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                 SIGBBA
               </Typography>
               {breadcrumbs.map(breadcrumb => (
-                <>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start'
+                  }}
+                  key={breadcrumb}
+                >
                   <ArrowRight
-                    key={breadcrumb}
                     sx={{
                       height: '22px',
                       width: '22px',
@@ -86,7 +92,6 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                     }}
                   />
                   <Typography
-                    key={breadcrumb}
                     variant="h6"
                     noWrap
                     component="div"
@@ -95,7 +100,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                   >
                     {breadcrumb}
                   </Typography>
-                </>
+                </Box>
               ))}
             </Grid>
           </Grid>
