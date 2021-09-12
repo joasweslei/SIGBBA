@@ -11,13 +11,6 @@ export const AlimentBasketList = () => {
       headerName: 'Descrição',
       type: 'string',
       flex: 1
-    },
-    {
-      field: 'quantity',
-      headerName: 'Quantidade',
-      type: 'integer',
-      width: 160,
-      align: 'right'
     }
   ]
 
@@ -25,20 +18,17 @@ export const AlimentBasketList = () => {
     {
       id: 1,
       name: 'Cesta Básica',
-      description: 'Uma descrição descritiva',
-      quantity: 30
+      description: 'Uma descrição descritiva'
     },
     {
       id: 2,
       name: 'Cesta Teste',
-      description: 'Uma descrição descritiva',
-      quantity: 10
+      description: 'Uma descrição descritiva'
     },
     {
       id: 3,
       name: 'Cesta Alo',
-      description: 'Uma descrição descritiva',
-      quantity: 35
+      description: 'Uma descrição descritiva'
     }
   ]
 
