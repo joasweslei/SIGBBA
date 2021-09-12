@@ -5,16 +5,8 @@ export const InputList = () => {
   const columns = [
     { field: 'id', headerName: 'Numero', width: 130 },
     { field: 'aliment', headerName: 'Alimento', width: 180 },
-    {
-      field: 'farmer',
-      headerName: 'Agricultor',
-      width: 180
-    },
-    {
-      field: 'quantity',
-      headerName: 'Quantidade',
-      width: 150
-    },
+    { field: 'farmer', headerName: 'Agricultor', width: 180 },
+    { field: 'quantity', headerName: 'Quantidade', width: 150 },
     {
       field: 'inputDate',
       headerName: 'Data',
