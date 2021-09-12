@@ -1,12 +1,14 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class CreateDatabaseStructure1630854830967 implements MigrationInterface {
-    name = 'CreateDatabaseStructure1630854830967'
+export class CreateDatabaseStructure1631403876108 implements MigrationInterface {
+    name = 'CreateDatabaseStructure1631403876108'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "donors" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "donorName" character varying NOT NULL, "cpf" character varying NOT NULL, "cnpj" character varying NOT NULL, "city" character varying NOT NULL, "uf" character varying NOT NULL, "responsableName" character varying NOT NULL, "cpfResponse" character varying NOT NULL, "fullAddress" character varying NOT NULL, "contactResponsable" character varying NOT NULL, "framework" character varying NOT NULL, CONSTRAINT "PK_7fafae759bcc8cc1dfa09c3fbcf" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "farmers" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "nameResp1" character varying NOT NULL, "cpfResp1" character varying NOT NULL, "nameMotherResp1" character varying NOT NULL, "dateBirthResp1" date NOT NULL, "sexResp1" character varying NOT NULL, "nameResp2" character varying NOT NULL, "cpfResp2" character varying NOT NULL, "nameMotherResp2" character varying NOT NULL, "dateBirthResp2" date NOT NULL, "sexResp2" character varying NOT NULL, "address" character varying NOT NULL, "numDep" character varying NOT NULL, "phone" character varying NOT NULL, "nis" integer NOT NULL, "city" character varying NOT NULL, "uf" character varying NOT NULL, "validateOflicense" date NOT NULL, "entityServide" character varying NOT NULL, "dap" character varying NOT NULL, "validateDap" integer NOT NULL, "cardProducer" character varying NOT NULL, "passwordProducer" character varying NOT NULL, "foodGet" character varying NOT NULL, CONSTRAINT "PK_ccbe91e5e64dde1329b4c153637" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "order" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "dateCreated" TIMESTAMP NOT NULL, "scheduledDate" date, "orderStatus" character varying NOT NULL, "priceOrder" integer NOT NULL, "idFarmerId" uuid, "createdById" uuid, CONSTRAINT "PK_1031171c13130102495201e3e20" PRIMARY KEY ("id"))`);
+        await queryRunner.query(`CREATE TABLE "aliment_order" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "quantityUn" integer, "quantityKg" integer, "unityPrice" integer NOT NULL, "totalPrice" integer NOT NULL, "alimentId" uuid, "orderId" uuid, CONSTRAINT "PK_9a9767b6e916a56444e23bed8d2" PRIMARY KEY ("id"))`);
+        await queryRunner.query(`CREATE TABLE "aliment_received" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "quantityUn" integer, "dateReceived" TIMESTAMP NOT NULL, "quantityKg" integer, "alimentId" uuid, "userReceivedId" uuid, CONSTRAINT "REL_0ab7317a2e9508583ff573d95f" UNIQUE ("alimentId"), CONSTRAINT "REL_13668119abf9a2510cabb704f8" UNIQUE ("userReceivedId"), CONSTRAINT "PK_d7e65cce00c327d7c54aed2d6fe" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "users" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "username" character varying NOT NULL, "email" character varying NOT NULL, "password" character varying NOT NULL, CONSTRAINT "PK_a3ffb1c0c8416b9fc6f907b7433" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "donations" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "timeDon" TIMESTAMP NOT NULL, "userReceivedId" uuid, "idDonorId" uuid, CONSTRAINT "PK_c01355d6f6f50fc6d1b4a946abf" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "aliment_donations" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "quantityUn" integer, "quantityKg" integer, "donationId" uuid, "alimentoId" uuid, CONSTRAINT "PK_396c26d77d116886895ded53fd4" PRIMARY KEY ("id"))`);
@@ -41,6 +43,10 @@ export class CreateDatabaseStructure1630854830967 implements MigrationInterface 
         await queryRunner.query(`CREATE INDEX "IDX_b2fefa824ca4914089c514b75d" ON "aliment_baskets_families_families" ("familiesId") `);
         await queryRunner.query(`ALTER TABLE "order" ADD CONSTRAINT "FK_fb14b0c8e03c425360227075730" FOREIGN KEY ("idFarmerId") REFERENCES "farmers"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "order" ADD CONSTRAINT "FK_de6fa8b07fd7e0a8bf9edb5eb38" FOREIGN KEY ("createdById") REFERENCES "users"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "aliment_order" ADD CONSTRAINT "FK_067ea7a57f7dbceb2b31a4e878b" FOREIGN KEY ("alimentId") REFERENCES "aliments"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "aliment_order" ADD CONSTRAINT "FK_a38f6344892d11e93eed2cb3962" FOREIGN KEY ("orderId") REFERENCES "order"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "aliment_received" ADD CONSTRAINT "FK_0ab7317a2e9508583ff573d95fe" FOREIGN KEY ("alimentId") REFERENCES "aliment_order"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE "aliment_received" ADD CONSTRAINT "FK_13668119abf9a2510cabb704f83" FOREIGN KEY ("userReceivedId") REFERENCES "users"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "donations" ADD CONSTRAINT "FK_66dc58ce0cc46be684fc9c0bdd1" FOREIGN KEY ("userReceivedId") REFERENCES "users"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "donations" ADD CONSTRAINT "FK_f59ca2852940f48cb26b9fc19b6" FOREIGN KEY ("idDonorId") REFERENCES "donors"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
         await queryRunner.query(`ALTER TABLE "aliment_donations" ADD CONSTRAINT "FK_28d40cd41756bd109f8fcac8cf2" FOREIGN KEY ("donationId") REFERENCES "donations"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
@@ -84,6 +90,10 @@ export class CreateDatabaseStructure1630854830967 implements MigrationInterface 
         await queryRunner.query(`ALTER TABLE "aliment_donations" DROP CONSTRAINT "FK_28d40cd41756bd109f8fcac8cf2"`);
         await queryRunner.query(`ALTER TABLE "donations" DROP CONSTRAINT "FK_f59ca2852940f48cb26b9fc19b6"`);
         await queryRunner.query(`ALTER TABLE "donations" DROP CONSTRAINT "FK_66dc58ce0cc46be684fc9c0bdd1"`);
+        await queryRunner.query(`ALTER TABLE "aliment_received" DROP CONSTRAINT "FK_13668119abf9a2510cabb704f83"`);
+        await queryRunner.query(`ALTER TABLE "aliment_received" DROP CONSTRAINT "FK_0ab7317a2e9508583ff573d95fe"`);
+        await queryRunner.query(`ALTER TABLE "aliment_order" DROP CONSTRAINT "FK_a38f6344892d11e93eed2cb3962"`);
+        await queryRunner.query(`ALTER TABLE "aliment_order" DROP CONSTRAINT "FK_067ea7a57f7dbceb2b31a4e878b"`);
         await queryRunner.query(`ALTER TABLE "order" DROP CONSTRAINT "FK_de6fa8b07fd7e0a8bf9edb5eb38"`);
         await queryRunner.query(`ALTER TABLE "order" DROP CONSTRAINT "FK_fb14b0c8e03c425360227075730"`);
         await queryRunner.query(`DROP INDEX "IDX_b2fefa824ca4914089c514b75d"`);
@@ -118,6 +128,8 @@ export class CreateDatabaseStructure1630854830967 implements MigrationInterface 
         await queryRunner.query(`DROP TABLE "aliment_donations"`);
         await queryRunner.query(`DROP TABLE "donations"`);
         await queryRunner.query(`DROP TABLE "users"`);
+        await queryRunner.query(`DROP TABLE "aliment_received"`);
+        await queryRunner.query(`DROP TABLE "aliment_order"`);
         await queryRunner.query(`DROP TABLE "order"`);
         await queryRunner.query(`DROP TABLE "farmers"`);
         await queryRunner.query(`DROP TABLE "donors"`);

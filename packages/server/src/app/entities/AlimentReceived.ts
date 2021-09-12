@@ -13,13 +13,13 @@ class AlimentReceived {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column('nullable')
+  @Column({ nullable: true })
   quantityUn: number
 
-  @Column({ type: 'datetime' })
+  @Column({ type: 'timestamp' })
   dateReceived: Date
 
-  @Column('nullable')
+  @Column({ nullable: true })
   quantityKg: number
 
   @OneToOne(() => AlimentOrder)
