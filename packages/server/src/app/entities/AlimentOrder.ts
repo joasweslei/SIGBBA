@@ -7,10 +7,10 @@ class AlimentOrder {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column('nullable')
+  @Column({ nullable: true })
   quantityUn: number
 
-  @Column('nullable')
+  @Column({ nullable: true })
   quantityKg: number
 
   @Column()
