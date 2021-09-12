@@ -3,13 +3,16 @@ import DefaultContainer from '../../app/components/DefaultSchemas/Container/Defa
 import Grid from '@material-ui/core/Grid'
 import { Paper } from '@material-ui/core'
 import { DapValidation } from './components/dapValidationList'
+import { InputList } from './components/inputList'
 
 export const Home = () => {
   return (
     <DefaultContainer breadcrumbs={['Home']}>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <div style={{ backgroundColor: 'blue' }}>P</div>
+          <Paper elevation={3}>
+            <InputList></InputList>
+          </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper elevation={3}>
