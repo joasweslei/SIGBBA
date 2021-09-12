@@ -10,6 +10,7 @@ import FarmerForm from './farmer/Form'
 import { Login } from './auth/Login'
 import FamilyList from './family/List'
 import { CadasterUser } from './auth/CadasterUser'
+import { DapValidation } from './home/components/dapValidationList'
 
 const Routes: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const Routes: React.FC = () => {
       <Route path="/login" exact component={Login} />
       <Route path="/cadasteruser" exact component={CadasterUser} />
       <Route path="/family" exact component={FamilyList} />
+      <Route path="/teste" exact component={DapValidation} />
     </Switch>
   )
 }
