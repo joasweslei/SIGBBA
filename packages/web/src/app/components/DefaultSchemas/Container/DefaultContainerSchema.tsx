@@ -2,16 +2,18 @@ import React from 'react'
 import { Container, Fab, useTheme } from '@material-ui/core'
 import { Box } from '@material-ui/system'
 import { AppBarSchema } from '../AppBar/AppBarSchema'
-import { Add, Delete, Edit, Remove, Save } from '@material-ui/icons'
+import { Add, Delete, Edit } from '@material-ui/icons'
 
 export interface DefaultContainerProps {
   children: React.ReactNode
   breadcrumbs: string[]
+  onAddClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 const DefaultContainer: React.FC<DefaultContainerProps> = ({
   children,
-  breadcrumbs
+  breadcrumbs,
+  onAddClick
 }: DefaultContainerProps) => {
   const theme = useTheme()
 
@@ -45,7 +47,7 @@ const DefaultContainer: React.FC<DefaultContainerProps> = ({
           <Fab color="secondary">
             <Edit />
           </Fab>
-          <Fab color="primary" variant="extended">
+          <Fab color="primary" variant="extended" onClick={onAddClick}>
             <Add />
             Novo
           </Fab>
