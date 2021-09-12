@@ -1,9 +1,9 @@
 import React from 'react'
-import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid'
-import { Fab, IconButton, Paper } from '@material-ui/core'
+import { DataGrid } from '@mui/x-data-grid'
+import { Paper } from '@material-ui/core'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import TitleDivider from '../../app/components/CustomDivider'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
+import OptionListPopover from './components/popover'
 
 export const OrderList = () => {
   const columns = [
@@ -12,9 +12,9 @@ export const OrderList = () => {
     { field: 'situation', headerName: 'Status', width: 130 },
     {
       field: 'date',
+      type: 'date',
       headerName: 'Data de Entrega',
-      width: 200,
-      editable: true
+      width: 200
     },
     {
       field: 'options',
@@ -26,9 +26,7 @@ export const OrderList = () => {
             textAlign: 'center'
           }}
         >
-          <IconButton>
-            <MoreVertIcon sx={{ margin: 0, padding: 0 }} />
-          </IconButton>
+          {OptionListPopover()}
         </div>
       ),
       width: 140
