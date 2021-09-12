@@ -80,7 +80,7 @@ export const OrderList = () => {
           columns={columns}
           rows={rows}
           pageSize={5}
-          autoHeight
+          rowHeight={80}
         />
       </Paper>
     </DefaultContainer>
