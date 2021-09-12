@@ -1,9 +1,8 @@
-import { Button } from '@material-ui/core'
-import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
-import { TextFieldClean } from '../../../app/components/TextFieldClean'
-import { StyledLogin } from '../Login/styles'
+import FormContainer from '../../../../app/components/DefaultSchemas/FormContainer'
+import { TextFieldClean } from '../../../../app/components/TextFieldClean'
+import { StyledLogin } from '../../Login/styles'
 
-export const CadasterUser = () => {
+export const UserForm = () => {
   return (
     <FormContainer breadcrumbs={['Usuario', 'Cadastro Usuario']}>
       <StyledLogin>
@@ -18,9 +17,6 @@ export const CadasterUser = () => {
           type="password"
           tamanho="25"
         ></TextFieldClean>
-        <Button variant="contained" color="primary">
-          Salvar
-        </Button>
       </StyledLogin>
     </FormContainer>
   )
