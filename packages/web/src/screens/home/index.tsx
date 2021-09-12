@@ -5,6 +5,7 @@ import { Paper } from '@material-ui/core'
 import { DapValidation } from './components/dapValidationList'
 import { InputList } from './components/inputList'
 import { OutputList } from './components/outputList'
+import { ProposalList } from './components/proposalList'
 
 export const Home = () => {
   return (
@@ -26,7 +27,9 @@ export const Home = () => {
           </Paper>
         </Grid>
         <Grid item xs={4}>
-          <div style={{ backgroundColor: 'blue' }}>P</div>
+          <Paper elevation={3}>
+            <ProposalList></ProposalList>
+          </Paper>
         </Grid>
       </Grid>
     </DefaultContainer>
