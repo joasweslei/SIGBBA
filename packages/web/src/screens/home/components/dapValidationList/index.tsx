@@ -3,12 +3,15 @@ import React from 'react'
 
 export const DapValidation = () => {
   const columns = [
-    { field: 'id', hide: true },
-    { field: 'farmer', headerName: 'Agricultor', width: 100 },
+    { field: 'id', hide: true, headerName: 'id' },
+    {
+      field: 'farmer',
+      headerName: 'Agricultor',
+      width: 250
+    },
     {
       field: 'dapDate',
-      headerName: 'Vencimento da DAP',
-      width: 100,
+      headerName: 'Data',
       type: 'date',
       editable: false
     }
@@ -27,12 +30,13 @@ export const DapValidation = () => {
   ]
   return (
     <>
-      <div style={{ fontWeight: 'bold' }}>Vencimentos de DAP</div>
+      <div style={{ padding: 10, fontWeight: 'bold' }}>Vencimentos da Dap</div>
       <DataGrid
         columns={columns}
         rows={rows}
         autoHeight
         disableColumnMenu={true}
+        pageSize={3}
       />
     </>
   )

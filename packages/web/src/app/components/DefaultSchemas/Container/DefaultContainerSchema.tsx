@@ -8,12 +8,16 @@ export interface DefaultContainerProps {
   children: React.ReactNode
   breadcrumbs: string[]
   onAddClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onEditClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+  onDeleteClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 const DefaultContainer: React.FC<DefaultContainerProps> = ({
   children,
   breadcrumbs,
-  onAddClick
+  onAddClick,
+  onEditClick,
+  onDeleteClick
 }: DefaultContainerProps) => {
   const theme = useTheme()
 
@@ -35,22 +39,35 @@ const DefaultContainer: React.FC<DefaultContainerProps> = ({
             '& > :not(style)': { mr: 2 }
           }}
         >
-          <Fab
-            sx={{
-              backgroundColor: theme.palette.warning.main,
-              color: theme.palette.warning.contrastText,
-              '&:hover': { backgroundColor: theme.palette.warning.light }
-            }}
-          >
-            <Delete />
-          </Fab>
-          <Fab color="secondary">
-            <Edit />
-          </Fab>
-          <Fab color="primary" variant="extended" onClick={onAddClick}>
-            <Add />
-            Novo
-          </Fab>
+          {onDeleteClick ? (
+            <Fab
+              onClick={onDeleteClick}
+              sx={{
+                backgroundColor: theme.palette.warning.main,
+                color: theme.palette.warning.contrastText,
+                '&:hover': { backgroundColor: theme.palette.warning.light }
+              }}
+            >
+              <Delete />
+            </Fab>
+          ) : (
+            <></>
+          )}
+          {onEditClick ? (
+            <Fab color="secondary" onClick={onEditClick}>
+              <Edit />
+            </Fab>
+          ) : (
+            <></>
+          )}
+          {onAddClick ? (
+            <Fab color="primary" variant="extended" onClick={onAddClick}>
+              <Add />
+              Novo
+            </Fab>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </Box>
