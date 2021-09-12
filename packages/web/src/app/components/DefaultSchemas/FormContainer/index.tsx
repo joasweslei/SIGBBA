@@ -16,12 +16,14 @@ export interface FormContainerProps {
   children: React.ReactNode
   breadcrumbs: string[]
   onBackButtonClick?: React.MouseEventHandler<HTMLDivElement> | undefined
+  onSaveClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined
 }
 
 const FormContainer: React.FC<FormContainerProps> = ({
   children,
   breadcrumbs,
-  onBackButtonClick
+  onBackButtonClick,
+  onSaveClick
 }: FormContainerProps) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -64,7 +66,7 @@ const FormContainer: React.FC<FormContainerProps> = ({
             '& > :not(style)': { mr: 2 }
           }}
         >
-          <Fab color="primary">
+          <Fab color="primary" onClick={onSaveClick} href="">
             <Save />
           </Fab>
         </Box>

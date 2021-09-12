@@ -1,13 +1,18 @@
 import { Box, Button, TextareaAutosize, TextField } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridRowsProp } from '@mui/x-data-grid'
 import TitleDivider from '../../../app/components/CustomDivider'
 import { useHistory } from 'react-router-dom'
 import { AddCircleOutlined, Remove } from '@material-ui/icons'
+import api from '../../../config/api'
 
 export const AlimentBasketForm = () => {
   const history = useHistory()
+
+  const [rows, setRows] = useState<GridRowsProp>([])
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 110 },
@@ -17,39 +22,36 @@ export const AlimentBasketForm = () => {
     { field: 'unitType', headerName: 'Unidade', width: 200, editable: true }
   ]
 
-  const rows = [
-    {
-      id: '1',
-      name: 'Pacote de arroz',
-      description: 'Pacote de arroz branco de 2kg',
-      quantity: 2,
-      unitType: 'Kg'
-    },
-    {
-      id: '2',
-      name: 'Pacote de arroz',
-      description: 'Pacote de arroz branco de 2kg',
-      quantity: 2,
-      unitType: 'Kg'
-    },
-    {
-      id: '3',
-      name: 'Pacote de arroz',
-      description: 'Pacote de arroz branco de 2kg',
-      quantity: 2,
-      unitType: 'Kg'
-    }
-  ]
+  const handleBackwardButtonClick = () => {
+    history.push('/aliment-basket')
+  }
 
-  const handleBackwardButtonClick: React.MouseEventHandler<HTMLDivElement> =
-    e => {
+  const handleSave = async () => {
+    const response = await api.post('/aliment-basket', {
+      name,
+      description
+    })
+
+    if (response.status === 200) {
       history.push('/aliment-basket')
     }
+  }
+
+  useEffect(() => {
+    setRows([
+      {
+        id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
+        name: 'teste',
+        description: 'teste'
+      }
+    ])
+  }, [])
 
   return (
     <FormContainer
       breadcrumbs={['Cesta de alimentos', 'Nova Cesta']}
       onBackButtonClick={handleBackwardButtonClick}
+      onSaveClick={handleSave}
     >
       <TitleDivider title="Informações da cesta" />
       <Box
@@ -61,8 +63,16 @@ export const AlimentBasketForm = () => {
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="Nome cesta" variant="outlined" />
+        <TextField
+          value={name}
+          onChange={e => setName(e.target.value)}
+          id="outlined-basic"
+          label="Nome cesta"
+          variant="outlined"
+        />
         <TextareaAutosize
+          value={description}
+          onChange={e => setDescription(e.target.value)}
           id="outlined-basic"
           placeholder="Descrição"
           minRows={5}
@@ -83,7 +93,6 @@ export const AlimentBasketForm = () => {
       <DataGrid
         columns={columns}
         rows={rows}
-        rowCount={20}
         rowsPerPageOptions={[10, 20, 50, 100]}
         autoHeight
         checkboxSelection

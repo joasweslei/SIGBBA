@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import DefaultContainer from '../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { DataGrid, GridColumns, GridRowsProp } from '@mui/x-data-grid'
 import api from '../../../config/api'
+import { useHistory } from 'react-router-dom'
 
 export const AlimentBasketList = () => {
+  const history = useHistory()
+
   const [rows, setRows] = useState<GridRowsProp>([])
 
   const columns: GridColumns = [
@@ -28,8 +31,15 @@ export const AlimentBasketList = () => {
     })()
   }, [])
 
+  const handleAddClick = () => {
+    history.push('/aliment-basket/form')
+  }
+
   return (
-    <DefaultContainer breadcrumbs={['Cesta de alimentos']}>
+    <DefaultContainer
+      breadcrumbs={['Cesta de alimentos']}
+      onAddClick={handleAddClick}
+    >
       <DataGrid
         columns={columns}
         rows={rows}
