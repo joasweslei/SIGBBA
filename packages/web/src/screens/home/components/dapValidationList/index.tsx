@@ -36,6 +36,7 @@ export const DapValidation = () => {
         rows={rows}
         autoHeight
         disableColumnMenu={true}
+        pageSize={3}
       />
     </>
   )

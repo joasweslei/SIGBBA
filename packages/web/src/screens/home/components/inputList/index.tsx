@@ -20,7 +20,7 @@ export const InputList = () => {
       headerName: 'Data',
       type: 'date',
       editable: false,
-      width: 180
+      width: 120
     }
   ]
   const rows = [
@@ -105,6 +105,7 @@ export const InputList = () => {
         rows={rows}
         autoHeight
         disableColumnMenu={true}
+        pageSize={3}
       />
     </>
   )
