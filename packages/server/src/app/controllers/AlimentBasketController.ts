@@ -23,6 +23,10 @@ class AlimentBasketController {
       { relations: ['aliments'] }
     )
 
+    if (!alimentBasket) {
+      return res.status(404).json({ message: 'AlimentBasket not found.' })
+    }
+
     return res.json(alimentBasket)
   }
 
