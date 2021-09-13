@@ -1,15 +1,19 @@
-import { Box, TextField } from '@material-ui/core'
+import { Box, OutlinedInputProps, TextField } from '@material-ui/core'
 
 export interface TextFieldCleanProps {
   label: string
   type: string
+  value?: any
   tamanho: string
+  onChange?: OutlinedInputProps['onChange']
 }
 
 export const TextFieldClean: React.FC<TextFieldCleanProps> = ({
   label,
   type,
-  tamanho
+  tamanho,
+  value,
+  onChange
 }: TextFieldCleanProps) => {
   return (
     <Box
@@ -24,7 +28,9 @@ export const TextFieldClean: React.FC<TextFieldCleanProps> = ({
         id="outlined-basic"
         label={label}
         type={type}
+        value={value}
         variant="outlined"
+        onChange={onChange}
       />
     </Box>
   )
