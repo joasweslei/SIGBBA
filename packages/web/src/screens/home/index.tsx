@@ -15,25 +15,25 @@ export const Home = () => {
         <Grid item xs={8}>
           <Paper elevation={3}>
             <InputList></InputList>
-            <ListButton></ListButton>
+            <ListButton destiny="/pedidos"></ListButton>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper elevation={3}>
             <DapValidation></DapValidation>
-            <ListButton></ListButton>
+            <ListButton destiny=""></ListButton>
           </Paper>
         </Grid>
         <Grid item xs={8}>
           <Paper elevation={3}>
             <OutputList></OutputList>
-            <ListButton></ListButton>
+            <ListButton destiny=""></ListButton>
           </Paper>
         </Grid>
         <Grid item xs={4}>
           <Paper elevation={3}>
             <ProposalList></ProposalList>
-            <ListButton></ListButton>
+            <ListButton destiny=""></ListButton>
           </Paper>
         </Grid>
       </Grid>

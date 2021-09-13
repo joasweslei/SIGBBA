@@ -2,7 +2,6 @@ import React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Paper } from '@material-ui/core'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
-import TitleDivider from '../../app/components/CustomDivider'
 import OptionListPopover from './components/popover'
 
 export const OrderList = () => {
@@ -74,7 +73,7 @@ export const OrderList = () => {
   return (
     <DefaultContainer breadcrumbs={['Pedidos']}>
       <Paper sx={{ padding: 1 }} elevation={3}>
-        <TitleDivider title="Pedidos da Semana" />
+        <div style={{ fontWeight: 'bold' }}>Pedidos da Semana</div>
         <DataGrid
           style={{ marginTop: 20 }}
           columns={columns}
