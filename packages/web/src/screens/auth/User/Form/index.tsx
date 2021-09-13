@@ -4,6 +4,7 @@ import FormContainer from '../../../../app/components/DefaultSchemas/FormContain
 import { TextFieldClean } from '../../../../app/components/TextFieldClean'
 import { StyledLogin } from '../../Login/styles'
 import { AxiosResponse } from 'axios'
+import api from '../../../../config/api'
 
 export interface UserFormProps {
   location?: Location
@@ -23,22 +24,24 @@ export const UserForm: React.FC<UserFormProps> = ({
 
   const handleSave = async () => {
     let response: AxiosResponse
-    // if (!id) {
-    //   response = await api.post('/aliment-basket', {
-    //     name,
-    //     description,
-    //     aliments: rows
-    //   })
-    // } else {
+    if (!id) {
+      response = await api.post('/users', {
+        username,
+        email: 'usuario1@hotmail.com',
+        password: 111111
+      })
+      console.log(response)
+    }
+    // else {
     //   response = await api.put(`/aliment-basket/${id}`, {
-    //     name,
-    //     description,
-    //     aliments: rows
+    //     username,
+    //     email: 'usuario1@hotmail.com',
+    //     password: 111111
     //   })
     // }
-
+    console.log(username)
     // if (response?.status === 200) {
-    //   history.push('/aliment-basket')
+    history.push('/login')
     // }
   }
 
@@ -53,27 +56,28 @@ export const UserForm: React.FC<UserFormProps> = ({
   // - cadastrar para testar o editar
   //  - criar post /get/put/delete
 
-  // useEffect(() => {
-  //   if (!id) {
-  //     setRows([
-  //       {
-  //         id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
-  //         name: 'teste',
-  //         description: 'teste'
-  //       }
-  //     ])
-  //   } else {
-  //     ;(async () => {
-  //       const response = await api.get(`/aliment-basket/${id}`)
-  //       if (response.status === 200) {
-  //         const { data } = response
-  //         setName(data.name)
-  //         setDescription(data.description)
-  //         setRows(data.aliments)
-  //       }
-  //     })()
-  //   }
-  // }, [id])
+  useEffect(() => {
+    // if (!id) {
+    //   setRows([
+    //     {
+    //       id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
+    //       name: 'teste',
+    //       description: 'teste'
+    //     }
+    //   ])
+    // } else {
+    //   ;
+    ;(async () => {
+      const response = await api.get(`/aliment-basket/${id}`)
+      if (response.status === 200) {
+        const { data } = response
+        setUsername(data.name)
+        // setDescription(data.description)
+        // setRows(data.aliments)
+      }
+    })()
+    // }
+  }, [id])
 
   return (
     <FormContainer

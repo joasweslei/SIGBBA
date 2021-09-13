@@ -5,7 +5,8 @@ import UserController from './app/controllers/UserController'
 
 const router = Router()
 
-router.get('/users', UserController.store)
+router.post('/users', UserController.store)
+router.get('/users/:userid', UserController.show)
 
 router.get('/aliment-basket', AlimentBasketController.index)
 router.get('/aliment-basket/:alimentBasketId', AlimentBasketController.show)

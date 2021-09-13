@@ -129,7 +129,7 @@ export const User = () => {
     >
       <DataGrid
         columns={columns}
-        rows={linhas}
+        rows={rows}
         rowsPerPageOptions={[10, 20, 50, 100]}
         paginationMode="server"
         pagination={true}
