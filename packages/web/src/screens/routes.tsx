@@ -14,6 +14,8 @@ import { DapValidation } from './home/components/dapValidationList'
 import { UserForm } from './auth/User/Form'
 import FormFamily from './family/FormFamily'
 import { User } from './auth/User/List'
+import { EntityBeneficiaryList} from './entity/EntityBeneficiary/List'
+import EntityForm from './entity/EntityBeneficiary/Form'
 
 const Routes: React.FC = () => {
   return (
@@ -33,6 +35,8 @@ const Routes: React.FC = () => {
       <Route path="/family" exact component={FamilyList} />
       <Route path="/teste" exact component={DapValidation} />
       <Route path="/family/form" exact component={FormFamily} />
+      <Route path="/entity" exact component={EntityBeneficiaryList} />
+      <Route path="/entity/form" exact component={EntityForm} />
     </Switch>
   )
 }
