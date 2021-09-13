@@ -2,6 +2,7 @@ import { Box, Checkbox, FormControlLabel, TextField } from '@material-ui/core'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import TitleDivider from '../../../app/components/CustomDivider'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
+import { useHistory } from 'react-router-dom'
 const FormFamily = () => {
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const dependestes = ['6', '5', '4', '3', '2', '1']
@@ -11,8 +12,16 @@ const FormFamily = () => {
   const recebimento = ['(1 mes)', '(2 meses)', '(3 meses)']
   const data = ['(12/10/2021)', '(15/11/2020)', '(20/05/2022)']
 
+  const history = useHistory()
+
+  const handleBackwardButtonClick = () => {
+    history.push('/family')
+  }
   return (
-    <FormContainer breadcrumbs={['Familias', 'Cadastrar Familia']}>
+    <FormContainer
+      breadcrumbs={['Familias', 'Cadastrar Familia']}
+      onBackButtonClick={handleBackwardButtonClick}
+    >
       <TitleDivider title="Informações Responsável 1" />
       <Box
         component="form"
