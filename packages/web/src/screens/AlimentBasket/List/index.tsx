@@ -7,9 +7,9 @@ import {
   GridRowsProp,
   GridSelectionModel
 } from '@mui/x-data-grid'
-import Swal from 'sweetalert2'
 import api from '../../../config/api'
 import { useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const AlimentBasketList = () => {
   const history = useHistory()
