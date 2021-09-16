@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Request, response, Response } from 'express'
 import { getRepository } from 'typeorm'
 import User from '../entities/User'
 
@@ -14,10 +14,16 @@ class UserController {
     return res.json(users)
   }
 
+  teste(req: Request, res: Response) {
+    return res.json({ message: 'Hello World!' })
+  }
+
   async show(req: Request, res: Response) {
     const { userid } = req.params
 
     const repository = getRepository(User)
+
+    console.log('aaa: %c', userid)
 
     const users = await repository.findOne({ id: userid })
 

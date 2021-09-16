@@ -8,6 +8,7 @@ const router = Router()
 
 router.post('/users', UserController.store)
 router.get('/users/:userid', UserController.show)
+router.get('/teste', UserController.teste)
 
 router.post('/farmer', FarmerController.store)
 router.get('/farmer/:farmerid', FarmerController.show)
