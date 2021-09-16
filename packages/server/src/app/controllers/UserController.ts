@@ -1,21 +1,23 @@
-import { Request, response, Response } from 'express'
+import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import User from '../entities/User'
 
 class UserController {
   async store(req: Request, res: Response) {
-    const { username, email, password } = req.body
+    const { username, email, userpassword } = req.body
     console.log(username)
 
     const repository = getRepository(User)
 
-    const users = await repository.save({ username, email, password })
+    const users = await repository.save({ username, email, userpassword })
 
     return res.json(users)
   }
 
-  teste(req: Request, res: Response) {
-    return res.json({ message: 'Hello World!' })
+  async teste(req: Request, res: Response) {
+    const userdate = await getRepository(User).find()
+
+    return res.json(userdate)
   }
 
   async show(req: Request, res: Response) {
