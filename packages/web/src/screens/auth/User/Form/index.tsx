@@ -33,14 +33,12 @@ export const UserForm: React.FC<UserFormProps> = ({
         email,
         userpassword
       })
-      console.log('To no if')
     } else {
       response = await api.put(`/users/${id}`, {
         username,
         email,
         userpassword
       })
-      console.log('To no else')
     }
     if (response?.status === 200) {
       history.push('/login')
@@ -52,7 +50,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       const response = await api.get(`/users/${id}`)
       if (response.status === 200) {
         const { data } = response
-        setUsername(data.name)
+        setUsername(data.username)
         setEmail(data.email)
         setUserPassword(data.userpassword)
       }
