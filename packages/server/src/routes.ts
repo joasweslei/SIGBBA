@@ -6,8 +6,11 @@ import UserController from './app/controllers/UserController'
 
 const router = Router()
 
-router.post('/users', UserController.store)
+router.get('/users', UserController.index)
 router.get('/users/:userid', UserController.show)
+router.post('/users', UserController.store)
+router.put('/users/:userId', UserController.update)
+router.delete('/users/:userId', UserController.delete)
 router.get('/teste', UserController.teste)
 
 router.post('/farmer', FarmerController.store)
