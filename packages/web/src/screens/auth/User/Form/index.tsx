@@ -17,6 +17,8 @@ export const UserForm: React.FC<UserFormProps> = ({
 
   const [id, setId] = useState<string | null>(null)
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [userpassword, setUserPassword] = useState('')
 
   const handleBackwardButtonClick = () => {
     history.push('/user')
@@ -24,60 +26,44 @@ export const UserForm: React.FC<UserFormProps> = ({
 
   const handleSave = async () => {
     let response: AxiosResponse
+    console.log('To no else')
     if (!id) {
       response = await api.post('/users', {
         username,
-        email: 'usuario1@hotmail.com',
-        password: 111111
+        email,
+        userpassword
       })
-      console.log(response)
+      console.log('To no if')
+    } else {
+      response = await api.put(`/users/${id}`, {
+        username,
+        email,
+        userpassword
+      })
+      console.log('To no else')
     }
-    // else {
-    //   response = await api.put(`/aliment-basket/${id}`, {
-    //     username,
-    //     email: 'usuario1@hotmail.com',
-    //     password: 111111
-    //   })
-    // }
-    console.log(username)
-    // if (response?.status === 200) {
-    history.push('/login')
-    // }
+    if (response?.status === 200) {
+      history.push('/login')
+    }
   }
+
+  useEffect(() => {
+    ;(async () => {
+      const response = await api.get(`/users/${id}`)
+      if (response.status === 200) {
+        const { data } = response
+        setUsername(data.name)
+        setEmail(data.email)
+        setUserPassword(data.userpassword)
+      }
+    })()
+  }, [id])
 
   useEffect(() => {
     const params = new URLSearchParams(location?.search)
     const id = params.get('id')
     setId(id)
   }, [location])
-
-  //TODO:
-  // - criar router no back end
-  // - cadastrar para testar o editar
-  //  - criar post /get/put/delete
-
-  useEffect(() => {
-    // if (!id) {
-    //   setRows([
-    //     {
-    //       id: '8e331141-d727-4f40-a00a-57a278ebdbbe',
-    //       name: 'teste',
-    //       description: 'teste'
-    //     }
-    //   ])
-    // } else {
-    //   ;
-    ;(async () => {
-      const response = await api.get(`/aliment-basket/${id}`)
-      if (response.status === 200) {
-        const { data } = response
-        setUsername(data.name)
-        // setDescription(data.description)
-        // setRows(data.aliments)
-      }
-    })()
-    // }
-  }, [id])
 
   return (
     <FormContainer
@@ -87,7 +73,13 @@ export const UserForm: React.FC<UserFormProps> = ({
       pageMode={id ? 'Edição' : 'Inserção'}
     >
       <StyledLogin>
-        <TextFieldClean label="E-mail" type="" tamanho="25"></TextFieldClean>
+        <TextFieldClean
+          label="E-mail"
+          type=""
+          tamanho="25"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        ></TextFieldClean>
         <TextFieldClean
           label="Nome de Usário"
           type=""
@@ -99,6 +91,8 @@ export const UserForm: React.FC<UserFormProps> = ({
           label="Senha"
           type="password"
           tamanho="25"
+          value={userpassword}
+          onChange={e => setUserPassword(e.target.value)}
         ></TextFieldClean>
       </StyledLogin>
     </FormContainer>

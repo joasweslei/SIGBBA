@@ -7,8 +7,9 @@ import {
 } from '@mui/x-data-grid'
 import DefaultContainer from '../../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import { useHistory } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
+import api from '../../../../config/api'
 
 export const User = () => {
   const history = useHistory()
@@ -36,26 +37,15 @@ export const User = () => {
     }
   ]
 
-  const linhas: GridRowsProp = [
-    {
-      id: 1,
-      login: 'Usuario 1',
-      email: 'usuario1@gmail.com',
-      active: 'ativo'
-    },
-    {
-      id: 2,
-      login: 'Usuario 2',
-      email: 'usuario2@gmail.com',
-      active: 'desativado'
-    },
-    {
-      id: 3,
-      login: 'Usuario 3',
-      email: 'usuario3@gmail.com',
-      active: 'ativo'
-    }
-  ]
+  useEffect(() => {
+    ;(async () => {
+      const response = await api.get('/users')
+      if (response.status === 200) {
+        const { data } = response
+        setRows(data)
+      }
+    })()
+  }, [])
 
   const handleAddClick = () => {
     history.push('/user/form')
@@ -98,11 +88,11 @@ export const User = () => {
     })
 
     if (result.isConfirmed) {
-      // selectedGridRowsIds.forEach(async id => {
-      //   const response = await api.delete(`/aliment-basket/${id}`)
-      //   const { data } = response
-      //   setRows(rows.filter(e => e.id !== data.id))
-      // })
+      selectedGridRowsIds.forEach(async id => {
+        const response = await api.delete(`/users/${id}`)
+        const { data } = response
+        setRows(rows.filter(e => e.id !== data.id))
+      })
 
       Swal.fire(
         'Itens removidos com sucesso!',
