@@ -24,7 +24,6 @@ export const CustomDropdown: React.FC<CustomDropDownProps> = ({
       ...chooseOptions,
       [nameOptions]: event.target.value
     })
-    // console.log(event.target.value)
   }
 
   return (

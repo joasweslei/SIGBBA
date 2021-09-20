@@ -22,8 +22,6 @@ class UserController {
 
     const repository = getRepository(User)
 
-    console.log('aaa: %c', userid)
-
     const users = await repository.findOne({ id: userid })
 
     if (!users) {
@@ -35,7 +33,6 @@ class UserController {
 
   async store(req: Request, res: Response) {
     const { username, email, userpassword } = req.body
-    console.log(username)
 
     const repository = getRepository(User)
 

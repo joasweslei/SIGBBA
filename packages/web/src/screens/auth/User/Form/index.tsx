@@ -26,7 +26,6 @@ export const UserForm: React.FC<UserFormProps> = ({
 
   const handleSave = async () => {
     let response: AxiosResponse
-    console.log('To no else')
     if (!id) {
       response = await api.post('/users', {
         username,
