@@ -12,6 +12,12 @@ services:
       POSTGRES_PASSWORD: docker
     volumes:
       - /var/lib/postgres
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
 
   server:
     build: ./packages/server
@@ -26,6 +32,12 @@ services:
       - db
     links:
       - db
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M
 
   web:
     build: ./packages/web
@@ -35,3 +47,9 @@ services:
     volumes:
       - ./packages/web:/usr/app
       - ./node_modules:/usr/app/node_modules
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+        reservations:
+          memory: 512M

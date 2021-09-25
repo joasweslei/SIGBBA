@@ -7,9 +7,9 @@ import {
   GridRowsProp,
   GridSelectionModel
 } from '@mui/x-data-grid'
-import Swal from 'sweetalert2'
 import api from '../../../config/api'
 import { useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const AlimentBasketList = () => {
   const history = useHistory()
@@ -44,12 +44,27 @@ export const AlimentBasketList = () => {
     history.push('/aliment-basket/form')
   }
 
-  const handleEditClick = () => {}
+  const handleEditClick = () => {
+    if (!selectedGridRowsIds || selectedGridRowsIds.length < 1) {
+      return Swal.fire(
+        'Oops...',
+        'Você precisa selecionar 1 item para editá-lo',
+        'error'
+      )
+    } else if (selectedGridRowsIds.length > 1) {
+      return Swal.fire(
+        'Oops...',
+        'Somente é possivel editar 1 item por vez',
+        'error'
+      )
+    }
+
+    history.push(`/aliment-basket/form?id=${selectedGridRowsIds[0]}`)
+  }
 
   const handleDeleteClick = async () => {
-    console.log(selectedGridRowsIds)
     if (!selectedGridRowsIds || selectedGridRowsIds.length < 1) {
-      Swal.fire(
+      return Swal.fire(
         'Oops...',
         'Você precisa selecionar pelo menos 1 item para remover',
         'error'

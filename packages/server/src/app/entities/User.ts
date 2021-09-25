@@ -15,7 +15,7 @@ class User {
   email: string
 
   @Column()
-  password: string
+  userpassword: string
 
   @OneToMany(() => Donation, doacao => doacao.userReceived)
   donation: Donation[]

@@ -8,9 +8,16 @@ import {
   Typography
 } from '@material-ui/core'
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { StyledLogin } from './styles'
 
 export const Login = () => {
+  const history = useHistory()
+
+  const handleClick = () => {
+    history.push('/user')
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -56,7 +63,7 @@ export const Login = () => {
               variant="outlined"
             />
           </Box>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={handleClick}>
             Salvar
           </Button>
         </StyledLogin>

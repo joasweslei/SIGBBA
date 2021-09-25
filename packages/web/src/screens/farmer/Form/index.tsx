@@ -1,14 +1,54 @@
 import { Box, TextField } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
+import { useHistory } from 'react-router-dom'
+import { AxiosResponse } from 'axios'
+import api from '../../../config/api'
+import { GridRowsProp } from '@mui/x-data-grid'
 
 const FarmerForm = () => {
+
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const alimentos = ['Abacate', 'Maça', 'Batata', 'Arroz']
+  const history = useHistory() 
+  const [rows, setRows] = useState<GridRowsProp>([])
+  const [name, setName] = useState('')
+  const [id, setId] = useState<string | null>(null)
+  const [description, setDescription] = useState('')
+  const handleBackwardButtonClick = () => {
+    history.push('/aliment-basket')
+  }
+
+  const handleSave = async () => {
+    let response: AxiosResponse
+    if (!id) {
+      response = await api.post('/farmer', {
+        name,
+        description,
+        aliments: rows
+      })
+    } else {
+      response = await api.put(`/farmer/${id}`, {
+        name,
+        description,
+        aliments: rows
+      })
+    }
+
+    if (response?.status === 200) {
+      history.push('farmer')
+    }
+  }
 
   return (
-    <FormContainer breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}>
+  
+    <FormContainer
+      breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}
+      onBackButtonClick={handleBackwardButtonClick}
+      onSaveClick={handleSave}
+      pageMode={id ? 'Edição' : 'Inserção'}
+    >
       <Box
         component="form"
         sx={{

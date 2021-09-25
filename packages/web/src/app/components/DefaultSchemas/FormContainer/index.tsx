@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  AppBar,
-  Container,
-  Fab,
-  Toolbar,
-  Typography,
-  useTheme
-} from '@material-ui/core'
+import { AppBar, Container, Fab, Toolbar, Typography } from '@material-ui/core'
 import { Box } from '@material-ui/system'
 
 import HeaderForm from '../../HeaderForm'
@@ -15,6 +8,7 @@ import { Save } from '@material-ui/icons'
 export interface FormContainerProps {
   children: React.ReactNode
   breadcrumbs: string[]
+  pageMode?: 'Inserção' | 'Edição' | undefined
   onBackButtonClick?: React.MouseEventHandler<HTMLDivElement> | undefined
   onSaveClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined
 }
@@ -22,6 +16,7 @@ export interface FormContainerProps {
 const FormContainer: React.FC<FormContainerProps> = ({
   children,
   breadcrumbs,
+  pageMode,
   onBackButtonClick,
   onSaveClick
 }: FormContainerProps) => {
@@ -42,6 +37,7 @@ const FormContainer: React.FC<FormContainerProps> = ({
       <HeaderForm
         breadcrumbs={breadcrumbs}
         onBackButtonClick={onBackButtonClick}
+        pageMode={pageMode}
       />
       <Container
         sx={{
