@@ -1,9 +1,10 @@
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
+import { getConnection, getRepository } from 'typeorm'
 import User from '../entities/User'
 
 class UserController {
   async index(req: Request, res: Response) {
+    // TODO: not used
     const repository = getRepository(User)
 
     const users = await repository.find()
@@ -18,6 +19,7 @@ class UserController {
   }
 
   async show(req: Request, res: Response) {
+    // TODO: not used
     const { userid } = req.params
 
     const repository = getRepository(User)
@@ -46,6 +48,7 @@ class UserController {
   }
 
   async update(req: Request, res: Response) {
+    // TODO: not used
     const { userId } = req.params
     const { username, email, userpassword } = req.body
 
@@ -62,6 +65,7 @@ class UserController {
   }
 
   async delete(req: Request, res: Response) {
+    // TODO: not used
     const { userId } = req.params
 
     const repository = getRepository(User)
@@ -78,7 +82,27 @@ class UserController {
   }
 
   async auth(req: Request, res: Response) {
-    return res.json({ a: '' })
+    let response = {}
+    const { username, userpassword } = req.body
+
+    console.log(req.body)
+
+    const repository = getConnection()
+
+    const user = await repository
+      .createQueryBuilder()
+      .select('user')
+      .from(User, 'user')
+      .where('user.username = :username', { username: username })
+      .getOne()
+
+    if (user?.userpassword === userpassword) {
+      response = { access: true }
+    } else {
+      response = { access: false }
+    }
+
+    return res.json(response)
   }
 }
 
