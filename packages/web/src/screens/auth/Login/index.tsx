@@ -9,13 +9,28 @@ import {
 } from '@material-ui/core'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import api from '../../../config/api'
 import { StyledLogin } from './styles'
 
 export const Login = () => {
   const history = useHistory()
 
-  const handleClick = () => {
-    history.push('/user')
+  const handleClick = async () => {
+    // TODO: tratar erros na api e aqui
+
+    const response = await api.post(`/users/auth/username`, {
+      username: 'robert',
+      userpassword: '1234'
+    })
+
+    if (response.status === 200) {
+      const { data } = response
+      if (data.access) {
+        history.push('/user')
+      } else {
+        console.log('Usuario ou senha inválidos')
+      }
+    }
   }
 
   return (
