@@ -17,7 +17,7 @@ const FarmerForm = () => {
   const [id, setId] = useState<string | null>(null)
   const [description, setDescription] = useState('')
   const handleBackwardButtonClick = () => {
-    history.push('/aliment-basket')
+    history.push('/farmer')
   }
 
   const handleSave = async () => {
