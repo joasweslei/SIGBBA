@@ -8,6 +8,7 @@ const router = Router()
 
 router.get('/users', UserController.index)
 router.get('/users/:userid', UserController.show)
+router.post('/users/auth/username', UserController.auth)
 router.post('/users', UserController.store)
 router.put('/users/:userId', UserController.update)
 router.delete('/users/:userId', UserController.delete)
