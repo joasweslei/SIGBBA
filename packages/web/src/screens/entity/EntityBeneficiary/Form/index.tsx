@@ -6,10 +6,6 @@ import FormContainer from '../../../../app/components/DefaultSchemas/FormContain
 import api from '../../../../config/api'
 import { useHistory } from 'react-router-dom'
 
-
-
-
-
   export interface EntityFormProps {
     location?: Location
   }
@@ -46,13 +42,13 @@ import { useHistory } from 'react-router-dom'
   const [alimentoAserComprado, setalimentoAserComprado] = useState('')
 
   const handleBackwardButtonClick = () => {
-    history.push('/EntityBeneficiary')
+    history.push('/entity-beneficiary')
   }
 
   const handleSave = async () => {
     let response: AxiosResponse
     if (!idAgricultor) {
-      response = await api.post('/users', {
+      response = await api.post('/EntityBeneficiary', {
         idAgricultor,
         nomeResp1,
         cpfResp1,
@@ -75,11 +71,9 @@ import { useHistory } from 'react-router-dom'
         cartaoProdut,
         senhaCartaoProdut,
         alimentoAserComprado,
-
-
       })
     } else {
-      response = await api.put(`/users/${idAgricultor}`, {
+      response = await api.put(`/EntityBeneficiary/${idAgricultor}`, {
         idAgricultor,
         nomeResp1,
         cpfResp1,
@@ -105,7 +99,7 @@ import { useHistory } from 'react-router-dom'
       })
     }
     if (response?.status === 200) {
-      history.push('/login')
+      history.push('/entity-beneficiary')
     }
 
   }
@@ -150,7 +144,7 @@ import { useHistory } from 'react-router-dom'
 
 
   return (
-    <FormContainer breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}
+    <FormContainer breadcrumbs={['Entidade', 'Entidade Beneficiária']}
     onBackButtonClick={handleBackwardButtonClick}
     onSaveClick={handleSave}
     
