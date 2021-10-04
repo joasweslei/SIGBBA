@@ -36,7 +36,7 @@ const Routes: React.FC = () => {
 
       <Route path="/family" exact component={FamilyList} />
       <Route path="/family/form" exact component={FormFamily} />
-      <Route path="/entity" exact component={EntityBeneficiaryList} />
+      <Route path="/entity-beneficiary" exact component={EntityBeneficiaryList} />
       <Route path="/entity/form" exact component={EntityForm} />
     </Switch>
   )
