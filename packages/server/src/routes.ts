@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import AlimentBasketController from './app/controllers/AlimentBasketController'
 import FarmerController from './app/controllers/FarmerController'
-
+import OrderController from './app/controllers/OrderController'
 import UserController from './app/controllers/UserController'
 
 const router = Router()
@@ -26,4 +26,7 @@ router.delete(
   AlimentBasketController.delete
 )
 
+// order routers below
+router.get('/pedidosi', OrderController.index)
+// order routers above
 export default router
