@@ -6,8 +6,8 @@ class FarmerController {
   async store(req: Request, res: Response) {
     const {
       nameResp1,
-      cpfResp1,
-      nameMotherResp1,
+      cpfResp1
+      /* nameMotherResp1,
       dateBirthResp1,
       sexResp1,
       nameResp2,
@@ -28,15 +28,15 @@ class FarmerController {
       cardProducer,
       passwordProducer,
       foodGet,
-      order
+      order */
     } = req.body
 
     const repository = getRepository(Farmer)
-
-    const farmers = await repository.save({
+    console.log({ nameResp1, cpfResp1 })
+    /* const farmers = await repository.save({
       nameResp1,
-      cpfResp1,
-      nameMotherResp1,
+      cpfResp1
+      /* nameMotherResp1,
       dateBirthResp1,
       sexResp1,
       nameResp2,
@@ -60,7 +60,7 @@ class FarmerController {
       order
     })
 
-    return res.json(farmers)
+    return res.json(farmers) */
   }
 
   async show(req: Request, res: Response) {
