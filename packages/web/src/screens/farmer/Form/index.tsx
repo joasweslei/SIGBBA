@@ -5,7 +5,6 @@ import { CustomDropdown } from '../../../app/components/CustomDropDown'
 import { useHistory } from 'react-router-dom'
 import { AxiosResponse } from 'axios'
 import api from '../../../config/api'
-import { GridRowsProp } from '@mui/x-data-grid'
 
 export interface FarmerFormProps {
   location?: Location
@@ -54,7 +53,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
       response = await api.post('/farmer', {
         nameResp1,
         cpfResp1,
-        /*nameMotherResp1,
+        nameMotherResp1,
         dateBirthResp1,
         sexResp1,
         nameResp2,
@@ -75,13 +74,13 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
         cardProducer,
         passwordProducer,
         foodGet,
-        order*/
+        order
       })
     } else {
       response = await api.put(`/farmer/${id}`, {
         nameResp1,
         cpfResp1,
-        /*nameMotherResp1,
+        nameMotherResp1,
         dateBirthResp1,
         sexResp1,
         nameResp2,
@@ -102,7 +101,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
         cardProducer,
         passwordProducer,
         foodGet,
-        order*/
+        order
       })
     }
 
@@ -121,11 +120,11 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
     })()
   }, [id])*/
 
-  /*useEffect(() => {
+  useEffect(() => {
     const params = new URLSearchParams(location?.search)
     const id = params.get('id')
     setId(id)
-  }, [location])*/
+  }, [location])
 
   return (
     <FormContainer
@@ -177,6 +176,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Data Nascimento Responsável"
           variant="outlined"
+          value = {dateBirthResp1}
+          onChange={e => setdateBirthResp1(e.target.value)}
         />
       </Box>
       <Box
@@ -222,6 +223,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Data Nascimento Responsável"
           variant="outlined"
+          value = {dateBirthResp2}
+          onChange={e => setdateBirthResp2(e.target.value)}
         />
       </Box>
       <Box

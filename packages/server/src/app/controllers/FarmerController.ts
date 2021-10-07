@@ -6,8 +6,8 @@ class FarmerController {
   async store(req: Request, res: Response) {
     const {
       nameResp1,
-      cpfResp1
-      /* nameMotherResp1,
+      cpfResp1,
+      nameMotherResp1,
       dateBirthResp1,
       sexResp1,
       nameResp2,
@@ -28,15 +28,41 @@ class FarmerController {
       cardProducer,
       passwordProducer,
       foodGet,
-      order */
+      order
     } = req.body
 
     const repository = getRepository(Farmer)
-    console.log({ nameResp1, cpfResp1 })
+    console.log({
+      nameResp1,
+      cpfResp1,
+      nameMotherResp1,
+      dateBirthResp1,
+      sexResp1,
+      nameResp2,
+      cpfResp2,
+      nameMotherResp2,
+      dateBirthResp2,
+      sexResp2,
+      address,
+      numDep,
+      phone,
+      nis,
+      city,
+      uf,
+      validateOflicense,
+      entityServide,
+      dap,
+      validateDap,
+      cardProducer,
+      passwordProducer,
+      foodGet,
+      order
+    })
+
     /* const farmers = await repository.save({
       nameResp1,
-      cpfResp1
-      /* nameMotherResp1,
+      cpfResp1,
+      nameMotherResp1,
       dateBirthResp1,
       sexResp1,
       nameResp2,
