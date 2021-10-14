@@ -12,8 +12,5 @@
   "devDependencies": {
     "typescript": "^4.4.2",
     "@sigbba/eslint-config": "*"
-  },
-  "dependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.60"
   }
 }
