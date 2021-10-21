@@ -1,9 +1,11 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
 import {AxiosResponse} from 'axios'
-class DapController {
+export class DapController {
   async getDap(req: Request, res: Response) {
-    
+ 
+    // const cpfTeste = '33414165600';
+
     const connect = axios.create()
 
     let response: AxiosResponse
@@ -18,9 +20,19 @@ class DapController {
 
     const {data} = response
 
-    return res.json(data)
+    const {Titular1DAP, dataEmissao} = data['DAP'][0]
+
+    const _dataTratada = new String(dataEmissao).replace('/Date(', '').replace(')/', '')
+
+    const dataFormatada = new Date()
+    
+    dataFormatada.setTime(parseInt(_dataTratada))
+
+    console.log(new Date())
+    console.log(new Date().getUTCMonth())
+    
+    return res.json({titular: Titular1DAP, dataEmissao: dataFormatada, 
+      dataUTC: dataFormatada.toLocaleString(), dataFT: dataFormatada.getDate() + "/" + dataFormatada.getMonth() + "/" + dataFormatada.getFullYear()});
 
   }
 }
-
-export default new DapController()
