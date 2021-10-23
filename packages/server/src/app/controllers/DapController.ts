@@ -4,7 +4,8 @@ import {AxiosResponse} from 'axios'
 export class DapController {
   async getDap(req: Request, res: Response) {
  
-    // const cpfTeste = '33414165600';
+    // const cpfTeste = '33414165600'; --> dap valida
+    //const cpfTest =  '07581953629'; --> dap invalida
 
     const connect = axios.create()
 
@@ -24,15 +25,14 @@ export class DapController {
 
     const _dataTratada = new String(dataEmissao).replace('/Date(', '').replace(')/', '')
 
-    const dataFormatada = new Date()
-    
-    dataFormatada.setTime(parseInt(_dataTratada))
+    let dataFormatada = new Date()
 
-    console.log(new Date())
-    console.log(new Date().getUTCMonth())
+    dataFormatada.setTime(parseInt(_dataTratada))
     
+    console.log(_dataTratada)
+
     return res.json({titular: Titular1DAP, dataEmissao: dataFormatada, 
-      dataUTC: dataFormatada.toLocaleString(), dataFT: dataFormatada.getDate() + "/" + dataFormatada.getMonth() + "/" + dataFormatada.getFullYear()});
+      dataUTC: dataFormatada.toLocaleString('pt-BR', {timeZone: 'UTC'}).replace(" 03:00:00", "")});
 
   }
 }
