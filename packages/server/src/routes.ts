@@ -1,10 +1,13 @@
 import { Router } from 'express'
 import AlimentBasketController from './app/controllers/AlimentBasketController'
+import { DapController } from './app/controllers/DapController'
 import FarmerController from './app/controllers/FarmerController'
 
 import UserController from './app/controllers/UserController'
 
 const router = Router()
+
+const dapController = new DapController()
 
 router.get('/users', UserController.index)
 router.get('/users/:userid', UserController.show)
@@ -13,6 +16,7 @@ router.post('/users', UserController.store)
 router.put('/users/:userId', UserController.update)
 router.delete('/users/:userId', UserController.delete)
 router.get('/teste', UserController.teste)
+router.get('/getDap/:cpf', dapController.getDap)
 
 router.post('/farmer', FarmerController.store)
 router.get('/farmer/:farmerid', FarmerController.show)
