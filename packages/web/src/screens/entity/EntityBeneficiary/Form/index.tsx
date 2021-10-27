@@ -30,11 +30,11 @@ const EntityForm = () => {
           label="CPF Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -69,11 +69,11 @@ const EntityForm = () => {
           label="CPF Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -177,11 +177,16 @@ const EntityForm = () => {
           type="password"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Alimento à ser comprado"
           opcoes={alimentos}
+<<<<<<< Updated upstream
           size="24ch"
         ></CustomDropdown>
+=======
+          size="24ch"          
+        ></CustomDropdown> */}
+>>>>>>> Stashed changes
       </Box>
     </FormContainer>
   )

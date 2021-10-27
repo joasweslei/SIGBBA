@@ -1,5 +1,5 @@
 import { Box, TextField } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
 import { useHistory } from 'react-router-dom'
@@ -11,11 +11,40 @@ const FarmerForm = () => {
 
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const alimentos = ['Abacate', 'Maça', 'Batata', 'Arroz']
-  const history = useHistory() 
+  const history = useHistory()
   const [rows, setRows] = useState<GridRowsProp>([])
   const [name, setName] = useState('')
   const [id, setId] = useState<string | null>(null)
+  const [nameResp1, setnameResp1] = useState('')
   const [description, setDescription] = useState('')
+  const [cpfResp1, setcpfResp1] = useState('')
+  const [nameMotherResp1, setnameMotherResp1] = useState('')
+  const [dateBirthResp1, setdateBirthResp1] = useState('')
+  const [sexResp1, setsexResp1] = useState('')
+  const [nameResp2, setnameResp2] = useState('')
+  const [cpfResp2, setcpfResp2] = useState('')
+  const [nameMotherResp2, setnameMotherResp2] = useState('')
+  const [dateBirthResp2, setdateBirthResp2] = useState('')
+  const [sexResp2, setsexResp2] = useState('')
+  const [address, setaddress] = useState('')
+  const [numDep, setnumDep] = useState('')
+  const [phone, setphone] = useState('')
+  const [nis, setnis] = useState('')
+  const [city, setcity] = useState('')
+  const [uf, setuf] = useState('')
+  const [validateOflicense, setvalidateOflicense] = useState('')
+  const [entityServide, setentityServide] = useState('')
+  const [dap, setdap] = useState('')
+  const [validateDap, setvalidateDap] = useState('')
+  const [cardProducer, setcardProducer] = useState('')
+  const [passwordProducer, setpasswordProducer] = useState('')
+  const [foodGet, setfoodGet] = useState('')
+  const [order, setorder] = useState('')
+  const [chooseOptions, setOptions] = React.useState({
+    option: '',
+    nameOptions: 'hai'
+  })
+
   const handleBackwardButtonClick = () => {
     history.push('/farmer')
   }
@@ -41,8 +70,33 @@ const FarmerForm = () => {
     }
   }
 
+  /*useEffect(() => {
+    ;(async () => {
+      const response = await api.get(`/farmer/${id}`)
+      if (response.status === 200) {
+        const { data } = response
+        setRows (data.username)
+      }
+    })()
+  }, [id])*/
+
+  useEffect(() => {
+    const params = new URLSearchParams(location?.search)
+    const id = params.get('id')
+    setId(id)
+  }, [location])
+
+  const handleChangeOption = (event: any) => {
+    const nameOptions = event.target.name
+    setOptions({
+      ...chooseOptions,
+      [nameOptions]: event.target.value
+    })
+    console.log(chooseOptions.option)
+  }
+
   return (
-  
+
     <FormContainer
       breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}
       onBackButtonClick={handleBackwardButtonClick}
@@ -74,6 +128,8 @@ const FarmerForm = () => {
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
+          onChanged={handleChangeOption}
+          value={chooseOptions.option}
         ></CustomDropdown>
         <TextField
           sx={{ width: '44ch' }}
@@ -109,11 +165,11 @@ const FarmerForm = () => {
           label="CPF Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -217,11 +273,11 @@ const FarmerForm = () => {
           type="password"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Alimento à ser comprado"
           opcoes={alimentos}
           size="24ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
       </Box>
     </FormContainer>
   )

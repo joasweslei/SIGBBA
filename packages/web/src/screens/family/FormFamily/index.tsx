@@ -70,11 +70,11 @@ const FormFamily = () => {
           label="Data de Nascimento Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Sexo Responsável"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
       </Box>
 
       <TitleDivider title="Informações Responsável 2" />
@@ -126,11 +126,11 @@ const FormFamily = () => {
           label="Data de Nascimento Responsável 2"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Sexo Responsável 2"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
       </Box>
 
       <TitleDivider title="Documentos Pessoais" />
@@ -154,17 +154,17 @@ const FormFamily = () => {
           variant="outlined"
         />
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="N° Dependentes"
           opcoes={dependestes}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Total Moradores"
           opcoes={moradores}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
         <TextField
           sx={{ width: '44ch' }}
@@ -173,17 +173,17 @@ const FormFamily = () => {
           variant="outlined"
         />
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Faixa Etária"
           opcoes={faixaetaria}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Cesta"
           opcoes={cesta}
           size="20ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
         <TextField
           sx={{ width: '15ch' }}
@@ -198,23 +198,23 @@ const FormFamily = () => {
           label="Serviço Social"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Tempo de Recebimento"
           opcoes={recebimento}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Data Inicial"
           opcoes={data}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Data Final"
           opcoes={data}
           size="15ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
 
         <TextField
           sx={{ width: '15ch' }}
