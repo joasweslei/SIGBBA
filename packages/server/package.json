@@ -6,8 +6,7 @@
   "scripts": {
     "dev:debug": "npx nodemon --exec ts-node src/server.ts --inspect=0.0.0.0:9229 --nolazy src/server.js",
     "dev": "npx nodemon --exec ts-node src/server.ts",
-    "typeorm": "npx ts-node ../../node_modules/typeorm/cli.js",
-    "typeorm:docker": "npx ts-node ./node_modules/typeorm/cli.js"
+    "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

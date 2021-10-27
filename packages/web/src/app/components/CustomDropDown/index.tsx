@@ -6,7 +6,6 @@ export interface CustomDropDownProps {
   title: string
   opcoes: string[]
   size: string
-  // onChaged: SelectInputProps<T>['onChange']
 }
 
 export const CustomDropdown: React.FC<CustomDropDownProps> = ({
