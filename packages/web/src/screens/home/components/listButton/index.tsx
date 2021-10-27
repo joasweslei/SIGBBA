@@ -2,6 +2,7 @@ import { Fab } from '@material-ui/core'
 import React from 'react'
 import ListIcon from '@material-ui/icons/List'
 import { useHistory } from 'react-router-dom'
+import './App.css'
 
 export function ListButton(props: any) {
   const history = useHistory()
@@ -9,9 +10,17 @@ export function ListButton(props: any) {
   const handleListClick = () => {
     history.push(destiny)
   }
+  const handleMouseOver = (e: any) => {
+    e.target.style.color = 'black'
+  }
+  const handleMouseOut = (e: any) => {
+    e.target.style.color = 'white'
+  }
   return (
     <Fab
       onClick={handleListClick}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
       sx={{
         backgroundColor: 'blue',
         color: 'white',

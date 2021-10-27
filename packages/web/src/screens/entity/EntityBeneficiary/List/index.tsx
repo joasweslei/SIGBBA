@@ -1,63 +1,141 @@
-import { IconButton } from "@material-ui/core"
-import { CustomTable } from "../../../../app/components/CustomTable"
-import CreateIcon from '@material-ui/icons/Create';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import DefaultContainer from "../../../../app/components/DefaultSchemas/Container/DefaultContainerSchema"
-import { StyledTableCellCustom } from "../../../../app/components/StyledTableCellCustom"
-import { StyledTableRow } from "../../../../app/components/StyledTableRow"
+import DefaultContainer from '../../../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
+import {
+  DataGrid,
+  GridColumns,
+  GridRowId,
+  GridRowsProp,
+  GridSelectionModel
+} from '@mui/x-data-grid'
+import { useHistory } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import api from '../../../../config/api'
 
-export const EntityBeneficiaryList: React.FC = () => {
+export const EntityBeneficiaryList = () => {
+  const history = useHistory()
 
-    const arrayItems = [
-        {number: 1, cnpj: '11.222.333/0001-44', nRefeicoes: 1, ativo: 'ativo'},
-        {number: 2, cnpj: '11.222.333/0001-44', nRefeicoes: 2, ativo: 'ativo'},
-        {number: 3, cnpj: '11.222.333/0001-44', nRefeicoes: 3, ativo: 'ativo'},
-        {number: 4, cnpj: '11.222.333/0001-44', nRefeicoes: 4, ativo: 'ativo'},
-        {number: 5, cnpj: '11.222.333/0001-44', nRefeicoes: 5, ativo: 'ativo'},
-        {number: 6, cnpj: '11.222.333/0001-44', nRefeicoes: 6, ativo: 'ativo'}
-      ]  
+  const [selectedGridRowsIds, setSelectedGridRowsIds] = useState<GridRowId[]>(
+    []
+  )
+  const [rows, setRows] = useState<GridRowsProp>([])
 
-    return (
-        <DefaultContainer breadcrumbs = {['Entidade Beneficiária']}>
-            <CustomTable 
-                headerColumns={<>
-                    <StyledTableCellCustom>Entidade</StyledTableCellCustom>
-          <StyledTableCellCustom>CNPJ</StyledTableCellCustom>
-          <StyledTableCellCustom>Número de refeições</StyledTableCellCustom>
-                </>}
-                itens={<>
-                    {arrayItems.map(entidade => (
-                        <StyledTableRow>
-                            <StyledTableCellCustom>                            
-                            
-                                <IconButton>
-                                <CreateIcon fontSize="small"></CreateIcon>
-                                </IconButton>
-                                </StyledTableCellCustom>
-                                <StyledTableCellCustom>{entidade.number}</StyledTableCellCustom>
-                                <StyledTableCellCustom>{entidade.cnpj}</StyledTableCellCustom>
-                                <StyledTableCellCustom>{entidade.nRefeicoes}</StyledTableCellCustom>
-                                <StyledTableCellCustom>
-                                <IconButton>
-                                <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
-                                </IconButton>
-                                </StyledTableCellCustom>
-                             </StyledTableRow>
+  const columns: GridColumns = [
+    { field: 'id', headerName: 'ID', type: 'integer', width: 90 },
+    { field: 'Nome', headerName: 'Nome', type: 'string', width: 130 },
+    {
+      field: 'email',
+      headerName: 'E-mail',
+      type: 'string',
+      flex: 1
+    },
+    {
+      field: 'active',
+      headerName: 'Ativo',
+      type: 'string',
+      width: 160,
+      align: 'center'
+    }
+  ]
 
-                ))}
-                </>}
+  useEffect(() => {
+    ;(async () => {
+      const response = await api.get('/entity-beneficiary')
+      if (response.status === 200) {
+        const { data } = response
+        setRows(data)
+      }
+    })()
+  }, [])
 
+  const handleAddClick = () => {
+    history.push('/entity/form')
+  }
 
+  const handleEditClick = () => {
+    if (!selectedGridRowsIds || selectedGridRowsIds.length < 1) {
+      return Swal.fire(
+        'Oops...',
+        'Você precisa selecionar 1 item para editá-lo',
+        'error'
+      )
+    } else if (selectedGridRowsIds.length > 1) {
+      return Swal.fire(
+        'Oops...',
+        'Somente é possivel editar 1 item por vez',
+        'error'
+      )
+    }
 
+    history.push(`/entity/form?id=${selectedGridRowsIds[0]}`)
+  }
 
-                    itemCount={0}
-                    rowsPerPage={0}
-                    currentPage={0}
-                    handleChangePage={() => { } }
-                    />
-                        </DefaultContainer>
-                        )
-    
+  const handleDeleteClick = async () => {
+    if (!selectedGridRowsIds || selectedGridRowsIds.length < 1) {
+      return Swal.fire(
+        'Oops...',
+        'Você precisa selecionar pelo menos 1 item para remover',
+        'error'
+      )
+    }
 
+    const result = await Swal.fire({
+      title: 'Tem certeza que deseja remover esses itens?',
+      text: `Essa ação não pode ser revertida! Serão removidos ${selectedGridRowsIds.length} cestas de alimentos`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: `Sim, remover itens selecionados`,
+      cancelButtonText: 'Cancelar'
+    })
 
+    if (result.isConfirmed) {
+      selectedGridRowsIds.forEach(async id => {
+        const response = await api.delete(`/entity/${id}`)
+        const { data } = response
+        setRows(rows.filter(e => e.id !== data.id))
+      })
+
+      Swal.fire(
+        'Itens removidos com sucesso!',
+        `Foram removidos ${selectedGridRowsIds.length} entidades com sucesso.`,
+        'success'
+      )
+    }
+  }
+
+  const handleSelectionModelChange = (
+    selectionModel: GridSelectionModel,
+    _?: any
+  ) => {
+    const selectedIds = selectionModel.map(ids => ids)
+    setSelectedGridRowsIds(selectedIds)
+  }
+
+  const arrayItems = [
+    { id: 1, Nome: '', email: '', ativo: 'ativo' },
+    { id: 2, Nome: '', email: '', ativo: 'ativo' },
+    { id: 3, Nome: '', email: '', ativo: 'ativo' },
+    { id: 4, Nome: '', email: '', ativo: 'ativo' },
+    { id: 5, Nome: '', email: '', ativo: 'ativo' },
+    { id: 6, Nome: '', email: '', ativo: 'ativo' }
+  ]
+
+  return (
+    <DefaultContainer
+      breadcrumbs={['Entidade beneficiária']}
+      onAddClick={handleAddClick}
+      onEditClick={handleEditClick}
+      onDeleteClick={handleDeleteClick}
+    >
+      <DataGrid
+        columns={columns}
+        rows={arrayItems}
+        rowsPerPageOptions={[10, 20, 50, 100]}
+        paginationMode="server"
+        pagination={true}
+        onSelectionModelChange={handleSelectionModelChange}
+        autoHeight
+        checkboxSelection
+      />
+    </DefaultContainer>
+  )
 }
