@@ -180,13 +180,8 @@ const EntityForm = () => {
         {/* <CustomDropdown
           title="Alimento à ser comprado"
           opcoes={alimentos}
-<<<<<<< Updated upstream
-          size="24ch"
-        ></CustomDropdown>
-=======
           size="24ch"          
         ></CustomDropdown> */}
->>>>>>> Stashed changes
       </Box>
     </FormContainer>
   )

@@ -30,11 +30,11 @@ const EntityTransferForm = () => {
           label="CPF Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -69,11 +69,11 @@ const EntityTransferForm = () => {
           label="CPF Responsável"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -177,11 +177,11 @@ const EntityTransferForm = () => {
           type="password"
           variant="outlined"
         />
-        <CustomDropdown
+        {/* <CustomDropdown
           title="Alimento à ser comprado"
           opcoes={alimentos}
           size="24ch"
-        ></CustomDropdown>
+        ></CustomDropdown> */}
       </Box>
     </FormContainer>
   )
