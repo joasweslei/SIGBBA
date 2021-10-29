@@ -1,4 +1,11 @@
-import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core'
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField
+} from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
@@ -13,7 +20,6 @@ export interface FarmerFormProps {
 const FarmerForm: React.FC<FarmerFormProps> = ({
   location
 }: FarmerFormProps) => {
-
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const alimentos = ['Abacate', 'Maça', 'Batata', 'Arroz']
   const history = useHistory()
@@ -42,7 +48,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
   const [passwordProducer, setpasswordProducer] = useState('')
   const [foodGet, setfoodGet] = useState('')
   const [order, setorder] = useState('')
-  const [chooseOptions, setOptions] = React.useState<string | string>('')
+  
 
   const handleBackwardButtonClick = () => {
     history.push('/farmer')
@@ -127,9 +133,37 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
     setId(id)
   }, [location])
 
+  const [chooseOptions, setOptions] = React.useState('')
+
+  useEffect(() => {
+    setOptions(chooseOptions)
+    console.log("1 -> " + chooseOptions)
+  }, [chooseOptions]);
+
   const handleChangeOption = (event: any) => {
     setOptions(event.target.value)
-    console.log(chooseOptions)
+  }
+
+  const [chooseOptions2, setOptions2] = React.useState('')
+
+  useEffect(() => {
+    setOptions2(chooseOptions2)
+    console.log("2 -> " + chooseOptions2)
+  }, [chooseOptions2]);
+
+  const handleChangeOption2 = (event: any) => {
+    setOptions2(event.target.value)
+  }
+
+  const [chooseOptions3, setOptions3] = React.useState('')
+
+  useEffect(() => {
+    setOptions3(chooseOptions3)
+    console.log("3 -> " + chooseOptions3)
+  }, [chooseOptions3]);
+
+  const handleChangeOption3 = (event: any) => {
+    setOptions3(event.target.value)
   }
 
   return (
@@ -152,8 +186,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           sx={{ width: '44ch' }}
           id="outlined-basic"
           label="Nome Responsável"
-          variant="outlined"
           value={nameResp1}
+          variant="outlined"
           onChange={e => setnameResp1(e.target.value)}
         />
         <TextField
@@ -164,15 +198,21 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           value={cpfResp1}
           onChange={e => setcpfResp1(e.target.value)}
         />
+
+        
+        
         <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-          value={chooseOptions}
           onChanged={handleChangeOption}
-          labelId='label_sexo_usu'
-          idSelect='select_sexo_usuario'
+          value={chooseOptions}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario"
         ></CustomDropdown>
+
+        
+        
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -215,11 +255,19 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           value={cpfResp2}
           onChange={e => setcpfResp2(e.target.value)}
         />
-        {/* <CustomDropdown
+
+        
+        <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
-        ></CustomDropdown> */}
+          onChanged={handleChangeOption2}
+          value={chooseOptions2}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario2"
+        ></CustomDropdown>
+        
+        
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -347,11 +395,15 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           value={passwordProducer}
           onChange={e => setpasswordProducer(e.target.value)}
         />
-        {/* <CustomDropdown
-          title="Alimento à ser comprado"
+        <CustomDropdown
+          title="Como você se identifica"
           opcoes={alimentos}
           size="24ch"
-        ></CustomDropdown> */}
+          onChanged={handleChangeOption3}
+          value={chooseOptions3}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario2"
+        ></CustomDropdown>
       </Box>
     </FormContainer>
   )

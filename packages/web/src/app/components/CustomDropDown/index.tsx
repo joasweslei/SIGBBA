@@ -17,8 +17,8 @@ export const CustomDropdown: React.FC<CustomDropDownProps> = ({
   title,
   opcoes,
   size,
-  onChanged,
   value,
+  onChanged,
   labelId,
   idSelect
 }: CustomDropDownProps) => {
@@ -30,13 +30,15 @@ export const CustomDropdown: React.FC<CustomDropDownProps> = ({
         labelId={labelId}
         id={idSelect}
         value={value}
-        label={title}
         onChange={onChanged}
+        label={title}
       >
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={opcoes[0]}>{opcoes[0]}</MenuItem>
+        {opcoes.map((opc: string) => (
+          <MenuItem value={opc}>{opc}</MenuItem>
+        ))}
       </Select>
     </FormControl>
   )
