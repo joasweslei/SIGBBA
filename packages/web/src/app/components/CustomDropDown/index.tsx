@@ -1,4 +1,4 @@
-import { InputLabel, Select } from '@material-ui/core'
+import { InputLabel, MenuItem, Select } from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl'
 import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
 import React from 'react'
@@ -9,6 +9,8 @@ export interface CustomDropDownProps {
   size: string
   onChanged: SelectInputProps['onChange']
   value: string
+  labelId: string
+  idSelect: string
 }
 
 export const CustomDropdown: React.FC<CustomDropDownProps> = ({
@@ -16,26 +18,25 @@ export const CustomDropdown: React.FC<CustomDropDownProps> = ({
   opcoes,
   size,
   onChanged,
-  value
+  value,
+  labelId,
+  idSelect
 }: CustomDropDownProps) => {
 
   return (
-    <FormControl variant="outlined" sx={{ width: size }}>
-      <InputLabel htmlFor="outlined-sexo-native-simple">{title}</InputLabel>
+    <FormControl sx={{ m: 1, minWidth: size }}>
+      <InputLabel id={labelId}>{title}</InputLabel>
       <Select
-        native
+        labelId={labelId}
+        id={idSelect}
         value={value}
-        onChange={onChanged}
         label={title}
-        inputProps={{
-          name: 'option',
-          id: 'outlined-sexo-native-simple'
-        }}
+        onChange={onChanged}
       >
-        <option aria-label="None" value="" />
-        {opcoes.map((opc: string) => (
-          <option>{opc}</option>
-        ))}
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={opcoes[0]}>{opcoes[0]}</MenuItem>
       </Select>
     </FormControl>
   )

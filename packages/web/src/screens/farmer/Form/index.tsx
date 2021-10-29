@@ -1,4 +1,4 @@
-import { Box, TextField } from '@material-ui/core'
+import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
@@ -42,10 +42,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
   const [passwordProducer, setpasswordProducer] = useState('')
   const [foodGet, setfoodGet] = useState('')
   const [order, setorder] = useState('')
-  const [chooseOptions, setOptions] = React.useState({
-    option: '',
-    nameOptions: 'hai'
-  })
+  const [chooseOptions, setOptions] = React.useState<string | string>('')
 
   const handleBackwardButtonClick = () => {
     history.push('/farmer')
@@ -131,12 +128,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
   }, [location])
 
   const handleChangeOption = (event: any) => {
-    const nameOptions = event.target.name
-    setOptions({
-      ...chooseOptions,
-      [nameOptions]: event.target.value
-    })
-    console.log(chooseOptions.option)
+    setOptions(event.target.value)
+    console.log(chooseOptions)
   }
 
   return (
@@ -175,8 +168,10 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
+          value={chooseOptions}
           onChanged={handleChangeOption}
-          value={chooseOptions.option}
+          labelId='label_sexo_usu'
+          idSelect='select_sexo_usuario'
         ></CustomDropdown>
         <TextField
           sx={{ width: '44ch' }}
