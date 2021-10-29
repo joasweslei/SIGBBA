@@ -1,7 +1,12 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
 import { AxiosResponse } from 'axios'
+import DapFunction from './DapFunctions'
+
+const dap = new DapFunction()
+
 export class DapController {
+
   async getDap(req: Request, res: Response) {
 
     // const cpfTeste = '33414165600'; --> dap valida
@@ -21,20 +26,31 @@ export class DapController {
 
     const { data } = response
 
-    const { Titular1DAP, dataEmissao } = data['DAP'][0]
+    console.log(data)
 
-    const _dataTratada = new String(dataEmissao).replace('/Date(', '').replace(')/', '')
+    if (data['DAP'] == null) {
 
-    let dataFormatada = new Date()
+      return res.json({
+        error: true,
+        message: data['DescMensagem'],
+        dap: '',
+        dataEmissao: ''
+      });
 
-    dataFormatada.setTime(parseInt(_dataTratada))
+    } else {
+      const { Titular1DAP, dataEmissao } = data['DAP'][0]
 
-    console.log(_dataTratada)
+      const dataFormatada = dap.formatData(dataEmissao)
 
-    return res.json({
-      titular: Titular1DAP, dataEmissao: dataFormatada,
-      dataUTC: dataFormatada.toLocaleString('pt-BR', { timeZone: 'UTC' }).replace(" 03:00:00", "")
-    });
+      return res.json({
+        error: false,
+        message: '',
+        dap: data['DAP'][0],
+        dataEmissao: dataFormatada
+      });
+    }
+
+
 
   }
 }

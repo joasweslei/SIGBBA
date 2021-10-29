@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import AlimentBasketController from './app/controllers/AlimentBasketController'
-import { DapController } from './app/controllers/DapController'
+import { DapController } from './app/controllers/Dap/DapController'
 import FarmerController from './app/controllers/FarmerController'
 
 import UserController from './app/controllers/UserController'
