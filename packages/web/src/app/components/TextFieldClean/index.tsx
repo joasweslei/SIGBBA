@@ -1,4 +1,4 @@
-import { Box, OutlinedInputProps, TextField } from '@material-ui/core'
+import { Box, OutlinedInputProps, TextField } from "@mui/material"
 
 export interface TextFieldCleanProps {
   label: string
@@ -35,3 +35,5 @@ export const TextFieldClean: React.FC<TextFieldCleanProps> = ({
     </Box>
   )
 }
+
+

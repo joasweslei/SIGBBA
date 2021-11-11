@@ -1,13 +1,5 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  TextField,
-  Toolbar,
-  Typography
-} from '@material-ui/core'
-import React, { useState } from 'react'
+import { AppBar, Box, Button, Container, TextField, Toolbar, Typography } from '@mui/material'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import api from '../../../config/api'
