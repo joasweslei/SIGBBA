@@ -1,6 +1,6 @@
-import { Fab } from '@material-ui/core'
+import { Fab, List } from '@mui/material'
 import React from 'react'
-import ListIcon from '@material-ui/icons/List'
+
 import { useHistory } from 'react-router-dom'
 
 export function ListButton(props: any) {
@@ -19,7 +19,7 @@ export function ListButton(props: any) {
         transform: 'translate(10px, -65px)'
       }}
     >
-      <ListIcon></ListIcon>
+      <List></List>
     </Fab>
   )
 }

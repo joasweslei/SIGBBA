@@ -1,4 +1,4 @@
-import { Box, TextField } from '@material-ui/core'
+import { Box, TextField } from '@mui/material'
 import React from 'react'
 import { CustomDropdown } from '../../../../app/components/CustomDropDown'
 import FormContainer from '../../../../app/components/DefaultSchemas/FormContainer'

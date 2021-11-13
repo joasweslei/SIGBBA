@@ -1,5 +1,5 @@
-import { styled } from '@material-ui/core'
-import { Toolbar } from '@material-ui/core'
+import { styled } from '@mui/material'
+import { Toolbar } from '@mui/material'
 
 export const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: 'flex-start',

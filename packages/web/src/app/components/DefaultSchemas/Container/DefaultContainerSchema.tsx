@@ -1,8 +1,9 @@
 import React from 'react'
-import { Container, Fab, useTheme } from '@material-ui/core'
-import { Box } from '@material-ui/system'
+import { Box, Container, Fab, useTheme } from '@mui/material'
+
 import { AppBarSchema } from '../AppBar/AppBarSchema'
-import { Add, Delete, Edit } from '@material-ui/icons'
+import { Add, Delete, Edit } from '@mui/icons-material'
+
 
 export interface DefaultContainerProps {
   children: React.ReactNode

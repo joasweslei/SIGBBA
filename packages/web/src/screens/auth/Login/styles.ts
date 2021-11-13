@@ -1,4 +1,4 @@
-import { Container, styled } from '@material-ui/core'
+import { Container, styled } from '@mui/material'
 
 export const StyledLogin = styled(Container)(({ theme }) => ({
   display: 'flex',

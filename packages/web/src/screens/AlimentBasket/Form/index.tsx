@@ -1,12 +1,12 @@
-import { Box, Button, TextareaAutosize, TextField } from '@material-ui/core'
+import { Box, Button, TextareaAutosize, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
-import { DataGrid, GridRowsProp } from '@mui/x-data-grid'
 import TitleDivider from '../../../app/components/CustomDivider'
 import { useHistory } from 'react-router-dom'
-import { AddCircleOutlined, Remove } from '@material-ui/icons'
 import api from '../../../config/api'
 import { AxiosResponse } from 'axios'
+import { AddCircleOutlined, Remove } from '@mui/icons-material'
+import { DataGrid, GridRowsProp } from '@mui/x-data-grid'
 
 interface AlimentBasketFormProps {
   location?: Location

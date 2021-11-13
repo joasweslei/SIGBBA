@@ -1,9 +1,7 @@
 import React from 'react'
-import Popover from '@material-ui/core/Popover'
-import { Button, IconButton, List, ListItem } from '@material-ui/core'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import EditIcon from '@material-ui/icons/Edit'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
+import Popover from '@mui/material/Popover'
+import { Button, IconButton, List, ListItem } from '@mui/material'
+import { DeleteForever, Edit, MoreVert } from '@mui/icons-material'
 
 export default function OptionListPopover() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
@@ -22,7 +20,7 @@ export default function OptionListPopover() {
   return (
     <div>
       <Button onClick={handleClick}>
-        <MoreVertIcon></MoreVertIcon>
+        <MoreVert></MoreVert>
       </Button>
       <Popover
         id={id}
@@ -41,12 +39,12 @@ export default function OptionListPopover() {
         <List>
           <ListItem>
             <IconButton>
-              <EditIcon></EditIcon>
+              <Edit></Edit>
             </IconButton>
           </ListItem>
           <ListItem>
             <IconButton>
-              <DeleteForeverIcon></DeleteForeverIcon>
+              <DeleteForever></DeleteForever>
             </IconButton>
           </ListItem>
         </List>

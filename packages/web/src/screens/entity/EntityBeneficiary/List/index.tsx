@@ -1,7 +1,6 @@
-import { IconButton } from "@material-ui/core"
+import { Create, DeleteForever } from "@mui/icons-material"
+import { IconButton } from "@mui/material"
 import { CustomTable } from "../../../../app/components/CustomTable"
-import CreateIcon from '@material-ui/icons/Create';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DefaultContainer from "../../../../app/components/DefaultSchemas/Container/DefaultContainerSchema"
 import { StyledTableCellCustom } from "../../../../app/components/StyledTableCellCustom"
 import { StyledTableRow } from "../../../../app/components/StyledTableRow"
@@ -15,11 +14,11 @@ export const EntityBeneficiaryList: React.FC = () => {
         {number: 4, cnpj: '11.222.333/0001-44', nRefeicoes: 4, ativo: 'ativo'},
         {number: 5, cnpj: '11.222.333/0001-44', nRefeicoes: 5, ativo: 'ativo'},
         {number: 6, cnpj: '11.222.333/0001-44', nRefeicoes: 6, ativo: 'ativo'}
-      ]  
+      ]
 
     return (
         <DefaultContainer breadcrumbs = {['Entidade Beneficiária']}>
-            <CustomTable 
+            <CustomTable
                 headerColumns={<>
                     <StyledTableCellCustom>Entidade</StyledTableCellCustom>
           <StyledTableCellCustom>CNPJ</StyledTableCellCustom>
@@ -28,10 +27,10 @@ export const EntityBeneficiaryList: React.FC = () => {
                 itens={<>
                     {arrayItems.map(entidade => (
                         <StyledTableRow>
-                            <StyledTableCellCustom>                            
-                            
+                            <StyledTableCellCustom>
+
                                 <IconButton>
-                                <CreateIcon fontSize="small"></CreateIcon>
+                                <Create fontSize="small"></Create>
                                 </IconButton>
                                 </StyledTableCellCustom>
                                 <StyledTableCellCustom>{entidade.number}</StyledTableCellCustom>
@@ -39,7 +38,7 @@ export const EntityBeneficiaryList: React.FC = () => {
                                 <StyledTableCellCustom>{entidade.nRefeicoes}</StyledTableCellCustom>
                                 <StyledTableCellCustom>
                                 <IconButton>
-                                <DeleteForeverIcon fontSize="small"></DeleteForeverIcon>
+                                <DeleteForever fontSize="small"></DeleteForever>
                                 </IconButton>
                                 </StyledTableCellCustom>
                              </StyledTableRow>
@@ -57,7 +56,7 @@ export const EntityBeneficiaryList: React.FC = () => {
                     />
                         </DefaultContainer>
                         )
-    
+
 
 
 }

@@ -1,3 +1,4 @@
+import { AddCircleRounded, Description, FilterList } from '@mui/icons-material'
 import {
   IconButton,
   Paper,
@@ -8,8 +9,7 @@ import {
   TableHead,
   TablePagination,
   TableRow
-} from '@material-ui/core'
-import { AddCircleRounded, Description, FilterList } from '@material-ui/icons'
+} from '@mui/material'
 
 import React from 'react'
 import { StyledTableCell } from '../StyledTableCell'

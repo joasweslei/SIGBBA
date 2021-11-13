@@ -1,6 +1,6 @@
 import React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { Paper } from '@material-ui/core'
+import { Paper } from '@mui/material'
 import DefaultContainer from '../../app/components/DefaultSchemas/Container/DefaultContainerSchema'
 import OptionListPopover from './components/popover'
 

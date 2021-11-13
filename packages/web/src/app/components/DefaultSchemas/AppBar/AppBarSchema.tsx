@@ -1,10 +1,7 @@
 import React from 'react'
-import MenuIcon from '@material-ui/icons/Menu'
-import SearchIcon from '@material-ui/icons/Search'
-import MoreIcon from '@material-ui/icons/MoreVert'
-import ArrowRight from '@material-ui/icons/ArrowForwardRounded'
-import { AppBar, Box, IconButton, Typography, Grid } from '@material-ui/core'
+import { AppBar, Box, IconButton, Typography, Grid } from '@mui/material'
 import { StyledToolbar } from './styles'
+import { MoreVert,Menu, Search, ArrowForwardRounded } from '@mui/icons-material'
 
 export interface AppBarSchemaProps {
   breadcrumbs: string[]
@@ -34,7 +31,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                 aria-label="open drawer"
                 sx={{ mr: 2 }}
               >
-                <MenuIcon />
+                <Menu />
               </IconButton>
               <Typography
                 variant="h6"
@@ -45,7 +42,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                 Banco de Alimentos
               </Typography>
               <IconButton size="large" aria-label="search" color="inherit">
-                <SearchIcon />
+                <Search />
               </IconButton>
               <IconButton
                 size="large"
@@ -53,7 +50,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                 edge="end"
                 color="inherit"
               >
-                <MoreIcon />
+                <MoreVert />
               </IconButton>
             </Grid>
             <Grid
@@ -83,7 +80,7 @@ export const AppBarSchema: React.FC<AppBarSchemaProps> = ({
                   }}
                   key={breadcrumb}
                 >
-                  <ArrowRight
+                  <ArrowForwardRounded
                     sx={{
                       height: '22px',
                       width: '22px',

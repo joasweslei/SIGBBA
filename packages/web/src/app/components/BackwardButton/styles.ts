@@ -1,5 +1,6 @@
-import { Box, styled, Typography } from '@material-ui/core'
-import { ArrowBackIosRounded } from '@material-ui/icons'
+import styled from "@emotion/styled"
+import { ArrowBackIosRounded } from "@mui/icons-material"
+import { Box, Typography } from "@mui/material"
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -8,17 +9,17 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
 
   '&:hover': {
-    color: theme.palette.primary.dark
+    color: "#000D8B"
   }
 }))
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.light
+  color: "#000DCD"
 }))
 
 export const StyledArrowBackIosRounded = styled(ArrowBackIosRounded)(
   ({ theme }) => ({
-    color: theme.palette.primary.light,
+    color: "#000DCD",
     marginRight: 1,
     fontSize: 18
   })

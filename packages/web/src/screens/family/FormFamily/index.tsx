@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, TextField } from '@material-ui/core'
+import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import TitleDivider from '../../../app/components/CustomDivider'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'

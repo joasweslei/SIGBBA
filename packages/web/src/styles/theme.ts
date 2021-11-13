@@ -1,5 +1,6 @@
-import { red } from '@material-ui/core/colors'
-import { createTheme, PaletteColorOptions } from '@material-ui/core/styles'
+import { createTheme, PaletteColorOptions } from "@mui/material"
+import { red } from "@mui/material/colors"
+
 
 export const blue: PaletteColorOptions = {
   dark: '#000D8B',

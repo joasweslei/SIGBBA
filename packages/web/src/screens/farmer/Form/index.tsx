@@ -5,7 +5,7 @@ import {
   MenuItem,
   Select,
   TextField
-} from '@material-ui/core'
+} from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
@@ -48,7 +48,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
   const [passwordProducer, setpasswordProducer] = useState('')
   const [foodGet, setfoodGet] = useState('')
   const [order, setorder] = useState('')
-  
+
 
   const handleBackwardButtonClick = () => {
     history.push('/farmer')
@@ -199,8 +199,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           onChange={e => setcpfResp1(e.target.value)}
         />
 
-        
-        
+
+
         <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
@@ -211,8 +211,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           idSelect="select_sexo_usuario"
         ></CustomDropdown>
 
-        
-        
+
+
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
@@ -256,7 +256,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           onChange={e => setcpfResp2(e.target.value)}
         />
 
-        
+
         <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
@@ -266,8 +266,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           labelId="label_sexo_usu"
           idSelect="select_sexo_usuario2"
         ></CustomDropdown>
-        
-        
+
+
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"

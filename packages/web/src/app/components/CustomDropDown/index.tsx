@@ -1,7 +1,7 @@
-import { InputLabel, MenuItem, Select } from '@material-ui/core'
-import FormControl from '@material-ui/core/FormControl'
-import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
 import React from 'react'
+
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { SelectInputProps } from '@mui/material/Select/SelectInput'
 
 export interface CustomDropDownProps {
   title: string

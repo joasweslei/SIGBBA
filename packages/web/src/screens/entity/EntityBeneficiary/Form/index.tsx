@@ -1,4 +1,4 @@
-import { Box, TextField } from '@material-ui/core'
+import { Box, TextField } from '@mui/material'
 import React from 'react'
 import { CustomDropdown } from '../../../../app/components/CustomDropDown'
 import FormContainer from '../../../../app/components/DefaultSchemas/FormContainer'
@@ -49,7 +49,7 @@ const EntityForm = () => {
           variant="outlined"
         />
         </Box>
-        
+
         { <CustomDropdown
           title="Descrição da refeição"
           opcoes={escolhas}
@@ -80,7 +80,7 @@ const EntityForm = () => {
           labelId="label_diasfun_usu"
           idSelect="select_diasfun_usuario2"
         ></CustomDropdown> }
-      
+
       <Box
         component="form"
         sx={{
@@ -99,7 +99,7 @@ const EntityForm = () => {
           labelId="label_faixaetario_usu"
           idSelect="select_faixaetario_usuario2"
         ></CustomDropdown> }
-        
+
         { <CustomDropdown
           title="Número de refeições"
           opcoes={escolhas}
@@ -148,8 +148,8 @@ const EntityForm = () => {
         />
 
       </Box>
-      
-      
+
+
     </FormContainer>
   )
 }

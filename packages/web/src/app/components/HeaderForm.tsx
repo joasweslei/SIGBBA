@@ -1,5 +1,6 @@
-import { Box, Container, Typography } from '@material-ui/core'
-import { ArrowForwardRounded } from '@material-ui/icons'
+
+import { ArrowForwardRounded } from '@mui/icons-material'
+import { Box, Container, Typography } from '@mui/material'
 import React from 'react'
 import { BackwardButton } from './BackwardButton'
 
