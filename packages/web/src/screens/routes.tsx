@@ -16,6 +16,7 @@ import FormFamily from './family/FormFamily'
 import { User } from './auth/User/List'
 import { EntityBeneficiaryList} from './entity/EntityBeneficiary/List'
 import EntityForm from './entity/EntityBeneficiary/Form'
+import { AlimentOutputList } from './alimentOutput/List'
 
 const Routes: React.FC = () => {
   return (
@@ -24,8 +25,10 @@ const Routes: React.FC = () => {
       <Route path="/aliment-basket" exact component={AlimentBasketList} />
       <Route path="/aliment-basket/form" exact component={AlimentBasketForm} />
 
+      <Route path="/aliment-output" exact component = {AlimentOutputList} />
+
       <Route path="/pedidos" exact component={OrderList} />
-      
+
       <Route path="/farmer" exact component={FarmerList} />
       <Route path="/farmer/form" exact component={FarmerForm} />
       <Route path="/teste" exact component={DapValidation} />
