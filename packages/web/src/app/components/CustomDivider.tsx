@@ -1,6 +1,5 @@
-import { Typography } from '@material-ui/core'
-import Divider from '@material-ui/core/Divider'
 import { Box } from '@material-ui/system'
+import { Divider, Typography } from '@mui/material'
 import React from 'react'
 
 interface CustomDividerProps {

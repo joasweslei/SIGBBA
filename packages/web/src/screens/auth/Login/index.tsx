@@ -1,16 +1,7 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  TextField,
-  Toolbar,
-  Typography
-} from '@material-ui/core'
-import React, { useState } from 'react'
+import { AppBar, Box, Button, Container, TextField, Toolbar, Typography } from '@mui/material'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import TextFieldPassword from '../../../app/components/TextField/text_fiedl_password'
 import api from '../../../config/api'
 import { StyledLogin } from './styles'
 
@@ -82,15 +73,14 @@ export const Login = () => {
             noValidate
             autoComplete="off"
           >
-            {/* <TextField
+            <TextField
               id="outlined-basic"
               label="Senha"
               type="password"
               variant="outlined"
               value={userpassword}
               onChange={e => setUserpassword(e.target.value)}
-            /> */}
-            <TextFieldPassword></TextFieldPassword>
+            />
           </Box>
           <Button variant="contained" color="primary" onClick={handleClick}>
             Salvar

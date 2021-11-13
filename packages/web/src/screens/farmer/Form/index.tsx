@@ -1,4 +1,11 @@
-import { Box, TextField } from '@material-ui/core'
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField
+} from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../app/components/DefaultSchemas/FormContainer'
 import { CustomDropdown } from '../../../app/components/CustomDropDown'
@@ -13,10 +20,9 @@ export interface FarmerFormProps {
 const FarmerForm: React.FC<FarmerFormProps> = ({
   location
 }: FarmerFormProps) => {
-
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const alimentos = ['Abacate', 'Maça', 'Batata', 'Arroz']
-  const history = useHistory() 
+  const history = useHistory()
   const [id, setId] = useState<string | null>(null)
   const [nameResp1, setnameResp1] = useState('')
   const [cpfResp1, setcpfResp1] = useState('')
@@ -43,6 +49,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
   const [foodGet, setfoodGet] = useState('')
   const [order, setorder] = useState('')
   
+
   const handleBackwardButtonClick = () => {
     history.push('/farmer')
   }
@@ -86,7 +93,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
         nameResp2,
         cpfResp2,
         nameMotherResp2,
-         dateBirthResp2,
+        dateBirthResp2,
         sexResp2,
         address,
         numDep,
@@ -126,6 +133,39 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
     setId(id)
   }, [location])
 
+  const [chooseOptions, setOptions] = React.useState('')
+
+  useEffect(() => {
+    setOptions(chooseOptions)
+    console.log("1 -> " + chooseOptions)
+  }, [chooseOptions]);
+
+  const handleChangeOption = (event: any) => {
+    setOptions(event.target.value)
+  }
+
+  const [chooseOptions2, setOptions2] = React.useState('')
+
+  useEffect(() => {
+    setOptions2(chooseOptions2)
+    console.log("2 -> " + chooseOptions2)
+  }, [chooseOptions2]);
+
+  const handleChangeOption2 = (event: any) => {
+    setOptions2(event.target.value)
+  }
+
+  const [chooseOptions3, setOptions3] = React.useState('')
+
+  useEffect(() => {
+    setOptions3(chooseOptions3)
+    console.log("3 -> " + chooseOptions3)
+  }, [chooseOptions3]);
+
+  const handleChangeOption3 = (event: any) => {
+    setOptions3(event.target.value)
+  }
+
   return (
     <FormContainer
       breadcrumbs={['Agricultor', 'Cadastrar Agricultor']}
@@ -146,8 +186,8 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           sx={{ width: '44ch' }}
           id="outlined-basic"
           label="Nome Responsável"
+          value={nameResp1}
           variant="outlined"
-          value = {nameResp1}
           onChange={e => setnameResp1(e.target.value)}
         />
         <TextField
@@ -155,20 +195,30 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="CPF Responsável"
           variant="outlined"
-          value = {cpfResp1}
+          value={cpfResp1}
           onChange={e => setcpfResp1(e.target.value)}
         />
+
+        
+        
         <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
+          onChanged={handleChangeOption}
+          value={chooseOptions}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario"
         ></CustomDropdown>
+
+        
+        
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
           label="Nome da Mãe do Responsável"
           variant="outlined"
-          value = {nameMotherResp1}
+          value={nameMotherResp1}
           onChange={e => setnameMotherResp1(e.target.value)}
         />
         <TextField
@@ -176,7 +226,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Data Nascimento Responsável"
           variant="outlined"
-          value = {dateBirthResp1}
+          value={dateBirthResp1}
           onChange={e => setdateBirthResp1(e.target.value)}
         />
       </Box>
@@ -194,7 +244,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Nome Responsável"
           variant="outlined"
-          value = {nameResp2}
+          value={nameResp2}
           onChange={e => setnameResp2(e.target.value)}
         />
         <TextField
@@ -202,20 +252,28 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="CPF Responsável"
           variant="outlined"
-          value = {cpfResp2}
+          value={cpfResp2}
           onChange={e => setcpfResp2(e.target.value)}
         />
+
+        
         <CustomDropdown
           title="Como você se identifica"
           opcoes={escolhas}
           size="30ch"
+          onChanged={handleChangeOption2}
+          value={chooseOptions2}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario2"
         ></CustomDropdown>
+        
+        
         <TextField
           sx={{ width: '44ch' }}
           id="outlined-basic"
           label="Nome da Mãe do Responsável"
           variant="outlined"
-          value = {nameMotherResp2}
+          value={nameMotherResp2}
           onChange={e => setnameMotherResp2(e.target.value)}
         />
         <TextField
@@ -223,7 +281,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Data Nascimento Responsável"
           variant="outlined"
-          value = {dateBirthResp2}
+          value={dateBirthResp2}
           onChange={e => setdateBirthResp2(e.target.value)}
         />
       </Box>
@@ -241,7 +299,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Endereço Completo"
           variant="outlined"
-          value = {address}
+          value={address}
           onChange={e => setaddress(e.target.value)}
         />
         <TextField
@@ -249,7 +307,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Município"
           variant="outlined"
-          value = {city}
+          value={city}
           onChange={e => setcity(e.target.value)}
         />
         <TextField
@@ -257,7 +315,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="UF"
           variant="outlined"
-          value = {uf}
+          value={uf}
           onChange={e => setuf(e.target.value)}
         />
         <TextField
@@ -265,7 +323,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Telefone"
           variant="outlined"
-          value = {phone}
+          value={phone}
           onChange={e => setphone(e.target.value)}
         />
         <TextField
@@ -273,7 +331,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="NIS"
           variant="outlined"
-          value = {nis}
+          value={nis}
           onChange={e => setnis(e.target.value)}
         />
         <TextField
@@ -281,7 +339,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Validade do Alvará"
           variant="outlined"
-          value = {validateOflicense}
+          value={validateOflicense}
           onChange={e => setvalidateOflicense(e.target.value)}
         />
       </Box>
@@ -299,7 +357,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="DAPI"
           variant="outlined"
-          value = {dap}
+          value={dap}
           onChange={e => setdap(e.target.value)}
         />
         <TextField
@@ -307,7 +365,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Validade DAPI"
           variant="outlined"
-          value = {validateDap}
+          value={validateDap}
           onChange={e => setvalidateDap(e.target.value)}
         />
       </Box>
@@ -325,7 +383,7 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           id="outlined-basic"
           label="Cartão produtor"
           variant="outlined"
-          value = {cardProducer}
+          value={cardProducer}
           onChange={e => setcardProducer(e.target.value)}
         />
         <TextField
@@ -334,13 +392,17 @@ const FarmerForm: React.FC<FarmerFormProps> = ({
           label="Senha Cartão Produtor"
           type="password"
           variant="outlined"
-          value = {passwordProducer}
+          value={passwordProducer}
           onChange={e => setpasswordProducer(e.target.value)}
         />
         <CustomDropdown
-          title="Alimento à ser comprado"
+          title="Como você se identifica"
           opcoes={alimentos}
           size="24ch"
+          onChanged={handleChangeOption3}
+          value={chooseOptions3}
+          labelId="label_sexo_usu"
+          idSelect="select_sexo_usuario2"
         ></CustomDropdown>
       </Box>
     </FormContainer>

@@ -1,41 +1,37 @@
-import * as React from 'react'
-import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput
-} from '@material-ui/core'
-import { Visibility, VisibilityOff } from '@material-ui/icons'
-
+import * as React from 'react';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton/IconButton';
 interface State {
-  password: string
-  showPassword: boolean
+  password: string;
+  showPassword: boolean;
 }
 
-export default function TextFieldPassword() {
+export default function InputAdornments() {
   const [values, setValues] = React.useState<State>({
     password: '',
-    showPassword: false
-  })
+    showPassword: false,
+  });
 
   const handleChange =
     (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value })
-    }
+      setValues({ ...values, [prop]: event.target.value });
+    };
 
   const handleClickShowPassword = () => {
     setValues({
       ...values,
-      showPassword: !values.showPassword
-    })
-  }
+      showPassword: !values.showPassword,
+    });
+  };
 
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault()
-  }
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
 
   return (
     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
@@ -60,5 +56,5 @@ export default function TextFieldPassword() {
         label="Password"
       />
     </FormControl>
-  )
+  );
 }

@@ -6,7 +6,7 @@ import DefaultContainer from "../../../../app/components/DefaultSchemas/Containe
 import { StyledTableCellCustom } from "../../../../app/components/StyledTableCellCustom"
 import { StyledTableRow } from "../../../../app/components/StyledTableRow"
 
-export const EntityBeneficiaryList: React.FC = () => {
+export const EntityTransferList: React.FC = () => {
 
     const arrayItems = [
         {number: 1, cnpj: '11.222.333/0001-44', nRefeicoes: 1, ativo: 'ativo'},
@@ -18,7 +18,7 @@ export const EntityBeneficiaryList: React.FC = () => {
       ]  
 
     return (
-        <DefaultContainer breadcrumbs = {['Entidade Beneficiária']}>
+        <DefaultContainer breadcrumbs = {['Entidade Repasse']}>
             <CustomTable 
                 headerColumns={<>
                     <StyledTableCellCustom>Entidade</StyledTableCellCustom>

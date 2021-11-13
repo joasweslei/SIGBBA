@@ -7,8 +7,8 @@ import Routes from './screens/routes'
 
 import 'react-toastify/dist/ReactToastify.css'
 import 'react-perfect-scrollbar/dist/css/styles.css'
-import { ThemeProvider } from '@material-ui/core'
 import theme from './styles/theme'
+import { ThemeProvider } from '@emotion/react'
 
 function App() {
   return (

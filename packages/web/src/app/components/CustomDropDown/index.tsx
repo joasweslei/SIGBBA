@@ -1,48 +1,43 @@
-import { InputLabel, Select } from '@material-ui/core'
+import { InputLabel, MenuItem, Select } from '@material-ui/core'
 import FormControl from '@material-ui/core/FormControl'
+import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
 import React from 'react'
 
 export interface CustomDropDownProps {
   title: string
   opcoes: string[]
   size: string
-  // onChaged: SelectInputProps<T>['onChange']
+  onChanged: SelectInputProps['onChange']
+  value: string
+  labelId: string
+  idSelect: string
 }
 
 export const CustomDropdown: React.FC<CustomDropDownProps> = ({
   title,
   opcoes,
-  size
+  size,
+  value,
+  onChanged,
+  labelId,
+  idSelect
 }: CustomDropDownProps) => {
-  const [chooseOptions, setOptions] = React.useState({
-    option: '',
-    nameOptions: 'hai'
-  })
-
-  const handleChangeOption = (event: any) => {
-    const nameOptions = event.target.name
-    setOptions({
-      ...chooseOptions,
-      [nameOptions]: event.target.value
-    })
-  }
 
   return (
-    <FormControl variant="outlined" sx={{ width: size }}>
-      <InputLabel htmlFor="outlined-sexo-native-simple">{title}</InputLabel>
+    <FormControl sx={{ m: 1, minWidth: size }}>
+      <InputLabel id={labelId}>{title}</InputLabel>
       <Select
-        native
-        value={chooseOptions.option}
-        onChange={handleChangeOption}
+        labelId={labelId}
+        id={idSelect}
+        value={value}
+        onChange={onChanged}
         label={title}
-        inputProps={{
-          name: 'option',
-          id: 'outlined-sexo-native-simple'
-        }}
       >
-        <option aria-label="None" value="" />
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
         {opcoes.map((opc: string) => (
-          <option>{opc}</option>
+          <MenuItem value={opc}>{opc}</MenuItem>
         ))}
       </Select>
     </FormControl>

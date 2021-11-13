@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import FormContainer from '../../../../app/components/DefaultSchemas/FormContainer'
-import { TextFieldClean } from '../../../../app/components/TextField'
+import { TextFieldClean } from '../../../../app/components/TextFieldClean'
 import { StyledLogin } from '../../Login/styles'
 import { AxiosResponse } from 'axios'
 import api from '../../../../config/api'

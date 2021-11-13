@@ -5,11 +5,12 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^5.0.0-beta.5",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/styles": "^4.11.4",
-	"@mui/lab": "5.0.0-alpha.50",
-    "@mui/x-data-grid": "^4.0.0",
+    "@mui/core": "latest",
+    "@mui/material": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/styles": "latest",
+    "@mui/x-data-grid": "latest",
+    "@mui/lab": "latest",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -18,8 +19,8 @@
     "@unform/web": "^2.1.6",
     "axios": "^0.21.4",
     "flickity": "^2.2.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "latest",
+    "react-dom": "latest",
     "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
@@ -54,8 +55,8 @@
   "devDependencies": {
     "@types/flickity": "^2.2.6",
     "@types/jest": "^26.0.15",
-    "@types/node": "^12.20.28",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0"
+    "@types/node": "^12.0.0",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
   }
 }

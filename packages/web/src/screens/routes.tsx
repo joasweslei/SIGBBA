@@ -17,6 +17,8 @@ import { User } from './auth/User/List'
 import { EntityBeneficiaryList} from './entity/EntityBeneficiary/List'
 import EntityForm from './entity/EntityBeneficiary/Form'
 import { AlimentOutputList } from './alimentOutput/List'
+import { EntityTransferList} from './entity/EntityTransfer/List'
+import EntityTransferForm from './entity/EntityTransfer/Form'
 
 const Routes: React.FC = () => {
   return (
@@ -39,8 +41,10 @@ const Routes: React.FC = () => {
 
       <Route path="/family" exact component={FamilyList} />
       <Route path="/family/form" exact component={FormFamily} />
-      <Route path="/entity-beneficiary" exact component={EntityBeneficiaryList} />
+      <Route path="/entity" exact component={EntityBeneficiaryList} />
       <Route path="/entity/form" exact component={EntityForm} />
+      <Route path="/entity/transfer" exact component={EntityTransferList} />
+      <Route path="/entity/transfer/form" exact component={EntityTransferForm} />
     </Switch>
   )
 }
