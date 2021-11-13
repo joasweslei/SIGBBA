@@ -5,7 +5,7 @@ interface CustomDividerProps {
   title: string
 }
 
-const CustomDivider: React.FC<CustomDividerProps> = ({
+export const CustomDivider: React.FC<CustomDividerProps> = ({
   title
 }: CustomDividerProps) => {
   return (
@@ -23,3 +23,4 @@ const CustomDivider: React.FC<CustomDividerProps> = ({
 }
 
 export default CustomDivider
+

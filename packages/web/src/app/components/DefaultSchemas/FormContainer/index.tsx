@@ -3,7 +3,7 @@ import { AppBar, Box, Container, Fab, Toolbar, Typography } from '@mui/material'
 
 
 import HeaderForm from '../../HeaderForm'
-import { Save } from '@mui/icons-material'
+import { ArrowBackRounded, ArrowForwardRounded, Save } from '@mui/icons-material'
 
 export interface FormContainerProps {
   children: React.ReactNode
@@ -11,6 +11,8 @@ export interface FormContainerProps {
   pageMode?: 'Inserção' | 'Edição' | undefined
   onBackButtonClick?: React.MouseEventHandler<HTMLDivElement> | undefined
   onSaveClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined
+  onNextClick?: () => void
+  onBackClick?: () => void
 }
 
 const FormContainer: React.FC<FormContainerProps> = ({
@@ -18,7 +20,9 @@ const FormContainer: React.FC<FormContainerProps> = ({
   breadcrumbs,
   pageMode,
   onBackButtonClick,
-  onSaveClick
+  onSaveClick,
+  onNextClick,
+  onBackClick
 }: FormContainerProps) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -62,9 +66,21 @@ const FormContainer: React.FC<FormContainerProps> = ({
             '& > :not(style)': { mr: 2 }
           }}
         >
-          <Fab color="primary" onClick={onSaveClick} href="">
-            <Save />
-          </Fab>
+          {onBackClick ? (
+            <Fab color="primary" onClick={() => onBackClick()} href="">
+              <ArrowBackRounded />
+            </Fab>
+          ) : <></>}
+          {onSaveClick ? (
+            <Fab color="primary" onClick={onSaveClick} href="">
+              <Save />
+            </Fab>
+          ) : <></>}
+          {onNextClick ? (
+            <Fab color="primary" onClick={() => onNextClick()} href="">
+              <ArrowForwardRounded />
+            </Fab>
+          ) : <></>}
         </Box>
       </Container>
     </Box>

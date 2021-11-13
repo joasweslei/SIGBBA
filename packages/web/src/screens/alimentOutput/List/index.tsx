@@ -23,14 +23,14 @@ const AlimentOutputList: React.FC = () => {
     { field: 'alimentCount', headerName: 'Qtd. Alimentos', type: 'number', flex: 1 },
   ]
 
-  const handleAddAlimentPutput = () => {
-    
+  const handleAddAlimentOutput = () => {
+    history.push('/aliment-output/entidade')
   }
 
   return (
     <DefaultContainer
       breadcrumbs={["Saída de alimentos"]}
-      onAddClick={handleAddAlimentPutput}
+      onAddClick={handleAddAlimentOutput}
       onEditClick={() => {}}
       onDeleteClick={() => {}}
     >
