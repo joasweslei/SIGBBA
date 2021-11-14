@@ -8,12 +8,8 @@ import { Container, CustomList } from './styles';
 export const AlimentSelection: React.FC = () => {
   const history = useHistory()
 
-  const handleBackwardButtonClick = () => {
-    history.push('/aliment-basket');
-  }
-
   const handleNext = async () => {
-    history.push('/aliment-output/resume');
+    history.push('/aliment-output/summary');
   }
 
   const handleBack = async () => {
@@ -23,7 +19,7 @@ export const AlimentSelection: React.FC = () => {
   return (
     <FormContainer
       breadcrumbs={['Saída de alimentos', 'Nova Cesta']}
-      onBackButtonClick={handleBackwardButtonClick}
+      onBackButtonClick={handleBack}
       onNextClick={handleNext}
       onBackClick={handleBack}
       pageMode={'Inserção'}

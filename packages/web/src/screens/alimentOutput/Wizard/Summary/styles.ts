@@ -20,10 +20,30 @@ export const Container = styled.div`
 
       .aliment-list {
         div {
+          max-width: 200px;
+          overflow-x: scroll;
+
           display: flex;
           flex-direction: column;
           gap: 5px;
         }
+      }
+    }
+
+    .date {
+      display: grid;
+      grid-template-rows: 60px 1fr;
+
+      .content {
+        display: flex;
+        align-items: start;
+        gap: 20px;
+      }
+
+      .text-field {
+        margin-left: 10;
+        margin-right: 10;
+        width: 250px;
       }
     }
   }

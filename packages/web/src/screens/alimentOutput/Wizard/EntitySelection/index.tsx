@@ -9,7 +9,7 @@ export const EntitySelection: React.FC = () => {
   const history = useHistory()
 
   const handleBackwardButtonClick = () => {
-    history.push('/aliment-basket')
+    history.push('/aliment-output')
   }
 
   const handleNext = async () => {
