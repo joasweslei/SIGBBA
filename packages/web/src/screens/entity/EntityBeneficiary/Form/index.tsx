@@ -6,6 +6,10 @@ import FormContainer from '../../../../app/components/DefaultSchemas/FormContain
 const EntityForm = () => {
   const escolhas = ['Masculino', 'Feminino', 'Outros']
   const alimentos = ['Abacate', 'Maça', 'Batata', 'Arroz']
+  const dias_fun = ['', '', '']
+  const faixa_etaria = ['18-25', '26-36', '37-60', '61-80', '80+']
+  const num_refeicoes = ['1-3', '4-5', '5-7']
+  const qtd_funcionario = ['10-19', '20-29', '30-50']
 
   const [chooseOptions3, setOptions3] = React.useState('')
 
@@ -52,7 +56,7 @@ const EntityForm = () => {
 
         { <CustomDropdown
           title="Descrição da refeição"
-          opcoes={escolhas}
+          opcoes={alimentos}
           size="30ch"
           onChanged={handleChangeOption3}
           value={chooseOptions3}
@@ -73,7 +77,7 @@ const EntityForm = () => {
         />
         { <CustomDropdown
           title="Dias de funcionamento"
-          opcoes={escolhas}
+          opcoes={dias_fun}
           size="30ch"
           onChanged={handleChangeOption3}
           value={chooseOptions3}
@@ -92,7 +96,7 @@ const EntityForm = () => {
       >
         { <CustomDropdown
           title="Descrição faixa etária"
-          opcoes={escolhas}
+          opcoes={faixa_etaria}
           size="30ch"
           onChanged={handleChangeOption3}
           value={chooseOptions3}
@@ -102,7 +106,7 @@ const EntityForm = () => {
 
         { <CustomDropdown
           title="Número de refeições"
-          opcoes={escolhas}
+          opcoes={num_refeicoes}
           size="30ch"
           onChanged={handleChangeOption3}
           value={chooseOptions3}
@@ -117,7 +121,7 @@ const EntityForm = () => {
         />
         { <CustomDropdown
           title="Quantidade funcionário"
-          opcoes={escolhas}
+          opcoes={qtd_funcionario}
           size="30ch"
           onChanged={handleChangeOption3}
           value={chooseOptions3}
