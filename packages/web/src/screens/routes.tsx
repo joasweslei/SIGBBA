@@ -22,6 +22,8 @@ import { EntitySelection } from './alimentOutput/Wizard/EntitySelection'
 import EntityTransferForm from './entity/EntityTransfer/Form'
 import { AlimentSelection } from './alimentOutput/Wizard/AlimentSelection'
 import { Summary } from './alimentOutput/Wizard/Summary/index';
+import { AlimentList } from './Aliment/List'
+import { AlimentForm } from './Aliment/Form'
 
 const Routes: React.FC = () => {
   return (
@@ -30,10 +32,14 @@ const Routes: React.FC = () => {
       <Route path="/aliment-basket" exact component={AlimentBasketList} />
       <Route path="/aliment-basket/form" exact component={AlimentBasketForm} />
 
+      <Route path="/aliment" exact component={AlimentList} />
+      <Route path="/aliment/form" exact component={AlimentForm} />
+
       <Route path="/aliment-output" exact component = {AlimentOutputList} />
       <Route path="/aliment-output/entidade" exact component = {EntitySelection} />
       <Route path="/aliment-output/selecao-alimentos" exact component = {AlimentSelection} />
       <Route path="/aliment-output/summary" exact component = {Summary} />
+
 
       <Route path="/pedidos" exact component={OrderList} />
 
