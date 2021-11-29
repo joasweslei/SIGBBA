@@ -45,7 +45,7 @@ export const UserForm: React.FC<UserFormProps> = ({
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const response = await api.get(`/users/${id}`)
       if (response.status === 200) {
         const { data } = response
@@ -71,6 +71,7 @@ export const UserForm: React.FC<UserFormProps> = ({
     >
       <StyledLogin>
         <TextFieldClean
+          id='email'
           label="E-mail"
           type=""
           tamanho="25"
@@ -78,6 +79,7 @@ export const UserForm: React.FC<UserFormProps> = ({
           onChange={e => setEmail(e.target.value)}
         ></TextFieldClean>
         <TextFieldClean
+          id='user'
           label="Nome de Usário"
           type=""
           value={username}
@@ -85,6 +87,7 @@ export const UserForm: React.FC<UserFormProps> = ({
           onChange={e => setUsername(e.target.value)}
         ></TextFieldClean>
         <TextFieldClean
+          id='senha'
           label="Senha"
           type="password"
           tamanho="25"

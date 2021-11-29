@@ -5,6 +5,7 @@ export interface TextFieldCleanProps {
   type: string
   value?: any
   tamanho: string
+  id: string
   onChange?: OutlinedInputProps['onChange']
 }
 
@@ -13,6 +14,7 @@ export const TextFieldClean: React.FC<TextFieldCleanProps> = ({
   type,
   tamanho,
   value,
+  id,
   onChange
 }: TextFieldCleanProps) => {
   return (
@@ -25,7 +27,7 @@ export const TextFieldClean: React.FC<TextFieldCleanProps> = ({
       autoComplete="off"
     >
       <TextField
-        id="outlined-basic"
+        id={id}
         label={label}
         type={type}
         value={value}
